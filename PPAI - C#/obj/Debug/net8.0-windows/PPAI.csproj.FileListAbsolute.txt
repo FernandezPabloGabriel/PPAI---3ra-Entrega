@@ -1,0 +1,100 @@
+D:\NICO\Desktop\PPAI\bin\Debug\net8.0-windows\PPAI.exe
+D:\NICO\Desktop\PPAI\bin\Debug\net8.0-windows\PPAI.deps.json
+D:\NICO\Desktop\PPAI\bin\Debug\net8.0-windows\PPAI.runtimeconfig.json
+D:\NICO\Desktop\PPAI\bin\Debug\net8.0-windows\PPAI.dll
+D:\NICO\Desktop\PPAI\bin\Debug\net8.0-windows\PPAI.pdb
+D:\NICO\Desktop\PPAI\obj\Debug\net8.0-windows\PPAI.csproj.GenerateResource.cache
+D:\NICO\Desktop\PPAI\obj\Debug\net8.0-windows\PPAI.GeneratedMSBuildEditorConfig.editorconfig
+D:\NICO\Desktop\PPAI\obj\Debug\net8.0-windows\PPAI.AssemblyInfoInputs.cache
+D:\NICO\Desktop\PPAI\obj\Debug\net8.0-windows\PPAI.AssemblyInfo.cs
+D:\NICO\Desktop\PPAI\obj\Debug\net8.0-windows\PPAI.csproj.CoreCompileInputs.cache
+D:\NICO\Desktop\PPAI\obj\Debug\net8.0-windows\PPAI.dll
+D:\NICO\Desktop\PPAI\obj\Debug\net8.0-windows\refint\PPAI.dll
+D:\NICO\Desktop\PPAI\obj\Debug\net8.0-windows\PPAI.pdb
+D:\NICO\Desktop\PPAI\obj\Debug\net8.0-windows\PPAI.genruntimeconfig.cache
+D:\NICO\Desktop\PPAI\obj\Debug\net8.0-windows\ref\PPAI.dll
+D:\NICO\Desktop\PPAI\obj\Debug\net8.0-windows\PPAI.LoginForm.resources
+D:\NICO\Desktop\PPAI\obj\Debug\net8.0-windows\PPAI.PantallaImportarActualizacionBodegas.resources
+C:\Users\Usuario\Documents\ⵥ UTN FRC ⵥ\Nivel III\DSI - Diseño de Sistemas de Información\PPAI\PPAI\obj\Debug\net8.0-windows\PPAI.dll
+C:\Users\Usuario\Documents\ⵥ UTN FRC ⵥ\Nivel III\DSI - Diseño de Sistemas de Información\PPAI\PPAI\obj\Debug\net8.0-windows\refint\PPAI.dll
+C:\Users\Usuario\Documents\ⵥ UTN FRC ⵥ\Nivel III\DSI - Diseño de Sistemas de Información\PPAI\PPAI\obj\Debug\net8.0-windows\PPAI.pdb
+C:\Users\Usuario\Documents\ⵥ UTN FRC ⵥ\Nivel III\DSI - Diseño de Sistemas de Información\PPAI\PPAI\bin\Debug\net8.0-windows\PPAI.exe
+C:\Users\Usuario\Documents\ⵥ UTN FRC ⵥ\Nivel III\DSI - Diseño de Sistemas de Información\PPAI\PPAI\bin\Debug\net8.0-windows\PPAI.deps.json
+C:\Users\Usuario\Documents\ⵥ UTN FRC ⵥ\Nivel III\DSI - Diseño de Sistemas de Información\PPAI\PPAI\bin\Debug\net8.0-windows\PPAI.runtimeconfig.json
+C:\Users\Usuario\Documents\ⵥ UTN FRC ⵥ\Nivel III\DSI - Diseño de Sistemas de Información\PPAI\PPAI\bin\Debug\net8.0-windows\PPAI.dll
+C:\Users\Usuario\Documents\ⵥ UTN FRC ⵥ\Nivel III\DSI - Diseño de Sistemas de Información\PPAI\PPAI\bin\Debug\net8.0-windows\PPAI.pdb
+C:\Users\Usuario\Documents\ⵥ UTN FRC ⵥ\Nivel III\DSI - Diseño de Sistemas de Información\PPAI\PPAI\obj\Debug\net8.0-windows\PPAI.LoginForm.resources
+C:\Users\Usuario\Documents\ⵥ UTN FRC ⵥ\Nivel III\DSI - Diseño de Sistemas de Información\PPAI\PPAI\obj\Debug\net8.0-windows\PPAI.PantallaImportarActualizacionBodegas.resources
+C:\Users\Usuario\Documents\ⵥ UTN FRC ⵥ\Nivel III\DSI - Diseño de Sistemas de Información\PPAI\PPAI\obj\Debug\net8.0-windows\PPAI.csproj.GenerateResource.cache
+C:\Users\Usuario\Documents\ⵥ UTN FRC ⵥ\Nivel III\DSI - Diseño de Sistemas de Información\PPAI\PPAI\obj\Debug\net8.0-windows\PPAI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Usuario\Documents\ⵥ UTN FRC ⵥ\Nivel III\DSI - Diseño de Sistemas de Información\PPAI\PPAI\obj\Debug\net8.0-windows\PPAI.AssemblyInfoInputs.cache
+C:\Users\Usuario\Documents\ⵥ UTN FRC ⵥ\Nivel III\DSI - Diseño de Sistemas de Información\PPAI\PPAI\obj\Debug\net8.0-windows\PPAI.AssemblyInfo.cs
+C:\Users\Usuario\Documents\ⵥ UTN FRC ⵥ\Nivel III\DSI - Diseño de Sistemas de Información\PPAI\PPAI\obj\Debug\net8.0-windows\PPAI.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Documents\ⵥ UTN FRC ⵥ\Nivel III\DSI - Diseño de Sistemas de Información\PPAI\PPAI\obj\Debug\net8.0-windows\PPAI.genruntimeconfig.cache
+C:\Users\Usuario\Documents\ⵥ UTN FRC ⵥ\Nivel III\DSI - Diseño de Sistemas de Información\PPAI\PPAI\obj\Debug\net8.0-windows\ref\PPAI.dll
+C:\Users\USUARIO\Desktop\PPAI-master\PPAI-master\PPAI\bin\Debug\net8.0-windows\PPAI.exe
+C:\Users\USUARIO\Desktop\PPAI-master\PPAI-master\PPAI\bin\Debug\net8.0-windows\PPAI.deps.json
+C:\Users\USUARIO\Desktop\PPAI-master\PPAI-master\PPAI\bin\Debug\net8.0-windows\PPAI.runtimeconfig.json
+C:\Users\USUARIO\Desktop\PPAI-master\PPAI-master\PPAI\bin\Debug\net8.0-windows\PPAI.dll
+C:\Users\USUARIO\Desktop\PPAI-master\PPAI-master\PPAI\bin\Debug\net8.0-windows\PPAI.pdb
+C:\Users\USUARIO\Desktop\PPAI-master\PPAI-master\PPAI\obj\Debug\net8.0-windows\PPAI.LoginForm.resources
+C:\Users\USUARIO\Desktop\PPAI-master\PPAI-master\PPAI\obj\Debug\net8.0-windows\PPAI.PantallaImportarActualizacionBodegas.resources
+C:\Users\USUARIO\Desktop\PPAI-master\PPAI-master\PPAI\obj\Debug\net8.0-windows\PPAI.csproj.GenerateResource.cache
+C:\Users\USUARIO\Desktop\PPAI-master\PPAI-master\PPAI\obj\Debug\net8.0-windows\PPAI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USUARIO\Desktop\PPAI-master\PPAI-master\PPAI\obj\Debug\net8.0-windows\PPAI.AssemblyInfoInputs.cache
+C:\Users\USUARIO\Desktop\PPAI-master\PPAI-master\PPAI\obj\Debug\net8.0-windows\PPAI.AssemblyInfo.cs
+C:\Users\USUARIO\Desktop\PPAI-master\PPAI-master\PPAI\obj\Debug\net8.0-windows\PPAI.csproj.CoreCompileInputs.cache
+C:\Users\USUARIO\Desktop\PPAI-master\PPAI-master\PPAI\obj\Debug\net8.0-windows\PPAI.dll
+C:\Users\USUARIO\Desktop\PPAI-master\PPAI-master\PPAI\obj\Debug\net8.0-windows\refint\PPAI.dll
+C:\Users\USUARIO\Desktop\PPAI-master\PPAI-master\PPAI\obj\Debug\net8.0-windows\PPAI.pdb
+C:\Users\USUARIO\Desktop\PPAI-master\PPAI-master\PPAI\obj\Debug\net8.0-windows\PPAI.genruntimeconfig.cache
+C:\Users\USUARIO\Desktop\PPAI-master\PPAI-master\PPAI\obj\Debug\net8.0-windows\ref\PPAI.dll
+C:\Users\USUARIO\Desktop\PPAI-master\PPAI-master\PPAI\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
+C:\Users\USUARIO\Desktop\PPAI-master\PPAI-master\PPAI\obj\Debug\net8.0-windows\PPAI.csproj.AssemblyReference.cache
+C:\Users\USUARIO\Desktop\PPAI-master\PPAI-master\PPAI\obj\Debug\net8.0-windows\PPAI.csproj.Up2Date
+C:\Users\USUARIO\Desktop\PPAI-master\PPAI-master\PPAI\obj\Debug\net8.0-windows\PPAI.Properties.Resources.resources
+C:\Users\USUARIO\Desktop\C#\PPAI-master\PPAI-master\PPAI\bin\Debug\net8.0-windows\PPAI.exe
+C:\Users\USUARIO\Desktop\C#\PPAI-master\PPAI-master\PPAI\bin\Debug\net8.0-windows\PPAI.deps.json
+C:\Users\USUARIO\Desktop\C#\PPAI-master\PPAI-master\PPAI\bin\Debug\net8.0-windows\PPAI.runtimeconfig.json
+C:\Users\USUARIO\Desktop\C#\PPAI-master\PPAI-master\PPAI\bin\Debug\net8.0-windows\PPAI.dll
+C:\Users\USUARIO\Desktop\C#\PPAI-master\PPAI-master\PPAI\bin\Debug\net8.0-windows\PPAI.pdb
+C:\Users\USUARIO\Desktop\C#\PPAI-master\PPAI-master\PPAI\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
+C:\Users\USUARIO\Desktop\C#\PPAI-master\PPAI-master\PPAI\obj\Debug\net8.0-windows\PPAI.csproj.AssemblyReference.cache
+C:\Users\USUARIO\Desktop\C#\PPAI-master\PPAI-master\PPAI\obj\Debug\net8.0-windows\PPAI.PantallaImportarActualizacionBodegas.resources
+C:\Users\USUARIO\Desktop\C#\PPAI-master\PPAI-master\PPAI\obj\Debug\net8.0-windows\PPAI.Properties.Resources.resources
+C:\Users\USUARIO\Desktop\C#\PPAI-master\PPAI-master\PPAI\obj\Debug\net8.0-windows\PPAI.csproj.GenerateResource.cache
+C:\Users\USUARIO\Desktop\C#\PPAI-master\PPAI-master\PPAI\obj\Debug\net8.0-windows\PPAI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USUARIO\Desktop\C#\PPAI-master\PPAI-master\PPAI\obj\Debug\net8.0-windows\PPAI.AssemblyInfoInputs.cache
+C:\Users\USUARIO\Desktop\C#\PPAI-master\PPAI-master\PPAI\obj\Debug\net8.0-windows\PPAI.AssemblyInfo.cs
+C:\Users\USUARIO\Desktop\C#\PPAI-master\PPAI-master\PPAI\obj\Debug\net8.0-windows\PPAI.csproj.CoreCompileInputs.cache
+C:\Users\USUARIO\Desktop\C#\PPAI-master\PPAI-master\PPAI\obj\Debug\net8.0-windows\PPAI.csproj.Up2Date
+C:\Users\USUARIO\Desktop\C#\PPAI-master\PPAI-master\PPAI\obj\Debug\net8.0-windows\PPAI.dll
+C:\Users\USUARIO\Desktop\C#\PPAI-master\PPAI-master\PPAI\obj\Debug\net8.0-windows\refint\PPAI.dll
+C:\Users\USUARIO\Desktop\C#\PPAI-master\PPAI-master\PPAI\obj\Debug\net8.0-windows\PPAI.pdb
+C:\Users\USUARIO\Desktop\C#\PPAI-master\PPAI-master\PPAI\obj\Debug\net8.0-windows\PPAI.genruntimeconfig.cache
+C:\Users\USUARIO\Desktop\C#\PPAI-master\PPAI-master\PPAI\obj\Debug\net8.0-windows\ref\PPAI.dll
+C:\Users\USUARIO\Desktop\C#\PPAI-master\PPAI-master\PPAI\obj\Debug\net8.0-windows\PPAI.sourcelink.json
+C:\Users\USUARIO\Desktop\C#\PPAI-master\PPAI-master\PPAI\obj\Debug\net8.0-windows\PPAI.Recursos_Extra.BarraDeCarga.resources
+C:\Users\USUARIO\Desktop\C#\PPAI-master\PPAI-master\PPAI\obj\Debug\net8.0-windows\PPAI.Boundaries.winResumen.resources
+C:\Users\USUARIO\Desktop\PPAI\bin\Debug\net8.0-windows\PPAI.exe
+C:\Users\USUARIO\Desktop\PPAI\bin\Debug\net8.0-windows\PPAI.deps.json
+C:\Users\USUARIO\Desktop\PPAI\bin\Debug\net8.0-windows\PPAI.runtimeconfig.json
+C:\Users\USUARIO\Desktop\PPAI\bin\Debug\net8.0-windows\PPAI.dll
+C:\Users\USUARIO\Desktop\PPAI\bin\Debug\net8.0-windows\PPAI.pdb
+C:\Users\USUARIO\Desktop\PPAI\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
+C:\Users\USUARIO\Desktop\PPAI\obj\Debug\net8.0-windows\PPAI.csproj.AssemblyReference.cache
+C:\Users\USUARIO\Desktop\PPAI\obj\Debug\net8.0-windows\PPAI.PantallaImportarActualizacionBodegas.resources
+C:\Users\USUARIO\Desktop\PPAI\obj\Debug\net8.0-windows\PPAI.Boundaries.winResumen.resources
+C:\Users\USUARIO\Desktop\PPAI\obj\Debug\net8.0-windows\PPAI.Properties.Resources.resources
+C:\Users\USUARIO\Desktop\PPAI\obj\Debug\net8.0-windows\PPAI.Recursos_Extra.BarraDeCarga.resources
+C:\Users\USUARIO\Desktop\PPAI\obj\Debug\net8.0-windows\PPAI.csproj.GenerateResource.cache
+C:\Users\USUARIO\Desktop\PPAI\obj\Debug\net8.0-windows\PPAI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USUARIO\Desktop\PPAI\obj\Debug\net8.0-windows\PPAI.AssemblyInfoInputs.cache
+C:\Users\USUARIO\Desktop\PPAI\obj\Debug\net8.0-windows\PPAI.AssemblyInfo.cs
+C:\Users\USUARIO\Desktop\PPAI\obj\Debug\net8.0-windows\PPAI.csproj.CoreCompileInputs.cache
+C:\Users\USUARIO\Desktop\PPAI\obj\Debug\net8.0-windows\PPAI.csproj.Up2Date
+C:\Users\USUARIO\Desktop\PPAI\obj\Debug\net8.0-windows\PPAI.dll
+C:\Users\USUARIO\Desktop\PPAI\obj\Debug\net8.0-windows\refint\PPAI.dll
+C:\Users\USUARIO\Desktop\PPAI\obj\Debug\net8.0-windows\PPAI.pdb
+C:\Users\USUARIO\Desktop\PPAI\obj\Debug\net8.0-windows\PPAI.genruntimeconfig.cache
+C:\Users\USUARIO\Desktop\PPAI\obj\Debug\net8.0-windows\ref\PPAI.dll
