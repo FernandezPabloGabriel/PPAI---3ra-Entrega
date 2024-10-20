@@ -1,0 +1,70 @@
+[
+    {
+        "nombre": "Cabernet sauvignon",
+        "descripcion": "Es una de las uvas tintas más conocidas del mundo. Crece en casi todas las grandes zonas vitícolas, en un diverso espectro de climas. A pesar de su prominencia en la industria, es una variedad relativamente nueva."
+    },
+    {
+        "nombre": "Merlot",
+        "descripcion": "Es una variedad de uva de vinificación de color azul oscuro, que se utiliza tanto como uva de mezcla como para vinos varietales. Su suavidad y carnosidad, combinadas con su maduración más temprana, hacen de la merlot una uva popular."
+    },
+    {
+        "nombre": "Petit Verdot",
+        "descripcion": "Es una variedad de uva tinta usada en la producción del vino tinto. Madura mucho más tarde que la mayor parte de las otras variedades de uva. Aporta el aroma, el color, el ácido y el tanino."
+    },
+    {
+        "nombre": "Cabernet franc",
+        "descripcion": "Es una de las uvas tintas más plantadas en el mundo. Además, se hace como vino de hielo para producir vinos varietales. Produce un luminoso y claro vino tinto que contribuye a la finura y deja un aroma a pimienta al mezclarse con uvas más robustas."
+    },
+    {
+        "nombre": "Pinot Noir",
+        "descripcion": "Crece en todo el mundo, en las regiones frías, pero es dificil su cultivo. Esta variedad tienen unos racimos apretados y cónicos, con forma de piña. Produce vinos con un color claro, cuerpo medio y pocos taninos."
+    },
+    {
+        "nombre": "Shiraz",
+        "descripcion": "Es una uva tinta que se cultiva en todo el mundo y se usa sobre todo para producir vino tinto. Tienden a producir un vino de cuerpo medio-completo y con niveles medio-altos de taninos, así como sabores a mora, menta y pimienta negra."
+    },
+    {
+        "nombre": "Tempranillo",
+        "descripcion": "Es una variedad de uva tinta cultivada extensamente para producir vinos tintos con cuerpo. Es una uva tinta con una piel gruesa. Crece mejor en altitudes relativamente altas, pero puede también tolerar climas mucho más templados."
+    },
+    {
+        "nombre": "Malbec",
+        "descripcion": "Es una variedad de uva morada usada para la elaboración de vinos tintos y blancos. Las uvas tienden a tener un color oscuro y abundantes taninos."
+    },
+    {
+        "nombre": "Sangiovese",
+        "descripcion": "Es una variedad de uva tinta de vino. Los vinos de sangiovese suelen tener sabores a cerezas rojas agrias, aromas terrosos y notas de hojas de té. Los vinos de sangiovese tienen un nivel medio-alto de taninos y una alta acidez."
+    },
+    {
+        "nombre": "Nebbiolo",
+        "descripcion": "Produce vinos tintos de color claro que pueden ser muy tánicos en su juventud, con aromas a alquitrán y a rosas. Contiene un velo lechoso, similar a la niebla, que crece sobre la piel de las uvas cuando alcanzan la madurez."
+    },
+    {
+        "nombre": "Tinta de toro",
+        "descripcion": "Es una variedad española de uva vinífera tinta. Es de gran finura y muy aromática, que proporciona vinos de gran calidad y prolongado envejecimiento, debido a su escaso nivel oxidativo."
+    },
+    {
+        "nombre": "Garnacha",
+        "descripcion": "Es una de las uvas de vino tinto más ampliamente plantadas del mundo. Es generalmente picante, con un sabor suave en el paladar, y produce vinos con una graduación alcohólica relativamente alta."
+    },
+    {
+        "nombre": "Monastrell",
+        "descripcion": "Es una variedad de uva tinta. Tiende a producir vinos tánicos que pueden tener un alto contenido de alcohol."
+    },
+    {
+        "nombre": "Chardonnay",
+        "descripcion": "Es una variedad de uva de piel verde usada para hacer vino blanco. La uva chardonnay es muy neutral, con muchos de los sabores comúnmente asociados con la uva y los que derivan del terruño y del roble."
+    },
+    {
+        "nombre": "Semillón",
+        "descripcion": "Es bastante pesada, con baja acidez y una textura casi oleosa. Tiene alto rendimiento y los vinos que se basan en ella pueden envejecer a lo largo de mucho tiempo."
+    },
+    {
+        "nombre": "Sauvignon blanc",
+        "descripcion": "Es una uva de piel verdosa. Los sabores pueden ir de agresivamente herbáceo a dulcemente tropical."
+    },
+    {
+        "nombre": "Pinot gris",
+        "descripcion": "Es una uva blanca de vino. Suelen tener una acidez moderadamente baja y un mayor grado de alcohol, así como una textura aceitosa que contribuye a que tengan cuerpo."
+    }
+]

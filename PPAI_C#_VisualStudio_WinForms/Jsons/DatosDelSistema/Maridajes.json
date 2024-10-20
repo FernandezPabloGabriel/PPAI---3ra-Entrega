@@ -1,0 +1,42 @@
+[
+    {
+        "nombre": "Carnes",
+        "descripcion": "Carnes rojas para vinos tintos, carnes blancas para vinos blancos y aves para vinos con buena acidez."
+    },
+    {
+        "nombre": "Pescados",
+        "descripcion": "Pescados blancos para vinos blancos secos y aromaticos. Pescados grasos para vinos tintos ligeros o blancos con cuerpo"
+    },
+    {
+        "nombre": "Quesos",
+        "descripcion": "Quesos frescos para vinos rosados. Quesos azules para vinos dulces fortificados."
+    },
+    {
+        "nombre": "Postres",
+        "descripcion": "Postres de frutas para vinos espumosos. Postres de crema para vinos blancos secos o espumosos"
+    },
+    {
+        "nombre": "Mariscos",
+        "descripcion": "Camarones rebozados para vinos tintos finos y rabas para vinos blancos"
+    },
+    {
+        "nombre": "Verduras",
+        "descripcion": "Verduras grillas para vinos blancos secos o rosados. Verduras salteadas para vinos blancos con cuerpo o tintos ligeros."
+    },
+    {
+        "nombre": "Pizza",
+        "descripcion": "Pizza con pepperoni para vinos tintos jóvenes. Pizza con mozzarella y albahaca para vinos blancos secos o rosados."
+    },
+    {
+        "nombre": "Pasta",
+        "descripcion": "Pasta con salsa de tomate para vinos tintos ligeros o blancos con cuerpo. Pasta con crema o pesto para vinos blancos secos."
+    },
+    {
+        "nombre": "Sushi",
+        "descripcion": "Sushi con pescado blanco para vinos blancos secos o rosados. Sushi con atún o salmón para vinos rosados o tintos ligeros."
+    },
+    {
+        "nombre": "Comidas étnicas",
+        "descripcion": "Comidas tailandesas picantes para vinos blancos con cuerpo o rosados. Comidas indias para vinos blancos secos o tintos ligeros."
+    }
+]

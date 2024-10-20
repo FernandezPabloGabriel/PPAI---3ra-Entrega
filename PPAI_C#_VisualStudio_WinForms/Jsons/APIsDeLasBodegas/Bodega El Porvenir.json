@@ -1,0 +1,135 @@
+[
+    {
+        "nombre": "Pinot Noir",
+        "imagenEtiqueta": true,
+        "precioARS": 1600.00,
+        "aniada": 2020,
+        "notaDeCataBodega": "Elegante y suave con aromas de cereza y notas de tierra.",
+        "fechaActualizacion": "2024-05-31T12:00:00Z",
+        "maridajes": [
+            {
+                "nombre": "Carnes",
+                "descripcion": "Carnes rojas para vinos tintos, carnes blancas para vinos blancos y aves para vinos con buena acidez."
+            },
+            {
+                "nombre": "Pescados",
+                "descripcion": "Pescados blancos para vinos blancos secos y aromaticos. Pescados grasos para vinos tintos ligeros o blancos con cuerpo"
+            }
+        ],
+        "varietales": [
+            {
+                "descripcion": "Base tinto",
+                "porcentajeComposicion": 75.0,
+                "tipoDeUva": {
+                    "nombre": "Cabernet sauvignon",
+                    "descripcion": "Es una de las uvas tintas más conocidas del mundo. Crece en casi todas las grandes zonas vitícolas, en un diverso espectro de climas. A pesar de su prominencia en la industria, es una variedad relativamente nueva."
+                }
+            }
+        ]
+    },
+    {
+        "nombre": "Merlot",
+        "imagenEtiqueta": false,
+        "precioARS": 1300.00,
+        "aniada": 2018,
+        "notaDeCataBodega": "Sedoso y afrutado con sabores de ciruela y un toque de vainilla.",
+        "fechaActualizacion": "2024-05-31T12:00:00Z",
+        "maridajes": [
+            {
+                "nombre": "Carnes",
+                "descripcion": "Carnes rojas para vinos tintos, carnes blancas para vinos blancos y aves para vinos con buena acidez."
+            }
+        ],
+        "varietales": [
+            {
+                "descripcion": "Base algo tinto",
+                "porcentajeComposicion": 55.0,
+                "tipoDeUva": {
+                    "nombre": "Cabernet sauvignon",
+                    "descripcion": "Es una de las uvas tintas más conocidas del mundo. Crece en casi todas las grandes zonas vitícolas, en un diverso espectro de climas. A pesar de su prominencia en la industria, es una variedad relativamente nueva."
+                }
+            }
+        ]
+    },
+    {
+        "nombre": "Tempranillo",
+        "imagenEtiqueta": true,
+        "precioARS": 1400.00,
+        "aniada": 2019,
+        "notaDeCataBodega": "Robusto y con cuerpo, con notas de frutos negros y regaliz.",
+        "fechaActualizacion": "2024-05-31T12:00:00Z",
+        "maridajes": [
+            {
+                "nombre": "Pescados",
+                "descripcion": "Pescados blancos para vinos blancos secos y aromaticos. Pescados grasos para vinos tintos ligeros o blancos con cuerpo"
+            },
+            {
+                "nombre": "Carnes",
+                "descripcion": "Carnes rojas para vinos tintos, carnes blancas para vinos blancos y aves para vinos con buena acidez."
+            }
+        ],
+        "varietales": [
+            {
+                "descripcion": "Herbalidad",
+                "porcentajeComposicion": 60.0,
+                "tipoDeUva": {
+                    "nombre": "Cabernet Franc",
+                    "descripcion": "Es una de las uvas tintas más plantadas en el mundo. Además, se hace como vino de hielo para producir vinos varietales. Produce un luminoso y claro vino tinto que contribuye a la finura y deja un aroma a pimienta al mezclarse con uvas más robustas."
+                }
+            }
+        ]
+    },
+    {
+        "nombre": "Sauvignon Blanc",
+        "imagenEtiqueta": false,
+        "precioARS": 900.00,
+        "aniada": 2021,
+        "notaDeCataBodega": "Refrescante y cítrico con notas de limón y hierba cortada.",
+        "fechaActualizacion": "2024-05-31T12:00:00Z",
+        "maridajes": [
+            {
+                "nombre": "Pescados",
+                "descripcion": "Pescados blancos para vinos blancos secos y aromaticos. Pescados grasos para vinos tintos ligeros o blancos con cuerpo"
+            }
+        ],
+        "varietales": [
+            {
+                "descripcion": "Semi Herbal",
+                "porcentajeComposicion": 25.0,
+                "tipoDeUva": {
+                    "nombre": "Cabernet Franc",
+                    "descripcion": "Es una de las uvas tintas más plantadas en el mundo. Además, se hace como vino de hielo para producir vinos varietales. Produce un luminoso y claro vino tinto que contribuye a la finura y deja un aroma a pimienta al mezclarse con uvas más robustas."
+                }
+            }
+        ]
+    },
+    {
+        "nombre": "Bonarda",
+        "imagenEtiqueta": true,
+        "precioARS": 1150.00,
+        "aniada": 2017,
+        "notaDeCataBodega": "Frutal y especiado con notas de cereza negra y pimienta.",
+        "fechaActualizacion": "2024-05-31T12:00:00Z",
+        "maridajes": [
+            {
+                "nombre": "Quesos",
+                "descripcion": "Quesos frescos para vinos rosados. Quesos azules para vinos dulces fortificados."
+            },
+            {
+                "nombre": "Pescados",
+                "descripcion": "Pescados blancos para vinos blancos secos y aromaticos. Pescados grasos para vinos tintos ligeros o blancos con cuerpo"
+            }
+        ],
+        "varietales": [
+            {
+                "descripcion": "Notas de cedro y especias",
+                "porcentajeComposicion": 35.0,
+                "tipoDeUva": {
+                    "nombre": "Petit Verdot",
+                    "descripcion": "Es una variedad de uva tinta usada en la producción del vino tinto. Madura mucho más tarde que la mayor parte de las otras variedades de uva. Aporta el aroma, el color, el ácido y el tanino."
+                }
+            }
+        ]
+    }
+]
+

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="PPAI.Gestor.GestorImportarActualizacionBodegas">
+    <Position X="4.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAkEgAAEAgQAAAAAAUAAAAkAAQAAAAAAABgACAAIA=</HashCode>
+      <FileName>Gestor\GestorImportarActualizacionBodegas.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PPAI.PantallaImportarActualizacionBodegas" Collapsed="true">
+    <Position X="7" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAIACABACQggICAAAACgAAAgAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Boundaries\PantallaImportarActualizacionBodegas.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PPAI.Entidades.Bodega" Collapsed="true">
+    <Position X="7.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AYAECACAAAAAAACAAAEAhAABAAQAAAAAAAAAAAEAAAg=</HashCode>
+      <FileName>Entidades\Bodega.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
