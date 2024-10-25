@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\USUARIO\\Desktop\\PPAI\\PPAI.csproj": {}
+    "C:\\Users\\USUARIO\\Desktop\\PPAI\\PPAI-3ra-Entrega\\PPAI_C#_VisualStudio_WinForms\\PPAI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\USUARIO\\Desktop\\PPAI\\PPAI.csproj": {
+    "C:\\Users\\USUARIO\\Desktop\\PPAI\\PPAI-3ra-Entrega\\PPAI_C#_VisualStudio_WinForms\\PPAI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USUARIO\\Desktop\\PPAI\\PPAI.csproj",
+        "projectUniqueName": "C:\\Users\\USUARIO\\Desktop\\PPAI\\PPAI-3ra-Entrega\\PPAI_C#_VisualStudio_WinForms\\PPAI.csproj",
         "projectName": "PPAI",
-        "projectPath": "C:\\Users\\USUARIO\\Desktop\\PPAI\\PPAI.csproj",
+        "projectPath": "C:\\Users\\USUARIO\\Desktop\\PPAI\\PPAI-3ra-Entrega\\PPAI_C#_VisualStudio_WinForms\\PPAI.csproj",
         "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USUARIO\\Desktop\\PPAI\\obj\\",
+        "outputPath": "C:\\Users\\USUARIO\\Desktop\\PPAI\\PPAI-3ra-Entrega\\PPAI_C#_VisualStudio_WinForms\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\USUARIO\\AppData\\Roaming\\NuGet\\NuGet.Config",
