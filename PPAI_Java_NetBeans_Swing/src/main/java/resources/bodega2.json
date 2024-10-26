@@ -1,0 +1,144 @@
+[
+    {
+        "nombre": "Syrah Reserva",
+        "aniada": 2019,
+        "fechaActualizacion": "2023-10-10T11:23:45",
+        "imagenEtiqueta": "url_a_la_imagen_6",
+        "notaDeCataBodega": "Intenso y especiado, con aromas de pimienta negra y frutas oscuras.",
+        "precioArs": 2800.0,
+        "maridajes": [
+            {
+                "nombre": "Estofado de Cordero",
+                "descripcion": "Ideal para carnes de sabor fuerte y cocidas lentamente."
+            },
+            {
+                "nombre": "Queso Curado",
+                "descripcion": "Combina bien con quesos de sabores intensos."
+            }
+        ],
+        "varietales": [
+            {
+                "descripcion": "Syrah",
+                "porcentajeComposicion": 100.0,
+                "tipoUva": {
+                    "descripcion": "Uva tinta de sabores intensos",
+                    "nombre": "Syrah"
+                }
+            }
+        ]
+    },
+    {
+        "nombre": "Merlot Gran Reserva",
+        "aniada": 2018,
+        "fechaActualizacion": "2023-09-30T14:45:19",
+        "imagenEtiqueta": "url_a_la_imagen_7",
+        "notaDeCataBodega": "Suave y afrutado, con toques de ciruela y hierbas secas.",
+        "precioArs": 2950.0,
+        "maridajes": [
+            {
+                "nombre": "Pato a la Naranja",
+                "descripcion": "Ideal para carnes de aves con salsas dulces."
+            },
+            {
+                "nombre": "Queso Brie",
+                "descripcion": "Combina con quesos suaves y cremosos."
+            }
+        ],
+        "varietales": [
+            {
+                "descripcion": "Merlot",
+                "porcentajeComposicion": 100.0,
+                "tipoUva": {
+                    "descripcion": "Uva tinta suave y afrutada",
+                    "nombre": "Merlot"
+                }
+            }
+        ]
+    },
+    {
+        "nombre": "Bonarda Clásico",
+        "aniada": 2020,
+        "fechaActualizacion": "2023-08-21T18:12:34",
+        "imagenEtiqueta": "url_a_la_imagen_8",
+        "notaDeCataBodega": "Aromas a frutos rojos, con notas terrosas y buena acidez.",
+        "precioArs": 1800.0,
+        "maridajes": [
+            {
+                "nombre": "Pizza Margherita",
+                "descripcion": "Ideal para comidas con tomate y queso fundido."
+            },
+            {
+                "nombre": "Empanadas de Carne",
+                "descripcion": "Perfecto para comidas típicas argentinas."
+            }
+        ],
+        "varietales": [
+            {
+                "descripcion": "Bonarda",
+                "porcentajeComposicion": 100.0,
+                "tipoUva": {
+                    "descripcion": "Uva tinta de buena acidez y cuerpo medio",
+                    "nombre": "Bonarda"
+                }
+            }
+        ]
+    },
+    {
+        "nombre": "Petit Verdot",
+        "aniada": 2019,
+        "fechaActualizacion": "2023-07-11T15:02:43",
+        "imagenEtiqueta": "url_a_la_imagen_9",
+        "notaDeCataBodega": "Robusto, con aromas a violetas y moras.",
+        "precioArs": 3100.0,
+        "maridajes": [
+            {
+                "nombre": "Carne de Venado",
+                "descripcion": "Ideal para carnes de caza y sabores intensos."
+            },
+            {
+                "nombre": "Queso de Cabra",
+                "descripcion": "Excelente con quesos maduros y de sabores fuertes."
+            }
+        ],
+        "varietales": [
+            {
+                "descripcion": "Petit Verdot",
+                "porcentajeComposicion": 100.0,
+                "tipoUva": {
+                    "descripcion": "Uva tinta de taninos altos y color profundo",
+                    "nombre": "Petit Verdot"
+                }
+            }
+        ]
+    },
+    {
+        "nombre": "Tempranillo Roble",
+        "aniada": 2021,
+        "fechaActualizacion": "2023-06-23T11:40:10",
+        "imagenEtiqueta": "url_a_la_imagen_10",
+        "notaDeCataBodega": "Vino joven con sabores a cereza y tabaco suave.",
+        "precioArs": 2200.0,
+        "maridajes": [
+            {
+                "nombre": "Paella",
+                "descripcion": "Excelente con platos de arroz y mariscos."
+            },
+            {
+                "nombre": "Jamón Serrano",
+                "descripcion": "Perfecto para carnes curadas y embutidos."
+            }
+        ],
+        "varietales": [
+            {
+                "descripcion": "Tempranillo",
+                "porcentajeComposicion": 100.0,
+                "tipoUva": {
+                    "descripcion": "Uva tinta de sabores complejos y buena acidez",
+                    "nombre": "Tempranillo"
+                }
+            }
+        ]
+    }
+]
+    
+    

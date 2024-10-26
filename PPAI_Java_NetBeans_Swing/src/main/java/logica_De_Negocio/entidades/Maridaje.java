@@ -1,8 +1,9 @@
 package logica_De_Negocio.entidades;
 
 public class Maridaje {
-    private String descripcion;
     private String nombre;
+    private String descripcion;
+    
 
     public Maridaje() {
     }

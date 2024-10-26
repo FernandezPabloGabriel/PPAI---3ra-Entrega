@@ -1,0 +1,138 @@
+[
+    {
+        "nombre": "Rosé de Malbec",
+        "aniada": 2022,
+        "fechaActualizacion": "2023-09-01T10:15:34",
+        "imagenEtiqueta": "url_a_la_imagen_11",
+        "notaDeCataBodega": "Fresco y frutal, con aromas de fresas y flores.",
+        "precioArs": 1600.0,
+        "maridajes": [
+            {
+                "nombre": "Ensalada César",
+                "descripcion": "Ideal para ensaladas frescas y crujientes."
+            }
+        ],
+        "varietales": [
+        {
+            "descripcion": "Malbec Rosé",
+            "porcentajeComposicion": 100.0,
+            "tipoUva": {
+                "descripcion": "Uva tinta transformada en vino rosado, con buena acidez",
+                "nombre": "Malbec"
+            }
+        }
+    ]
+},
+{
+    "nombre": "Zinfandel Joven",
+    "aniada": 2021,
+    "fechaActualizacion": "2023-05-18T16:50:10",
+    "imagenEtiqueta": "url_a_la_imagen_12",
+    "notaDeCataBodega": "Aromas a frutos rojos y especias, con un toque de dulzura.",
+    "precioArs": 2300.0,
+    "maridajes": [
+        {
+            "nombre": "Costillas de Cerdo",
+            "descripcion": "Perfecto para carnes a la parrilla y con salsa barbacoa."
+        },
+        {
+            "nombre": "Hamburguesas",
+            "descripcion": "Combina bien con carnes y condimentos."
+        }
+    ],
+    "varietales": [
+        {
+            "descripcion": "Zinfandel",
+            "porcentajeComposicion": 100.0,
+            "tipoUva": {
+                "descripcion": "Uva tinta con sabores afrutados y picantes",
+                "nombre": "Zinfandel"
+            }
+        }
+    ]
+},
+{
+    "nombre": "Pinot Noir de Altura",
+    "aniada": 2020,
+    "fechaActualizacion": "2023-04-09T08:30:23",
+    "imagenEtiqueta": "url_a_la_imagen_13",
+    "notaDeCataBodega": "Sutil y elegante, con aromas a frutos rojos y tierra húmeda.",
+    "precioArs": 4500.0,
+    "maridajes": [
+        {
+            "nombre": "Pasta con Trufas",
+            "descripcion": "Ideal para platos con sabores terrosos y sofisticados."
+        },
+        {
+            "nombre": "Pato Confitado",
+            "descripcion": "Perfecto para carnes suaves y jugosas."
+        }
+    ],
+    "varietales": [
+        {
+            "descripcion": "Pinot Noir",
+            "porcentajeComposicion": 100.0,
+            "tipoUva": {
+                "descripcion": "Uva tinta delicada con aromas florales",
+                "nombre": "Pinot Noir"
+            }
+        }
+    ]
+},
+{
+    "nombre": "Cabernet Franc Especial",
+    "aniada": 2019,
+    "fechaActualizacion": "2023-03-21T14:12:40",
+    "imagenEtiqueta": "url_a_la_imagen_14",
+    "notaDeCataBodega": "Sutil y especiado, con toques herbales y taninos suaves.",
+    "precioArs": 3300.0,
+    "maridajes": [
+        {
+            "nombre": "Ravioles de Espinaca",
+            "descripcion": "Combina bien con pastas y salsas a base de hierbas."
+        },
+        {
+            "nombre": "Queso Feta",
+            "descripcion": "Ideal con quesos salados y frescos."
+        }
+    ],
+    "varietales": [
+        {
+            "descripcion": "Cabernet Franc",
+            "porcentajeComposicion": 100.0,
+            "tipoUva": {
+                "descripcion": "Uva tinta de aromas herbales y taninos suaves",
+                "nombre": "Cabernet Franc"
+            }
+        }
+    ]
+},
+{
+    "nombre": "Petit Sirah Reserva",
+    "aniada": 2021,
+    "fechaActualizacion": "2023-03-03T11:11:11",
+    "imagenEtiqueta": "url_a_la_imagen_15",
+    "notaDeCataBodega": "Concentrado, con sabores a moras y un toque de pimienta negra.",
+    "precioArs": 2700.0,
+    "maridajes": [
+        {
+            "nombre": "Cordero Asado",
+            "descripcion": "Ideal para carnes de caza y asados fuertes."
+        },
+        {
+            "nombre": "Queso Azul",
+            "descripcion": "Combina con quesos de sabor intenso."
+        }
+    ],
+    "varietales": [
+        {
+            "descripcion": "Petit Sirah",
+            "porcentajeComposicion": 100.0,
+            "tipoUva": {
+                "descripcion": "Uva tinta de cuerpo completo y color oscuro",
+                "nombre": "Petit Sirah"
+            }
+        }
+    ]
+}
+]

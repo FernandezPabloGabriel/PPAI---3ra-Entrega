@@ -84,13 +84,16 @@ public class GestorImportadorBodega {
     public void getNombre(){
     }
     
-    public void tomarSeleccionBodega(){
+    public void tomarSeleccionBodega(Set<String> bodegasSeleccionadas){
+        bodegasSeleccionadas.forEach(bod->System.out.println(bod)); //log
+        obtenerActualizacionVinosBodega(bodegasSeleccionadas);
     }
     
-    public void obtenerActualizacionVinosBodega(){
+    public void obtenerActualizacionVinosBodega(Set<String> bodegasSeleccionadas){
+        obtenerActualizacionVinos();
     }
     
-    public void obtenerActualizacionVinos(){}
+    public void obtenerActualizacionVinos(){System.out.println("Todavía no implementado...");}
     
     public void actualizarCaracteristicasVinoExistente(){}
     

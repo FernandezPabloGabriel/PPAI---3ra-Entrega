@@ -1,0 +1,150 @@
+[
+    {
+        "nombre": "Malbec Reserva",
+        "aniada": 2018,
+        "fechaActualizacion": "2023-10-25T12:34:56",
+        "imagenEtiqueta": "url_a_la_imagen_1",
+        "notaDeCataBodega": "Aroma a frutos rojos con notas de chocolate y tabaco.",
+        "precioArs": 2500.0,
+        "maridajes": [
+            {
+                "nombre": "Carne Asada",
+                "descripcion": "Perfecto para carnes a la parrilla y ahumadas."
+            },
+            {
+                "nombre": "Queso Azul",
+                "descripcion": "Combina bien con quesos fuertes y curados."
+            }
+        ],
+        "varietales": [
+            {
+                "descripcion": "Malbec",
+                "porcentajeComposicion": 90.0,
+                "tipoUva": {
+                    "descripcion": "Uva tinta intensa",
+                    "nombre": "Malbec"
+                }
+            },
+            {
+                "descripcion": "Cabernet Sauvignon",
+                "porcentajeComposicion": 10.0,
+                "tipoUva": {
+                    "descripcion": "Uva tinta con alta acidez",
+                    "nombre": "Cabernet Sauvignon"
+                }
+            }
+        ]
+    },
+    {
+        "nombre": "Cabernet Franc",
+        "aniada": 2019,
+        "fechaActualizacion": "2023-10-18T09:45:23",
+        "imagenEtiqueta": "url_a_la_imagen_2",
+        "notaDeCataBodega": "Aromas a pimiento verde y especias, con un toque de grosella.",
+        "precioArs": 3200.0,
+        "maridajes": [
+            {
+                "nombre": "Pollo al Horno",
+                "descripcion": "Ideal para carnes blancas con especias suaves."
+            },
+            {
+                "nombre": "Risotto de Champiñones",
+                "descripcion": "Excelente con platos de arroz y setas."
+            }
+        ],
+        "varietales": [
+            {
+                "descripcion": "Cabernet Franc",
+                "porcentajeComposicion": 100.0,
+                "tipoUva": {
+                    "descripcion": "Uva tinta de gran suavidad",
+                    "nombre": "Cabernet Franc"
+                }
+            }
+        ]
+    },
+    {
+        "nombre": "Chardonnay Roble",
+        "aniada": 2021,
+        "fechaActualizacion": "2023-09-14T16:12:09",
+        "imagenEtiqueta": "url_a_la_imagen_3",
+        "notaDeCataBodega": "Vino blanco con notas de mantequilla y roble tostado.",
+        "precioArs": 2700.0,
+        "maridajes": [
+            {
+                "nombre": "Pasta Alfredo",
+                "descripcion": "Combina bien con salsas cremosas y pastas."
+            },
+            {
+                "nombre": "Mariscos a la Parrilla",
+                "descripcion": "Perfecto para platos de mariscos con un toque de limón."
+            }
+        ],
+        "varietales": [
+            {
+                "descripcion": "Chardonnay",
+                "porcentajeComposicion": 100.0,
+                "tipoUva": {
+                    "descripcion": "Uva blanca con notas de manzana y mantequilla",
+                    "nombre": "Chardonnay"
+                }
+            }
+        ]
+    },
+    {
+        "nombre": "Pinot Noir Patagónico",
+        "aniada": 2020,
+        "fechaActualizacion": "2023-08-30T10:56:33",
+        "imagenEtiqueta": "url_a_la_imagen_4",
+        "notaDeCataBodega": "Sutil y elegante, con aromas de frutos rojos y tierra húmeda.",
+        "precioArs": 3100.0,
+        "maridajes": [
+            {
+                "nombre": "Salmón Ahumado",
+                "descripcion": "Ideal para pescados grasos y carnes magras."
+            },
+            {
+                "nombre": "Risotto de Trufas",
+                "descripcion": "Perfecto para platos con ingredientes terrosos."
+            }
+        ],
+        "varietales": [
+            {
+                "descripcion": "Pinot Noir",
+                "porcentajeComposicion": 100.0,
+                "tipoUva": {
+                    "descripcion": "Uva tinta delicada y aromática",
+                    "nombre": "Pinot Noir"
+                }
+            }
+        ]
+    },
+    {
+        "nombre": "Sauvignon Blanc",
+        "aniada": 2022,
+        "fechaActualizacion": "2023-10-12T08:24:45",
+        "imagenEtiqueta": "url_a_la_imagen_5",
+        "notaDeCataBodega": "Refrescante, con notas de cítricos y hierbas.",
+        "precioArs": 1800.0,
+        "maridajes": [
+            {
+                "nombre": "Ceviche",
+                "descripcion": "Combina bien con platos frescos y ácidos."
+            },
+            {
+                "nombre": "Ensalada de Rúcula",
+                "descripcion": "Ideal para ensaladas verdes y frescas."
+            }
+        ],
+        "varietales": [
+            {
+                "descripcion": "Sauvignon Blanc",
+                "porcentajeComposicion": 100.0,
+                "tipoUva": {
+                    "descripcion": "Uva blanca con alta acidez",
+                    "nombre": "Sauvignon Blanc"
+                }
+            }
+        ]
+    }
+]
