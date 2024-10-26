@@ -3,24 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\USUARIO\\Desktop\\PPAI\\PPAI-3ra-Entrega\\PPAI_C#_VisualStudio_WinForms\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3AD01B33-9E4A-431C-9B73-A164F392A2AD}|PPAI.csproj|c:\\users\\usuario\\desktop\\ppai\\ppai-3ra-entrega\\ppai_c#_visualstudio_winforms\\entidades\\bodega.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3AD01B33-9E4A-431C-9B73-A164F392A2AD}|PPAI.csproj|solutionrelative:entidades\\bodega.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3AD01B33-9E4A-431C-9B73-A164F392A2AD}|PPAI.csproj|c:\\users\\usuario\\desktop\\ppai\\ppai-3ra-entrega\\ppai_c#_visualstudio_winforms\\recursos extra\\deserializador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3AD01B33-9E4A-431C-9B73-A164F392A2AD}|PPAI.csproj|solutionrelative:recursos extra\\deserializador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3AD01B33-9E4A-431C-9B73-A164F392A2AD}|PPAI.csproj|c:\\users\\usuario\\desktop\\ppai\\ppai-3ra-entrega\\ppai_c#_visualstudio_winforms\\gestor\\gestorimportaractualizacionbodegas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3AD01B33-9E4A-431C-9B73-A164F392A2AD}|PPAI.csproj|solutionrelative:gestor\\gestorimportaractualizacionbodegas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3AD01B33-9E4A-431C-9B73-A164F392A2AD}|PPAI.csproj|c:\\users\\usuario\\desktop\\ppai\\ppai-3ra-entrega\\ppai_c#_visualstudio_winforms\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3AD01B33-9E4A-431C-9B73-A164F392A2AD}|PPAI.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3AD01B33-9E4A-431C-9B73-A164F392A2AD}|PPAI.csproj|c:\\users\\usuario\\desktop\\ppai\\ppai-3ra-entrega\\ppai_c#_visualstudio_winforms\\boundaries\\pantallaimportaractualizacionbodegas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3AD01B33-9E4A-431C-9B73-A164F392A2AD}|PPAI.csproj|solutionrelative:boundaries\\pantallaimportaractualizacionbodegas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3AD01B33-9E4A-431C-9B73-A164F392A2AD}|PPAI.csproj|C:\\Users\\USUARIO\\Desktop\\PPAI\\PPAI-3ra-Entrega\\PPAI_C#_VisualStudio_WinForms\\boundaries\\pantallaimportaractualizacionbodegas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{3AD01B33-9E4A-431C-9B73-A164F392A2AD}|PPAI.csproj|solutionrelative:boundaries\\pantallaimportaractualizacionbodegas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3AD01B33-9E4A-431C-9B73-A164F392A2AD}|PPAI.csproj|c:\\users\\usuario\\desktop\\ppai\\ppai-3ra-entrega\\ppai_c#_visualstudio_winforms\\boundaries\\interfazapisbodegas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -31,12 +19,40 @@
       "RelativeMoniker": "D:0:0:{3AD01B33-9E4A-431C-9B73-A164F392A2AD}|PPAI.csproj|solutionrelative:entidades\\vino.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3AD01B33-9E4A-431C-9B73-A164F392A2AD}|PPAI.csproj|C:\\Users\\USUARIO\\Desktop\\PPAI\\PPAI-3ra-Entrega\\PPAI_C#_VisualStudio_WinForms\\boundaries\\winresumen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{3AD01B33-9E4A-431C-9B73-A164F392A2AD}|PPAI.csproj|solutionrelative:boundaries\\winresumen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{3AD01B33-9E4A-431C-9B73-A164F392A2AD}|PPAI.csproj|c:\\users\\usuario\\desktop\\ppai\\ppai-3ra-entrega\\ppai_c#_visualstudio_winforms\\recursos extra\\recuperadordatosjson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3AD01B33-9E4A-431C-9B73-A164F392A2AD}|PPAI.csproj|solutionrelative:recursos extra\\recuperadordatosjson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3AD01B33-9E4A-431C-9B73-A164F392A2AD}|PPAI.csproj|c:\\users\\usuario\\desktop\\ppai\\ppai-3ra-entrega\\ppai_c#_visualstudio_winforms\\boundaries\\pantallaimportaractualizacionbodegas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3AD01B33-9E4A-431C-9B73-A164F392A2AD}|PPAI.csproj|solutionrelative:boundaries\\pantallaimportaractualizacionbodegas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3AD01B33-9E4A-431C-9B73-A164F392A2AD}|PPAI.csproj|C:\\Users\\USUARIO\\Desktop\\PPAI\\PPAI-3ra-Entrega\\PPAI_C#_VisualStudio_WinForms\\boundaries\\pantallaimportaractualizacionbodegas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3AD01B33-9E4A-431C-9B73-A164F392A2AD}|PPAI.csproj|solutionrelative:boundaries\\pantallaimportaractualizacionbodegas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3AD01B33-9E4A-431C-9B73-A164F392A2AD}|PPAI.csproj|c:\\users\\usuario\\desktop\\ppai\\ppai-3ra-entrega\\ppai_c#_visualstudio_winforms\\jsons\\datosdelsistema\\bodegas.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{3AD01B33-9E4A-431C-9B73-A164F392A2AD}|PPAI.csproj|solutionrelative:jsons\\datosdelsistema\\bodegas.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3AD01B33-9E4A-431C-9B73-A164F392A2AD}|PPAI.csproj|c:\\users\\usuario\\desktop\\ppai\\ppai-3ra-entrega\\ppai_c#_visualstudio_winforms\\entidades\\maridaje.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3AD01B33-9E4A-431C-9B73-A164F392A2AD}|PPAI.csproj|solutionrelative:entidades\\maridaje.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3AD01B33-9E4A-431C-9B73-A164F392A2AD}|PPAI.csproj|c:\\users\\usuario\\desktop\\ppai\\ppai-3ra-entrega\\ppai_c#_visualstudio_winforms\\entidades\\tipodeuva.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3AD01B33-9E4A-431C-9B73-A164F392A2AD}|PPAI.csproj|solutionrelative:entidades\\tipodeuva.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3AD01B33-9E4A-431C-9B73-A164F392A2AD}|PPAI.csproj|c:\\users\\usuario\\desktop\\ppai\\ppai-3ra-entrega\\ppai_c#_visualstudio_winforms\\entidades\\bodega.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3AD01B33-9E4A-431C-9B73-A164F392A2AD}|PPAI.csproj|solutionrelative:entidades\\bodega.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3AD01B33-9E4A-431C-9B73-A164F392A2AD}|PPAI.csproj|c:\\users\\usuario\\desktop\\ppai\\ppai-3ra-entrega\\ppai_c#_visualstudio_winforms\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3AD01B33-9E4A-431C-9B73-A164F392A2AD}|PPAI.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3AD01B33-9E4A-431C-9B73-A164F392A2AD}|PPAI.csproj|C:\\Users\\USUARIO\\Desktop\\PPAI\\PPAI-3ra-Entrega\\PPAI_C#_VisualStudio_WinForms\\boundaries\\winresumen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3AD01B33-9E4A-431C-9B73-A164F392A2AD}|PPAI.csproj|solutionrelative:boundaries\\winresumen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3AD01B33-9E4A-431C-9B73-A164F392A2AD}|PPAI.csproj|c:\\users\\usuario\\desktop\\ppai\\ppai-3ra-entrega\\ppai_c#_visualstudio_winforms\\recursos extra\\cargadedatosalsistema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -51,16 +67,8 @@
       "RelativeMoniker": "D:0:0:{3AD01B33-9E4A-431C-9B73-A164F392A2AD}|PPAI.csproj|solutionrelative:recursos extra\\barradecarga.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3AD01B33-9E4A-431C-9B73-A164F392A2AD}|PPAI.csproj|c:\\users\\usuario\\desktop\\ppai\\ppai-3ra-entrega\\ppai_c#_visualstudio_winforms\\jsons\\datosdelsistema\\bodegas.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{3AD01B33-9E4A-431C-9B73-A164F392A2AD}|PPAI.csproj|solutionrelative:jsons\\datosdelsistema\\bodegas.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{3AD01B33-9E4A-431C-9B73-A164F392A2AD}|PPAI.csproj|c:\\users\\usuario\\desktop\\ppai\\ppai-3ra-entrega\\ppai_c#_visualstudio_winforms\\boundaries\\winresumen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3AD01B33-9E4A-431C-9B73-A164F392A2AD}|PPAI.csproj|solutionrelative:boundaries\\winresumen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3AD01B33-9E4A-431C-9B73-A164F392A2AD}|PPAI.csproj|c:\\users\\usuario\\desktop\\ppai\\ppai-3ra-entrega\\ppai_c#_visualstudio_winforms\\entidades\\tipodeuva.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3AD01B33-9E4A-431C-9B73-A164F392A2AD}|PPAI.csproj|solutionrelative:entidades\\tipodeuva.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -70,7 +78,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 479,
-          "SelectedChildIndex": 13,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -78,7 +86,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
+              "Title": "Deserializador.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Desktop\\PPAI\\PPAI-3ra-Entrega\\PPAI_C#_VisualStudio_WinForms\\Recursos Extra\\Deserializador.cs",
+              "RelativeDocumentMoniker": "Recursos Extra\\Deserializador.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Desktop\\PPAI\\PPAI-3ra-Entrega\\PPAI_C#_VisualStudio_WinForms\\Recursos Extra\\Deserializador.cs",
+              "RelativeToolTip": "Recursos Extra\\Deserializador.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAAwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-26T22:28:03.739Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "RecuperadorDatosJSON.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Desktop\\PPAI\\PPAI-3ra-Entrega\\PPAI_C#_VisualStudio_WinForms\\Recursos Extra\\RecuperadorDatosJSON.cs",
+              "RelativeDocumentMoniker": "Recursos Extra\\RecuperadorDatosJSON.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Desktop\\PPAI\\PPAI-3ra-Entrega\\PPAI_C#_VisualStudio_WinForms\\Recursos Extra\\RecuperadorDatosJSON.cs",
+              "RelativeToolTip": "Recursos Extra\\RecuperadorDatosJSON.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-26T22:26:54.821Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "InterfazAPIsBodegas.cs",
               "DocumentMoniker": "C:\\Users\\USUARIO\\Desktop\\PPAI\\PPAI-3ra-Entrega\\PPAI_C#_VisualStudio_WinForms\\Boundaries\\InterfazAPIsBodegas.cs",
               "RelativeDocumentMoniker": "Boundaries\\InterfazAPIsBodegas.cs",
@@ -91,7 +125,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 12,
               "Title": "winResumen.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\USUARIO\\Desktop\\PPAI\\PPAI-3ra-Entrega\\PPAI_C#_VisualStudio_WinForms\\Boundaries\\winResumen.cs",
               "RelativeDocumentMoniker": "Boundaries\\winResumen.cs",
@@ -102,7 +136,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 16,
               "Title": "winResumen.cs",
               "DocumentMoniker": "C:\\Users\\USUARIO\\Desktop\\PPAI\\PPAI-3ra-Entrega\\PPAI_C#_VisualStudio_WinForms\\Boundaries\\winResumen.cs",
               "RelativeDocumentMoniker": "Boundaries\\winResumen.cs",
@@ -114,7 +148,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 7,
               "Title": "Bodegas.json",
               "DocumentMoniker": "C:\\Users\\USUARIO\\Desktop\\PPAI\\PPAI-3ra-Entrega\\PPAI_C#_VisualStudio_WinForms\\Jsons\\DatosDelSistema\\Bodegas.json",
               "RelativeDocumentMoniker": "Jsons\\DatosDelSistema\\Bodegas.json",
@@ -122,11 +156,12 @@
               "RelativeToolTip": "Jsons\\DatosDelSistema\\Bodegas.json",
               "ViewState": "AQIAAAEAAAAAAAAAAAAowB8AAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-06-18T03:34:21.703Z"
+              "WhenOpened": "2024-06-18T03:34:21.703Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 15,
               "Title": "BarraDeCarga.cs",
               "DocumentMoniker": "C:\\Users\\USUARIO\\Desktop\\PPAI\\PPAI-3ra-Entrega\\PPAI_C#_VisualStudio_WinForms\\Recursos Extra\\BarraDeCarga.cs",
               "RelativeDocumentMoniker": "Recursos Extra\\BarraDeCarga.cs",
@@ -138,7 +173,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 14,
               "Title": "Varietal.cs",
               "DocumentMoniker": "C:\\Users\\USUARIO\\Desktop\\PPAI\\PPAI-3ra-Entrega\\PPAI_C#_VisualStudio_WinForms\\Entidades\\Varietal.cs",
               "RelativeDocumentMoniker": "Entidades\\Varietal.cs",
@@ -150,7 +185,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
               "Title": "Vino.cs",
               "DocumentMoniker": "C:\\Users\\USUARIO\\Desktop\\PPAI\\PPAI-3ra-Entrega\\PPAI_C#_VisualStudio_WinForms\\Entidades\\Vino.cs",
               "RelativeDocumentMoniker": "Entidades\\Vino.cs",
@@ -158,7 +193,8 @@
               "RelativeToolTip": "Entidades\\Vino.cs",
               "ViewState": "AQIAAB8AAAAAAAAAAAAQwBEAAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T01:56:37.507Z"
+              "WhenOpened": "2024-06-18T01:56:37.507Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -168,14 +204,14 @@
               "RelativeDocumentMoniker": "Gestor\\GestorImportarActualizacionBodegas.cs",
               "ToolTip": "C:\\Users\\USUARIO\\Desktop\\PPAI\\PPAI-3ra-Entrega\\PPAI_C#_VisualStudio_WinForms\\Gestor\\GestorImportarActualizacionBodegas.cs",
               "RelativeToolTip": "Gestor\\GestorImportarActualizacionBodegas.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAACUAAAAJAAAA",
+              "ViewState": "AQIAADsAAAAAAAAAAAAvwE4AAABCAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-16T13:51:26.177Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 13,
               "Title": "CargaDeDatosAlSistema.cs",
               "DocumentMoniker": "C:\\Users\\USUARIO\\Desktop\\PPAI\\PPAI-3ra-Entrega\\PPAI_C#_VisualStudio_WinForms\\Recursos Extra\\CargaDeDatosAlSistema.cs",
               "RelativeDocumentMoniker": "Recursos Extra\\CargaDeDatosAlSistema.cs",
@@ -193,26 +229,27 @@
               "RelativeDocumentMoniker": "Entidades\\Maridaje.cs",
               "ToolTip": "C:\\Users\\USUARIO\\Desktop\\PPAI\\PPAI-3ra-Entrega\\PPAI_C#_VisualStudio_WinForms\\Entidades\\Maridaje.cs",
               "RelativeToolTip": "Entidades\\Maridaje.cs",
-              "ViewState": "AQIAACcAAAAAAAAAAAAAADMAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-17T15:47:47.184Z"
+              "WhenOpened": "2024-06-17T15:47:47.184Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "PantallaImportarActualizacionBodegas.cs",
               "DocumentMoniker": "C:\\Users\\USUARIO\\Desktop\\PPAI\\PPAI-3ra-Entrega\\PPAI_C#_VisualStudio_WinForms\\Boundaries\\PantallaImportarActualizacionBodegas.cs",
               "RelativeDocumentMoniker": "Boundaries\\PantallaImportarActualizacionBodegas.cs",
               "ToolTip": "C:\\Users\\USUARIO\\Desktop\\PPAI\\PPAI-3ra-Entrega\\PPAI_C#_VisualStudio_WinForms\\Boundaries\\PantallaImportarActualizacionBodegas.cs",
               "RelativeToolTip": "Boundaries\\PantallaImportarActualizacionBodegas.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAJAAAA",
+              "ViewState": "AQIAAIgAAAAAAAAAAADwvxYAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-16T20:27:23.937Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "PantallaImportarActualizacionBodegas.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\USUARIO\\Desktop\\PPAI\\PPAI-3ra-Entrega\\PPAI_C#_VisualStudio_WinForms\\Boundaries\\PantallaImportarActualizacionBodegas.cs",
               "RelativeDocumentMoniker": "Boundaries\\PantallaImportarActualizacionBodegas.cs",
@@ -224,20 +261,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 10,
               "Title": "Bodega.cs",
               "DocumentMoniker": "C:\\Users\\USUARIO\\Desktop\\PPAI\\PPAI-3ra-Entrega\\PPAI_C#_VisualStudio_WinForms\\Entidades\\Bodega.cs",
               "RelativeDocumentMoniker": "Entidades\\Bodega.cs",
               "ToolTip": "C:\\Users\\USUARIO\\Desktop\\PPAI\\PPAI-3ra-Entrega\\PPAI_C#_VisualStudio_WinForms\\Entidades\\Bodega.cs",
               "RelativeToolTip": "Entidades\\Bodega.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAAwE0AAAAUAAAA",
+              "ViewState": "AQIAAEwAAAAAAAAAAADwv00AAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-16T15:12:07.216Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 11,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\USUARIO\\Desktop\\PPAI\\PPAI-3ra-Entrega\\PPAI_C#_VisualStudio_WinForms\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -245,12 +282,11 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-16T13:46:33.642Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-16T13:46:33.642Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 9,
               "Title": "TipoDeUva.cs",
               "DocumentMoniker": "C:\\Users\\USUARIO\\Desktop\\PPAI\\PPAI-3ra-Entrega\\PPAI_C#_VisualStudio_WinForms\\Entidades\\TipoDeUva.cs",
               "RelativeDocumentMoniker": "Entidades\\TipoDeUva.cs",
@@ -258,7 +294,8 @@
               "RelativeToolTip": "Entidades\\TipoDeUva.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-16T13:44:17.769Z"
+              "WhenOpened": "2024-06-16T13:44:17.769Z",
+              "EditorCaption": ""
             }
           ]
         }
