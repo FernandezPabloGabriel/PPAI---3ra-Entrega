@@ -1,13 +1,28 @@
 package logica_De_Negocio.entidades;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import java.io.Serializable;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
-public class Bodega {
+@Entity
+@Table(name = "bodegas")
+public class Bodega implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String nombre;
+    @Column(name = "coordenadas_ubicacion")
     private String coordenadasUbicacion;
     private String descripcion;
     private String historia;
+    @Column (name = "fecha_ultima_actualizacion")
     private LocalDateTime fechaUltimaActualizacion;
+    @Column (name = "periodo_actualizacion")
     private int periodoActualizacion;
 
     public Bodega() {
@@ -38,4 +53,54 @@ public class Bodega {
     }
     
     public void actualizarDatosVinos(){}
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getCoordenadasUbicacion() {
+        return coordenadasUbicacion;
+    }
+
+    public void setCoordenadasUbicacion(String coordenadasUbicacion) {
+        this.coordenadasUbicacion = coordenadasUbicacion;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public String getHistoria() {
+        return historia;
+    }
+
+    public void setHistoria(String historia) {
+        this.historia = historia;
+    }
+
+    public LocalDateTime getFechaUltimaActualizacion() {
+        return fechaUltimaActualizacion;
+    }
+
+    public void setFechaUltimaActualizacion(LocalDateTime fechaUltimaActualizacion) {
+        this.fechaUltimaActualizacion = fechaUltimaActualizacion;
+    }
+
+    public int getPeriodoActualizacion() {
+        return periodoActualizacion;
+    }
+
+    public void setPeriodoActualizacion(int periodoActualizacion) {
+        this.periodoActualizacion = periodoActualizacion;
+    }
+    
+    
 }

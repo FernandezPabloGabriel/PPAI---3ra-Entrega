@@ -10,6 +10,7 @@ import java.util.Set;
 import logica_De_Negocio.entidades.Bodega;
 import presentacion.PantallaImportarBodega;
 import java.time.LocalDateTime;
+import persistencia.ControladorPersistencia;
 
 /**
  *
@@ -18,6 +19,19 @@ import java.time.LocalDateTime;
 public class GestorImportadorBodega {
     private Set<Bodega> bodegasSet = new HashSet<>();
     private PantallaImportarBodega pantallaImportarBodega;
+
+    public GestorImportadorBodega() {
+        ControladorPersistencia controladorPersistencia = new ControladorPersistencia();
+//        cargarBodegas();
+//        cargarEnofilos();
+//        cargarMaridajes();
+//        cargarSiguiendos();
+//        cargarTiposUvas();
+//        cargarUsuarios();
+//        cargarVarietales();
+//        cargarVinos();
+    }
+    
     
     
     //---Debe ser eliminado cuando se implemente la conexión con BD
@@ -107,4 +121,36 @@ public class GestorImportadorBodega {
     public void buscarSeguidoresDeBodega(){}
     
     public void finCU(){}
+
+    private void cargarBodegas() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void cargarEnofilos() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void cargarSiguiendos() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void cargarTiposUvas() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void cargarUsuarios() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void cargarVinos() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void cargarMaridajes() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void cargarVarietales() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
