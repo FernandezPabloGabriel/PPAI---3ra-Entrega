@@ -1,11 +1,11 @@
 [
     {
-        "nombre": "Rosé de Malbec",
-        "aniada": 2022,
+        "nombre": "Gran Reserva El Valle",
+        "aniada": 2018,
         "fechaActualizacion": "2023-09-01T10:15:34",
-        "imagenEtiqueta": "url_a_la_imagen_11",
+        "imagenEtiqueta": "los_altos_merlot.jpg",
         "notaDeCataBodega": "Fresco y frutal, con aromas de fresas y flores.",
-        "precioArs": 1600.0,
+        "precioArs": 2100.0,
         "maridajes": [
             {
                 "nombre": "Ensalada César",

@@ -19,7 +19,6 @@ public class PantallaImportarBodega extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         lblTitulo = new javax.swing.JLabel();
-        btnImportarActualizacion = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblBodegasActualizables = new javax.swing.JTable();
         btnActualizarSelecciones = new javax.swing.JButton();
@@ -28,13 +27,6 @@ public class PantallaImportarBodega extends javax.swing.JFrame {
 
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblTitulo.setText("¡Bonvino! Proximamente...");
-
-        btnImportarActualizacion.setText("Importar Actualización");
-        btnImportarActualizacion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                opcionImportarActualizacionVino(evt);
-            }
-        });
 
         tblBodegasActualizables.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -85,23 +77,16 @@ public class PantallaImportarBodega extends javax.swing.JFrame {
                         .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(43, 43, 43))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(131, 131, 131)
-                        .addComponent(btnImportarActualizacion))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(130, 130, 130)
-                        .addComponent(btnActualizarSelecciones)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(130, 130, 130)
+                .addComponent(btnActualizarSelecciones)
+                .addContainerGap(175, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnImportarActualizacion)
-                .addGap(18, 18, 18)
+                .addGap(59, 59, 59)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(btnActualizarSelecciones)
@@ -126,14 +111,15 @@ public class PantallaImportarBodega extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void opcionImportarActualizacionVino(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcionImportarActualizacionVino
-        habilitarPantalla();
-        //¿Está correctamente implementada la instancia del Gestor?
-        this.gestorImportadorBodega = new GestorImportadorBodega();
-        this.gestorImportadorBodega.setPantallaImportarBodega(this);
-        this.gestorImportadorBodega.opcionImportarActualizacionVino();
-    }//GEN-LAST:event_opcionImportarActualizacionVino
+    public void setGestorImportadorBodega(GestorImportadorBodega gestorImportadorBodega) {
+        this.gestorImportadorBodega = gestorImportadorBodega;
+    }
 
+    public void opcionImportarActualizacionVino(){
+        habilitarPantalla();
+        this.gestorImportadorBodega.opcionImportarActualizacionVino();
+    }
+    
     private void tomarSeleccionBodega(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tomarSeleccionBodega
         Set<String> bodegasSeleccionadas = new HashSet<>();
         DefaultTableModel mt = (DefaultTableModel) tblBodegasActualizables.getModel();
@@ -152,7 +138,7 @@ public class PantallaImportarBodega extends javax.swing.JFrame {
     }//GEN-LAST:event_tomarSeleccionBodega
 
     private void habilitarPantalla(){
-        btnImportarActualizacion.setVisible(false);
+        this.setVisible(true);
     }
     
     public void mostrarBodegaParaActualizar(Set<String> nombresBodegasSet){
@@ -164,7 +150,6 @@ public class PantallaImportarBodega extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizarSelecciones;
-    private javax.swing.JButton btnImportarActualizacion;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblTitulo;

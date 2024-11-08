@@ -1,5 +1,6 @@
 package logica_De_Negocio.entidades;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,8 +26,8 @@ public class Enofilo implements Serializable {
     @OneToOne
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
-    @OneToMany
-    @JoinColumn(name = "seguidor_id")
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "enofilo_id")
     private List<Siguiendo> seguidores;
 
     public Enofilo() {
@@ -93,4 +94,6 @@ public class Enofilo implements Serializable {
     public void seguisABodega(){}
     
     public void getNombreUsuario(){}
+    
+    
 }

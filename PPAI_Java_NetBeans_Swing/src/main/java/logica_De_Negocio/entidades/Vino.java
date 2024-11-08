@@ -1,11 +1,16 @@
 package logica_De_Negocio.entidades;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -29,18 +34,38 @@ public class Vino implements Serializable {
     private String notaDeCataBodega;
     @Column(name = "precio_ARS")
     private double precioArs;
-    @OneToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "bodega_id")
     private Bodega bodega;
-    @OneToMany
-    @JoinColumn(name = "maridaje_id", nullable = true)
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "vinos_maridajes",
+            joinColumns = @JoinColumn(name = "vino_id"),
+            inverseJoinColumns = @JoinColumn(name = "maridaje_id")
+    )
     private List<Maridaje> maridajes;
-    @OneToMany
-    @JoinColumn(name = "varietal_id")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER
+    )
+    @JoinColumn(name = "vino_id")
     private List<Varietal> varietales;
 
     public Vino() {
     }
+
+    public Vino(String nombre, int aniada, LocalDateTime fechaActualizacion, String imagenEtiqueta, String notaDeCataBodega, double precioArs, Bodega bodega, List<Maridaje> maridajes, List<Varietal> varietales) {
+        this.nombre = nombre;
+        this.aniada = aniada;
+        this.fechaActualizacion = fechaActualizacion;
+        this.imagenEtiqueta = imagenEtiqueta;
+        this.notaDeCataBodega = notaDeCataBodega;
+        this.precioArs = precioArs;
+        this.bodega = bodega;
+        this.maridajes = maridajes;
+        this.varietales = varietales;
+        //varietales.forEach(varietal->varietal.setVino(this));
+    }
+    
+    
 
     public long getId() {
         return id;
@@ -137,4 +162,11 @@ public class Vino implements Serializable {
     public void setImagenEtiqueta(){}
     
     public void crear(){}
+
+    @Override
+    public String toString() {
+        return "Vino{" + "id=" + id + ", nombre=" + nombre + ", aniada=" + aniada + ", fechaActualizacion=" + fechaActualizacion + ", imagenEtiqueta=" + imagenEtiqueta + ", notaDeCataBodega=" + notaDeCataBodega + ", precioArs=" + precioArs + ", bodega=" + bodega + ", maridajes=" + maridajes + ", varietales=" + varietales + '}';
+    }
+    
+    
 }

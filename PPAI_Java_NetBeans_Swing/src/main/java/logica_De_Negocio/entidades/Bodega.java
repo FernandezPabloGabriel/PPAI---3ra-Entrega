@@ -5,9 +5,11 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import java.util.List;
 import java.io.Serializable;
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 @Entity
 @Table(name = "bodegas")
@@ -36,9 +38,6 @@ public class Bodega implements Serializable {
         this.fechaUltimaActualizacion = fechaUltimaActualizacion;
         this.periodoActualizacion = periodoActualizacion;
     }
-
-    
-    public void mostrarTodosVinos(){}
     
     public boolean estaParaActualizarNovedadesVino(){
         LocalDateTime fechaActual = LocalDateTime.now();
@@ -52,7 +51,9 @@ public class Bodega implements Serializable {
         return nombre;
     }
     
-    public void actualizarDatosVinos(){}
+    public void actualizarDatosVinos(List<String> vino){
+        
+    }
 
     public Long getId() {
         return id;
@@ -101,6 +102,11 @@ public class Bodega implements Serializable {
     public void setPeriodoActualizacion(int periodoActualizacion) {
         this.periodoActualizacion = periodoActualizacion;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return "Bodega{" + "id=" + id + ", nombre=" + nombre + ", coordenadasUbicacion=" + coordenadasUbicacion + ", descripcion=" + descripcion + ", historia=" + historia + ", fechaUltimaActualizacion=" + fechaUltimaActualizacion + ", periodoActualizacion=" + periodoActualizacion + '}';
+    }
+
+
 }

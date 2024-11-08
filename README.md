@@ -5,11 +5,8 @@
 
 *** IMPORTANTE ***
 - USAR NetBeans PARA ABRIR EL PROYECTO, DE LO CONTRARIO NO SE MOSTRARÁ LA GUI
-- Para la conexión con la BD adjunto los siguientes videos que me sirvieron:
-  - https://www.youtube.com/watch?v=wALCw0F8e9M&t=128s
-  - https://www.youtube.com/watch?v=KGzOP__3GjA&t=686s
-  - https://www.youtube.com/watch?v=Z0BOz4wh1zg&t=181s
-  Falta experimentar un poco como hacer correr una BD por MySql en otras PCs.
-  Mas adelante, si tengo el tiempo y las ganas, me gustaría probar con sqlite para
-  tener la BD mas a mano y que sea mucho mas facil de ejecutar. En el día de la fecha, 
-  no pude. NetBeans es mas complejo en cuanto a conexiones con BD que Intellij.
+- Cuando se va a ejecutr el proyecto cambiar la ruta absoluta de la InterfazApiBodega por la suya correspondiente
+- Falta continuar la parte de la correcta carga de datos desde los JSONs y aplicar un filtro de los vinos del gestor para que queden los pertenecientes a las bodegas seleccionadas
+
+*** Otros ***
+- Por alguna razón, se crea una tabla extra entre el varietal y el tipo de vino, eso a chequear

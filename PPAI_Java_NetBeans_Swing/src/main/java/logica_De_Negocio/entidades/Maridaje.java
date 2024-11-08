@@ -6,6 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.io.Serializable;
+import java.util.Objects;
 
 @Entity
 @Table(name = "maridajes")
@@ -20,7 +21,7 @@ public class Maridaje implements Serializable {
     public Maridaje() {
     }
 
-    public Maridaje(String descripcion, String nombre) {
+    public Maridaje(String nombre, String descripcion) {
         this.descripcion = descripcion;
         this.nombre = nombre;
     }
@@ -52,4 +53,33 @@ public class Maridaje implements Serializable {
     
     
     public void maridaConVino(){}
+
+    @Override
+    public String toString() {
+        return "Maridaje{" + "id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + '}';
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 53 * hash + Objects.hashCode(this.nombre);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Maridaje other = (Maridaje) obj;
+        return Objects.equals(this.nombre, other.nombre);
+    }
+
+    
 }

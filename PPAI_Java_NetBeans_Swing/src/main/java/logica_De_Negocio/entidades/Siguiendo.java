@@ -6,9 +6,10 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.io.Serializable;
+
 import java.time.LocalDateTime;
 import javax.annotation.processing.Generated;
 
@@ -22,14 +23,15 @@ public class Siguiendo implements Serializable {
     private LocalDateTime fechaFin;
     @Column(name = "fecha_inicio")
     private LocalDateTime fechaInicio;
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "bodega_id")
     private Bodega bodega;
+    
 
     public Siguiendo() {
     }
 
-    public Siguiendo(LocalDateTime fechaFin, LocalDateTime fechaInicio, Bodega bodega) {
+    public Siguiendo(LocalDateTime fechaInicio, LocalDateTime fechaFin, Bodega bodega) {
         this.fechaFin = fechaFin;
         this.fechaInicio = fechaInicio;
         this.bodega = bodega;
