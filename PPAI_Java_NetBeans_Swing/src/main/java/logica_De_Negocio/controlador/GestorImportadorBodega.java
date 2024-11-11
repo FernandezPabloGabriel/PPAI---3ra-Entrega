@@ -29,14 +29,17 @@ public class GestorImportadorBodega {
     private Set<Maridaje> maridajesSet = new HashSet<>();
     private Set<TipoUva> tiposUvasSet = new HashSet<>();
     private PantallaImportarBodega pantallaImportarBodega;
+    private InterfazAPIBodega interfazAPIBodega;
+    private ControladorPersistencia controladorPersistencia = new ControladorPersistencia();
 
     //Cargamos todos los datos pertinentes que utilizará el gestor al inicializarce
     public GestorImportadorBodega() {
         //Creamos instancia del controlador de persistencia, quien se comunicará
         //con las clases de persistencia asignadas a cada clase entidad
-        ControladorPersistencia controladorPersistencia = new ControladorPersistencia();
-        //Populación de la BD
+        
+        //Populación de la BD - SOLO PARA MOTIVOS DE PRUEBA
         controladorPersistencia.popularBDMock();
+        
         //Carga de los objetos que utilizaremos en este programa
         //Utilizamos eager.FETCH para ello con el objetivo de simplificar, aunque
         //es una forma costosa en cuanto a memoria
@@ -52,6 +55,12 @@ public class GestorImportadorBodega {
         this.pantallaImportarBodega = pantallaImportarBodega;
     }
 
+    public void setInterfazAPIBodega(InterfazAPIBodega interfazAPIBodega) {
+        this.interfazAPIBodega = interfazAPIBodega;
+    }
+
+    
+    
     public void opcionImportarActualizacionVino() {
         //cargarBodegasMock();
         Set<String> nombresBodegasSet = buscarBodegaParaActualizar(this.bodegasSet);
@@ -71,15 +80,27 @@ public class GestorImportadorBodega {
         return nombresBodegasSet;
     }
     
-    public void estaParaActualizarNovedadesVino(){
-    }
-    
-    public void getNombre(){
-    }
-    
     public void tomarSeleccionBodega(Set<String> bodegasSeleccionadas){
-        Set<Bodega> bodegasSeleccionadasSet;
+        List<Bodega> listaBodegasSeleccionadas = buscarBodegasSeleccionadas(bodegasSeleccionadas);
         
+        for(Bodega bodegaSeleccionada: listaBodegasSeleccionadas){
+            //Lista de String de vinos extraidos desde la interfazApiBodega
+            List<HashMap<String,Object>> listaVinosImportados = obtenerActualizacionVinosBodega(bodegaSeleccionada.getNombre());
+            //Filtramos los vinos de la lista cargada del gestor para obtener los vinos correspondientes a la bodega
+            Set<Vino> vinosBodegaSeleccionada = filtrarVinosDeBodega(bodegaSeleccionada);
+            
+            //Actualizar vinos existentes
+            listaVinosImportados = actualizarCaracteristicasVinoExistente(bodegaSeleccionada, listaVinosImportados, vinosBodegaSeleccionada);
+            HashMap<String, Maridaje> maridajesMap = buscarMaridaje(listaVinosImportados);
+            HashMap<String, TipoUva> tiposUvasMap = buscarTipoUva(listaVinosImportados);
+            
+            System.out.println(maridajesMap);
+            System.out.println(tiposUvasMap);
+            
+            crearVinos(listaVinosImportados, bodegaSeleccionada, maridajesMap, tiposUvasMap);
+            }
+        }
+
 //        for(Bodega bodegaSeleccionada:bodegaVinosMap.keySet()){
 //            bodegaVinosMap.get(bodegaSeleccionada)
 //                    .stream()
@@ -91,41 +112,145 @@ public class GestorImportadorBodega {
 //                        });
 //                    });
 //        }
-    }
     
-    public HashMap<Bodega, List<List<String>>> obtenerActualizacionVinosBodega(Set<String> bodegasSeleccionadas){
-        //Faltaría asociarla a su correspondiente bodega y extraer maridajes, varietales y tipos de uva
-        HashMap<Bodega, List<List<String>>> bodegaVinosMap = new HashMap<>();
+    public List<Bodega> buscarBodegasSeleccionadas(Set<String> bodegasSeleccionadas){
+        List<Bodega> listaBodegasSeleccionadas = new ArrayList<>();
         
-//        for(String bodegaSeleccionada:bodegasSeleccionadas){
-//            InterfazAPIBodega interfazAPIBodega = new InterfazAPIBodega();
-//            
-//            //Vinos extraidos
-//            List<List<String>> listaVinos = interfazAPIBodega.obtenerActualizacionVinos(bodegaSeleccionada);
-//            
-//            //Recuperamos el objeto de bodega correspondiente al nombre seleccionado
-//            Bodega bodega = (bodegasSet.stream()
-//                    .filter(bode->bode
-//                            .getNombre()
-//                            .equalsIgnoreCase(bodegaSeleccionada))
-//                    .collect(Collectors
-//                            .toList()))
-//                    .get(0);
-//            bodegaVinosMap.put(bodega, listaVinos);
+        for(String bodegaSeleccionada: bodegasSeleccionadas){
+            bodegasSet.forEach(bode->{
+                if(bode.getNombre().equalsIgnoreCase(bodegaSeleccionada)){
+                    listaBodegasSeleccionadas.add(bode);
+                }
+            });
+        }   
+        return listaBodegasSeleccionadas;
+    }
+    
+    public List<HashMap<String,Object>> obtenerActualizacionVinosBodega(String bodegaSeleccionadaNombre){
+        //List<List<String>> listaVinos = interfazAPIBodega.obtenerActualizacionVinos(bodegaSeleccionadaNombre);
+        //Faltaría asociarla a su correspondiente bodega y extraer maridajes, varietales y tipos de uva
+        return interfazAPIBodega.obtenerActualizacionVinos(bodegaSeleccionadaNombre);
+    }
+    
+    public Set<Vino> filtrarVinosDeBodega(Bodega bodegaSeleccionada){
+        return bodegaSeleccionada.filtrarVinosDeBodega(vinosSet);
+    }
+    
+    public List<HashMap<String,Object>> actualizarCaracteristicasVinoExistente(Bodega bodega, 
+            List<HashMap<String,Object>> vinosImportadosData, 
+            Set<Vino> vinosBodegaSeleccionada){
+        System.out.println("-------------------------------------------------");
+        List<HashMap<String,Object>> vinosParaCrear = new ArrayList<>();
+        
+        for(HashMap<String,Object> vinoImportado: vinosImportadosData){
+            Vino vinoActualizado = bodega.actualizarDatosVino(vinosBodegaSeleccionada, vinoImportado);
+            if(vinoActualizado != null){
+                controladorPersistencia.actualizarVinos(vinoActualizado);
+            } else{
+                vinosParaCrear.add(vinoImportado);
+            }
+        }
+        return vinosParaCrear;
+        //Vino vinoActualizado = bodega.actualizarDatosVino(vinosBodegaSeleccionada, );
+//        if(vinoActualizado != null){
+//            controladorPersistencia.actualizarVinos(vinoActualizado);
 //        }
-        return bodegaVinosMap;
+        
+        
     }
     
-    public void actualizarCaracteristicasVinoExistente(Bodega bodega, List<String> vino){
-        bodega.actualizarDatosVinos(vino);
+    public void getNombre(){
     }
     
-    public void buscarMaridaje(){     
+    public HashMap<String, Maridaje> buscarMaridaje(List<HashMap<String,Object>> listaVinosImportados){     
+        HashMap<String,Maridaje> maridajesMap = new HashMap<>();
+        //Filtro los maridajes importados
+        List<String> listaMaridajes = listaVinosImportados
+                .stream()
+                .flatMap(vinoImportado->((List<String>) vinoImportado.get("maridajes"))
+                        .stream())
+                .distinct()
+                .collect(Collectors.toList());
+        
+        maridajesSet
+                .stream()
+                .forEach(marida->{
+                    for(String nombreMaridaje: listaMaridajes){
+                        if(marida.maridaConVino(nombreMaridaje)){
+                            maridajesMap.put(nombreMaridaje, marida);
+                        };
+                    }
+                });
+                
+        return maridajesMap;
     }
     
-    public void buscarTipoUva(){}
+    public HashMap<String,TipoUva> buscarTipoUva(List<HashMap<String,Object>> listaVinosImportados){
+        HashMap<String,TipoUva> tiposUvasMap = new HashMap<>();
+        
+        List<String> listaTiposUvas = listaVinosImportados
+                .stream()
+                .flatMap(vino->((List<HashMap<String,String>>) vino.get("varietales"))
+                        .stream()
+                        .map(vari->vari.get("tipoUva")))
+                .distinct()
+                .collect(Collectors.toList());
+        
+        tiposUvasSet
+                .stream()
+                .forEach(tipoUva->{
+                    if(tipoUva.esTipoUva(listaTiposUvas)){
+                        tiposUvasMap.put(tipoUva.getNombre(), tipoUva);
+                    };
+                });
+        return tiposUvasMap;
+    }
     
-    public void crearVinos(){}
+    public void crearVinos(List<HashMap<String,Object>> listaVinosImportados, 
+            Bodega bodegaSeleccionada, 
+            HashMap<String, Maridaje> maridajesMap, 
+            HashMap<String, TipoUva> tiposUvasMap){
+        
+        for(HashMap<String, Object> vinoImportado: listaVinosImportados){
+            List<HashMap<String,String>> varietalesParaCrear = 
+                    ((List<HashMap<String,String>>) vinoImportado.get("varietales"))
+                        .stream()
+                        .filter(vari->tiposUvasMap.containsKey(vari.get("tipoUva")))
+                    .collect(Collectors.toList());
+                    
+            Long anioAux = (long) vinoImportado.get("aniada");
+            Integer anio = anioAux.intValue();
+            
+            Double precioArs = (double) vinoImportado.get("precioArs");
+            
+            Vino nuevoVino = new Vino(
+                    (String) vinoImportado.get("nombre"),
+                    anio,
+                    (String) vinoImportado.get("imagenEtiqueta"),
+                    (String) vinoImportado.get("notaDeCataBodega"),
+                    precioArs,
+                    bodegaSeleccionada,
+                    ((List<String>) vinoImportado.get("maridajes"))
+                        .stream()
+                        .map(marida->maridajesMap.get(marida))
+                        .distinct()
+                        .collect(Collectors.toList()),
+                    varietalesParaCrear,
+                    tiposUvasMap
+            );
+            
+            controladorPersistencia.desmaterializarVino(nuevoVino);
+        }
+        
+//        public Vino(String nombre, 
+//            int aniada, 
+//            String imagenEtiqueta, 
+//            String notaDeCataBodega, 
+//            double precioArs, 
+//            Bodega bodega, 
+//            List<Maridaje> maridajes, 
+//            List<HashMap<String,String>> varietales) 
+    }
     
     public void buscarSeguidoresDeBodega(){}
     

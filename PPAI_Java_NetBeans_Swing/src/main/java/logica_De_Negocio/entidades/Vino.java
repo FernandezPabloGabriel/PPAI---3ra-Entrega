@@ -16,7 +16,11 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "vinos")
@@ -44,15 +48,14 @@ public class Vino implements Serializable {
             inverseJoinColumns = @JoinColumn(name = "maridaje_id")
     )
     private List<Maridaje> maridajes;
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER
-    )
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "vino_id")
-    private List<Varietal> varietales;
+    private Set<Varietal> varietales = new HashSet<>();
 
     public Vino() {
     }
 
-    public Vino(String nombre, int aniada, LocalDateTime fechaActualizacion, String imagenEtiqueta, String notaDeCataBodega, double precioArs, Bodega bodega, List<Maridaje> maridajes, List<Varietal> varietales) {
+    public Vino(String nombre, int aniada, LocalDateTime fechaActualizacion, String imagenEtiqueta, String notaDeCataBodega, double precioArs, Bodega bodega, List<Maridaje> maridajes, Set<Varietal> varietales) {
         this.nombre = nombre;
         this.aniada = aniada;
         this.fechaActualizacion = fechaActualizacion;
@@ -64,9 +67,38 @@ public class Vino implements Serializable {
         this.varietales = varietales;
         //varietales.forEach(varietal->varietal.setVino(this));
     }
-    
-    
 
+    public Vino(String nombre, 
+            int aniada, 
+            String imagenEtiqueta, 
+            String notaDeCataBodega, 
+            double precioArs, 
+            Bodega bodega, 
+            List<Maridaje> maridajes, 
+            List<HashMap<String,String>> varietales,
+            HashMap<String, TipoUva> tiposUvasMap) {
+        this.nombre = nombre;
+        this.aniada = aniada;
+        setFechaActualizacion();
+        this.imagenEtiqueta = imagenEtiqueta;
+        this.notaDeCataBodega = notaDeCataBodega;
+        this.precioArs = precioArs;
+        this.bodega = bodega;
+        this.maridajes = maridajes;
+        crearVarietales(varietales, tiposUvasMap);
+    }
+
+    public void crearVarietales(List<HashMap<String,String>> varietales, HashMap<String, TipoUva> tiposUvasMap){
+        for(HashMap<String,String> varietal: varietales){
+            Varietal varietalParaCrear = new Varietal((String) varietal.get("descripcion"),
+                    Double.parseDouble((String) varietal.get("porcentajeComposicion")), 
+                    tiposUvasMap.get((String) varietal.get("tipoUva")));
+            if(varietalParaCrear != null){
+                this.varietales.add(varietalParaCrear);
+            }
+        }
+    }
+    
     public long getId() {
         return id;
     }
@@ -95,8 +127,8 @@ public class Vino implements Serializable {
         return fechaActualizacion;
     }
 
-    public void setFechaActualizacion(LocalDateTime fechaActualizacion) {
-        this.fechaActualizacion = fechaActualizacion;
+    public void setFechaActualizacion() {
+        this.fechaActualizacion = LocalDateTime.now();
     }
 
     public String getImagenEtiqueta() {
@@ -139,29 +171,49 @@ public class Vino implements Serializable {
         this.maridajes = maridajes;
     }
 
-    public List<Varietal> getVarietales() {
+    public Set<Varietal> getVarietales() {
         return varietales;
     }
 
-    public void setVarietales(List<Varietal> varietales) {
+    public void setVarietales(Set<Varietal> varietales) {
         this.varietales = varietales;
     }
     
     public void compararEtiqueta(){}
     
-    public void esDeBodega(){}
+    public Boolean esDeBodega(Bodega bodega){
+        return bodega.getNombre().equalsIgnoreCase(this.bodega.getNombre());
+    }
     
-    public void esDeRegionVitivinicola(){}
-    
-    public void sosVinoParaActualizar(){}
-    
-    public void setPrecio(){}
-    
-    public void setNotaCata(){}
-    
-    public void setImagenEtiqueta(){}
+    public Boolean sosVinoParaActualizar(String vinoImportado){
+        return vinoImportado.equalsIgnoreCase(this.nombre);
+    }    
     
     public void crear(){}
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 97 * hash + Objects.hashCode(this.nombre);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Vino other = (Vino) obj;
+        return Objects.equals(this.nombre, other.nombre);
+    }
+    
+    
 
     @Override
     public String toString() {

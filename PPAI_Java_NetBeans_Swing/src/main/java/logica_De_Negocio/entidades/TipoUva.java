@@ -54,7 +54,9 @@ public class TipoUva implements Serializable {
     
     
     
-    public void esTipoUva(){}
+    public Boolean esTipoUva(List<String> nombreTipoUva){
+        return nombreTipoUva.contains(this.nombre);
+    }
 
     @Override
     public String toString() {

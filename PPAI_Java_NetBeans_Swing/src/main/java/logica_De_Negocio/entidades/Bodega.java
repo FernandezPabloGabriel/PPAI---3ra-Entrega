@@ -9,7 +9,10 @@ import java.util.List;
 import java.io.Serializable;
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.Objects;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "bodegas")
@@ -46,13 +49,30 @@ public class Bodega implements Serializable {
         //entonces devuelve true, ya que está listo para actualizar
         return fechaActual.isAfter(this.fechaUltimaActualizacion.plusMonths(periodoActualizacion));
     }
+    
+    public Set<Vino> filtrarVinosDeBodega(Set<Vino> vinos){
+        return vinos
+                .stream()
+                .filter(vino->vino.esDeBodega(this))
+                .collect(Collectors.toSet());
+                
+    }
 
     public String getNombre() {
         return nombre;
     }
     
-    public void actualizarDatosVinos(List<String> vino){
-        
+    public Vino actualizarDatosVino(Set<Vino> vinosBodega, HashMap<String,Object> vinoImportado){
+        for(Vino vino: vinosBodega){
+            if(vino.sosVinoParaActualizar((String) vinoImportado.get("nombre"))){
+                vino.setPrecioArs((double) vinoImportado.get("precioArs"));
+                vino.setNotaDeCataBodega((String) vinoImportado.get("notaDeCataBodega"));
+                vino.setImagenEtiqueta((String) vinoImportado.get("imagenEtiqueta"));
+                vino.setFechaActualizacion();
+                return vino;
+            }
+        }
+        return null;
     }
 
     public Long getId() {

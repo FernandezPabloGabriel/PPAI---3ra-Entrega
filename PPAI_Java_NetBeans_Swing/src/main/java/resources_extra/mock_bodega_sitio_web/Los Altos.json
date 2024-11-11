@@ -1,6 +1,6 @@
 [
     {
-        "nombre": "Gran Reserva El Valle",
+        "nombre": "Los Altos Merlot",
         "aniada": 2018,
         "fechaActualizacion": "2023-09-01T10:15:34",
         "imagenEtiqueta": "los_altos_merlot.jpg",
@@ -8,17 +8,17 @@
         "precioArs": 2100.0,
         "maridajes": [
             {
-                "nombre": "Ensalada César",
+                "nombre": "Pinot Noir y pato",
                 "descripcion": "Ideal para ensaladas frescas y crujientes."
             }
         ],
         "varietales": [
         {
-            "descripcion": "Malbec Rosé",
+            "descripcion": "Varietal dulce ideal para postres.",
             "porcentajeComposicion": 100.0,
             "tipoUva": {
                 "descripcion": "Uva tinta transformada en vino rosado, con buena acidez",
-                "nombre": "Malbec"
+                "nombre": "Muscat"
             }
         }
     ]
@@ -32,11 +32,11 @@
     "precioArs": 2300.0,
     "maridajes": [
         {
-            "nombre": "Costillas de Cerdo",
+            "nombre": "Zinfandel y pizza",
             "descripcion": "Perfecto para carnes a la parrilla y con salsa barbacoa."
         },
         {
-            "nombre": "Hamburguesas",
+            "nombre": "Malbec y empanadas de carne",
             "descripcion": "Combina bien con carnes y condimentos."
         }
     ],

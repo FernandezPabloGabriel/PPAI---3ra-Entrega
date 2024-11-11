@@ -52,7 +52,9 @@ public class Maridaje implements Serializable {
     
     
     
-    public void maridaConVino(){}
+    public Boolean maridaConVino(String nombreMaridaje){
+        return nombreMaridaje.equalsIgnoreCase(this.nombre);
+    }
 
     @Override
     public String toString() {
