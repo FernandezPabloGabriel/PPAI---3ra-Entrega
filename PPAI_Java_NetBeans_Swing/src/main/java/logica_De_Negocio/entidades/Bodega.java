@@ -64,6 +64,7 @@ public class Bodega implements Serializable {
     
     public Vino actualizarDatosVino(Set<Vino> vinosBodega, HashMap<String,Object> vinoImportado){
         for(Vino vino: vinosBodega){
+            //Faltaría hacer algún tipo de validación de si el vino ya tenía el mismo parámetro, aunque se me hace lo mismo
             if(vino.sosVinoParaActualizar((String) vinoImportado.get("nombre"))){
                 vino.setPrecioArs((double) vinoImportado.get("precioArs"));
                 vino.setNotaDeCataBodega((String) vinoImportado.get("notaDeCataBodega"));

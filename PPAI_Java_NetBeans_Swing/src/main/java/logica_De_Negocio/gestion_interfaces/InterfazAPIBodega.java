@@ -31,10 +31,7 @@ public class InterfazAPIBodega {
                 
                 //List<String> aux = new ArrayList<>();
                 vinoData.put("nombre", vinoJSONObj.get("nombre"));
-                vinoData.put("aniada", (long) vinoJSONObj.get("aniada"));
-                Long glouda = (long) vinoJSONObj.get("aniada");
-                Integer glouda1 = (int) glouda.intValue();
-                System.out.println(glouda1);
+                vinoData.put("aniada", vinoJSONObj.get("aniada"));
                 //vinoData.put("fechaActualizacion", vinoJSONObj.get("fechaActualizacion"));
                 vinoData.put("imagenEtiqueta", vinoJSONObj.get("imagenEtiqueta"));
                 vinoData.put("notaDeCataBodega", vinoJSONObj.get("notaDeCataBodega"));
@@ -66,6 +63,7 @@ public class InterfazAPIBodega {
                 }
                 vinoData.put("varietales", listaVarietal);
                 
+                vinoData.put("bodega", bodegaSeleccionada);
                 vinosDataMap.add(vinoData);
             }
         } catch (Exception e){

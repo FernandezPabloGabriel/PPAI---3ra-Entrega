@@ -378,28 +378,9 @@ public class ControladorPersistencia {
         vinos.add(vino7);
         vinos.add(vino8);
         vinos.add(vino9);
-        vinos.add(vino10);
-        
+        vinos.add(vino10);        
         vinos.forEach(vino->vinoJpaController.create(vino));
 
-
-        
-//        List<Varietal> listita = varietalesList
-//                .stream()
-//                .filter(varietal->varietal.getVino() != null)
-//                .toList();
-//        vino1 = vinoJpaController.findVino(1L);
-//        vino2 = vinoJpaController.findVino(2L);
-//        vino3 = vinoJpaController.findVino(3L);
-//        vino4 = vinoJpaController.findVino(4L);
-//        vino5 = vinoJpaController.findVino(5L);
-//        vino6 = vinoJpaController.findVino(6L);
-//        vino7 = vinoJpaController.findVino(7L);
-//        vino8 = vinoJpaController.findVino(8L);
-//        vino9 = vinoJpaController.findVino(9L);
-//        vino10 = vinoJpaController.findVino(10L);
-        
-        
         //Instancias de Usuario
         List<Usuario> usuarios = new ArrayList<>();
         usuarios.add(new Usuario("pass123", "Juan"));

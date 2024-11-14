@@ -13,11 +13,13 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.stream.Collectors;
+import javax.swing.JDialog;
 import logica_De_Negocio.entidades.Maridaje;
 import logica_De_Negocio.entidades.TipoUva;
 import logica_De_Negocio.entidades.Vino;
 import logica_De_Negocio.gestion_interfaces.InterfazAPIBodega;
 import persistencia.ControladorPersistencia;
+import presentacion.PantallaResumenNovedadesVino;
 
 /**
  *
@@ -31,6 +33,7 @@ public class GestorImportadorBodega {
     private PantallaImportarBodega pantallaImportarBodega;
     private InterfazAPIBodega interfazAPIBodega;
     private ControladorPersistencia controladorPersistencia = new ControladorPersistencia();
+    private List<HashMap<String, Object>> resumenNovedadesVino = new ArrayList();
 
     //Cargamos todos los datos pertinentes que utilizará el gestor al inicializarce
     public GestorImportadorBodega() {
@@ -97,22 +100,18 @@ public class GestorImportadorBodega {
             System.out.println(maridajesMap);
             System.out.println(tiposUvasMap);
             
+            //Crear vinos importados
             crearVinos(listaVinosImportados, bodegaSeleccionada, maridajesMap, tiposUvasMap);
+            
+            
             }
+        //Mostramos resumen
+        PantallaResumenNovedadesVino pantallaResumenVinosImportados = new PantallaResumenNovedadesVino();
+        pantallaResumenVinosImportados.setVisible(true);
+        pantallaResumenVinosImportados.mostrarResumenVinosImportados(resumenNovedadesVino);
+        resumenNovedadesVino = new ArrayList();
         }
 
-//        for(Bodega bodegaSeleccionada:bodegaVinosMap.keySet()){
-//            bodegaVinosMap.get(bodegaSeleccionada)
-//                    .stream()
-//                    .forEach(vino->{
-//                        vinosSet.forEach(vinoS->{
-//                            if(vinoS.getNombre().equalsIgnoreCase(vino.get(0))){
-//                                actualizarCaracteristicasVinoExistente(bodegaSeleccionada, vinoS);
-//                            }
-//                        });
-//                    });
-//        }
-    
     public List<Bodega> buscarBodegasSeleccionadas(Set<String> bodegasSeleccionadas){
         List<Bodega> listaBodegasSeleccionadas = new ArrayList<>();
         
@@ -136,7 +135,8 @@ public class GestorImportadorBodega {
         return bodegaSeleccionada.filtrarVinosDeBodega(vinosSet);
     }
     
-    public List<HashMap<String,Object>> actualizarCaracteristicasVinoExistente(Bodega bodega, 
+    public List<HashMap<String,Object>> actualizarCaracteristicasVinoExistente(
+            Bodega bodega, 
             List<HashMap<String,Object>> vinosImportadosData, 
             Set<Vino> vinosBodegaSeleccionada){
         System.out.println("-------------------------------------------------");
@@ -145,18 +145,22 @@ public class GestorImportadorBodega {
         for(HashMap<String,Object> vinoImportado: vinosImportadosData){
             Vino vinoActualizado = bodega.actualizarDatosVino(vinosBodegaSeleccionada, vinoImportado);
             if(vinoActualizado != null){
+                //Persistiendo cambios
                 controladorPersistencia.actualizarVinos(vinoActualizado);
+                //Agregando vino actualizado al resumen
+                HashMap<String, Object> resumenVinoActualizado = new HashMap<>();
+                resumenVinoActualizado.put("nombre", vinoActualizado.getNombre());
+                resumenVinoActualizado.put("precioArs", vinoActualizado.getPrecioArs());
+                resumenVinoActualizado.put("notaDeCataBodega", vinoActualizado.getNotaDeCataBodega());
+                resumenVinoActualizado.put("imagenEtiqueta", vinoActualizado.getImagenEtiqueta());
+                resumenVinoActualizado.put("tipo", "Actualizado");
+                resumenVinoActualizado.put("bodega", vinoActualizado.getBodega().getNombre());
+                resumenNovedadesVino.add(resumenVinoActualizado);
             } else{
                 vinosParaCrear.add(vinoImportado);
             }
         }
-        return vinosParaCrear;
-        //Vino vinoActualizado = bodega.actualizarDatosVino(vinosBodegaSeleccionada, );
-//        if(vinoActualizado != null){
-//            controladorPersistencia.actualizarVinos(vinoActualizado);
-//        }
-        
-        
+        return vinosParaCrear; 
     }
     
     public void getNombre(){
@@ -211,7 +215,14 @@ public class GestorImportadorBodega {
             HashMap<String, Maridaje> maridajesMap, 
             HashMap<String, TipoUva> tiposUvasMap){
         
+        //Implementar algún tipo de excepción en caso de que suceda algún error con las relaciones al cargarlas
         for(HashMap<String, Object> vinoImportado: listaVinosImportados){
+            List<Maridaje> maridajesExistentes = 
+                    ((List<String>) vinoImportado.get("maridajes"))
+                        .stream()
+                        .map(marida->maridajesMap.get(marida))
+                        .collect(Collectors.toList());
+            
             List<HashMap<String,String>> varietalesParaCrear = 
                     ((List<HashMap<String,String>>) vinoImportado.get("varietales"))
                         .stream()
@@ -230,26 +241,15 @@ public class GestorImportadorBodega {
                     (String) vinoImportado.get("notaDeCataBodega"),
                     precioArs,
                     bodegaSeleccionada,
-                    ((List<String>) vinoImportado.get("maridajes"))
-                        .stream()
-                        .map(marida->maridajesMap.get(marida))
-                        .distinct()
-                        .collect(Collectors.toList()),
+                    maridajesExistentes,
                     varietalesParaCrear,
                     tiposUvasMap
             );
             
             controladorPersistencia.desmaterializarVino(nuevoVino);
+            vinoImportado.put("tipo", "Creado");
+            resumenNovedadesVino.add(vinoImportado);
         }
-        
-//        public Vino(String nombre, 
-//            int aniada, 
-//            String imagenEtiqueta, 
-//            String notaDeCataBodega, 
-//            double precioArs, 
-//            Bodega bodega, 
-//            List<Maridaje> maridajes, 
-//            List<HashMap<String,String>> varietales) 
     }
     
     public void buscarSeguidoresDeBodega(){}
@@ -265,8 +265,6 @@ public class GestorImportadorBodega {
     private void cargarSiguiendos() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-
-
 
     private void cargarUsuarios() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
