@@ -3,6 +3,7 @@ package logica_De_Negocio.entidades;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -23,10 +24,10 @@ public class Enofilo implements Serializable {
     private String apellido;
     @Column(name = "imagen_perfil")
     private String imagenPerfil;
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "enofilo_id")
     private List<Siguiendo> seguidores;
 
@@ -90,10 +91,25 @@ public class Enofilo implements Serializable {
     }
 
     
+    public boolean seguisABodega(Bodega bodegaSeleccionada){
+        for(Siguiendo siguiendo: seguidores){
+            if(siguiendo.sosDeBodega(bodegaSeleccionada)){
+                return true;
+            }
+        }
+        return false;
+    }
     
-    public void seguisABodega(){}
     
-    public void getNombreUsuario(){}
+    public String getNombreUsuario(){
+        return usuario.getNombre();
+    }
+
+    @Override
+    public String toString() {
+        return "Enofilo{" + "nombre=" + nombre + ", apellido=" + apellido + ", imagenPerfil=" + imagenPerfil + ", usuario=" + usuario + ", seguidores=" + seguidores + '}';
+    }
+    
     
     
 }

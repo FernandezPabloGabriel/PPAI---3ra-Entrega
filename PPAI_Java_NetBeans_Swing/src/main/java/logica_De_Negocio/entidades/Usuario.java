@@ -49,6 +49,12 @@ public class Usuario implements Serializable {
     }
     
     
-    
     public void esTuUsuario(){}
+
+    @Override
+    public String toString() {
+        return "Usuario{" + "contrasenia=" + contrasenia + ", nombre=" + nombre + '}';
+    }
+    
+    
 }

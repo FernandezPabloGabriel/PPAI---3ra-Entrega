@@ -12,15 +12,10 @@
     <class>logica_De_Negocio.entidades.Vino</class>
     <properties>
       <!-- Configuración de la base de datos -->
-      <property name="javax.persistence.jdbc.url" value="jdbc:sqlite:bonvino.db"/>
-      <!-- Propiedades adicionales de Hibernate -->
+      <property name="jakarta.persistence.jdbc.url" value="jdbc:sqlite:bonvino.db"/>
       <property name="hibernate.dialect" value="org.hibernate.community.dialect.SQLiteDialect"/>
-      <property name="hibernate.show_sql" value="false"/>
-<!--      <property name="hibernate.hbm2ddl.import_files" value="init.sql"/>
-      <property name="hibernate.hbm2ddl.auto" value="create-drop"/>-->
-      
+      <property name="hibernate.show_sql" value="true"/>
       <property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create"/>
-      
     </properties>
   </persistence-unit>
 </persistence>

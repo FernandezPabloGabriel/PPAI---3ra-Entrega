@@ -16,6 +16,7 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -39,7 +40,7 @@ public class Vino implements Serializable {
     @Column(name = "precio_ARS")
     private double precioArs;
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "bodega_id")
+    @JoinColumn(name = "bodega_id", nullable = false)
     private Bodega bodega;
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
@@ -50,12 +51,12 @@ public class Vino implements Serializable {
     private List<Maridaje> maridajes;
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "vino_id")
-    private Set<Varietal> varietales = new HashSet<>();
+    private List<Varietal> varietales = new ArrayList<>();
 
     public Vino() {
     }
 
-    public Vino(String nombre, int aniada, LocalDateTime fechaActualizacion, String imagenEtiqueta, String notaDeCataBodega, double precioArs, Bodega bodega, List<Maridaje> maridajes, Set<Varietal> varietales) {
+    public Vino(String nombre, int aniada, LocalDateTime fechaActualizacion, String imagenEtiqueta, String notaDeCataBodega, double precioArs, Bodega bodega, List<Maridaje> maridajes, List<Varietal> varietales) {
         this.nombre = nombre;
         this.aniada = aniada;
         this.fechaActualizacion = fechaActualizacion;
@@ -65,7 +66,6 @@ public class Vino implements Serializable {
         this.bodega = bodega;
         this.maridajes = maridajes;
         this.varietales = varietales;
-        //varietales.forEach(varietal->varietal.setVino(this));
     }
 
     public Vino(String nombre, 
@@ -90,9 +90,10 @@ public class Vino implements Serializable {
 
     public void crearVarietales(List<HashMap<String,String>> varietales, HashMap<String, TipoUva> tiposUvasMap){
         for(HashMap<String,String> varietal: varietales){
-            Varietal varietalParaCrear = new Varietal((String) varietal.get("descripcion"),
-                    Double.parseDouble((String) varietal.get("porcentajeComposicion")), 
-                    tiposUvasMap.get((String) varietal.get("tipoUva")));
+            Varietal varietalParaCrear = new Varietal(
+                    varietal.get("descripcion"),
+                    Double.parseDouble(varietal.get("porcentajeComposicion")), 
+                    tiposUvasMap.get(varietal.get("tipoUva")));
             if(varietalParaCrear != null){
                 this.varietales.add(varietalParaCrear);
             }
@@ -171,18 +172,18 @@ public class Vino implements Serializable {
         this.maridajes = maridajes;
     }
 
-    public Set<Varietal> getVarietales() {
+    public List<Varietal> getVarietales() {
         return varietales;
     }
 
-    public void setVarietales(Set<Varietal> varietales) {
+    public void setVarietales(List<Varietal> varietales) {
         this.varietales = varietales;
     }
     
     public void compararEtiqueta(){}
     
-    public Boolean esDeBodega(Bodega bodega){
-        return bodega.getNombre().equalsIgnoreCase(this.bodega.getNombre());
+    public Boolean esDeBodega(Bodega bodegaSeleccionada){
+        return this.bodega.equals(bodegaSeleccionada);
     }
     
     public Boolean sosVinoParaActualizar(String vinoImportado){

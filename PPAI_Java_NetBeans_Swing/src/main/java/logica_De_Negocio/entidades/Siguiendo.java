@@ -70,6 +70,15 @@ public class Siguiendo implements Serializable {
     }
     
     
+    public boolean sosDeBodega(Bodega bodegaSeleccionada){
+        return this.bodega.equals(bodegaSeleccionada);
+    }
     
-    public void sosDeBodega(){}
+
+    @Override
+    public String toString() {
+        return "Siguiendo{" + "fechaFin=" + fechaFin + ", fechaInicio=" + fechaInicio + ", bodega=" + bodega + '}';
+    }
+    
+    
 }

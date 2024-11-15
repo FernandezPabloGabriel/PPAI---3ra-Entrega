@@ -4,6 +4,10 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
+import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -43,6 +47,10 @@ public class ControladorPersistencia {
         return maridajeJpaController.findMaridajeEntities();
     }
     
+    public List<Enofilo> materializarEnofilos(){
+        return enofiloJpaController.findEnofiloEntities();
+    }
+    
     public void actualizarVinos(Vino vinoActualizado){
         try {
             vinoJpaController.edit(vinoActualizado);
@@ -55,15 +63,15 @@ public class ControladorPersistencia {
         vinoJpaController.create(vino);
     }
     
-//    public void editarMaridaje(Maridaje marida){
-//        try {
-//            maridajeJpaController.edit(marida);
-//        } catch (Exception e) {
-//            System.err.println("Error al encontrar el mardidaje a modificar " + e.getMessage());
-//        }
-//    }
+    public void actualizarFechaBodega(Bodega bodega){
+        try {
+            bodegaJpaController.edit(bodega);
+        } catch (Exception ex) {
+            Logger.getLogger(ControladorPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
-    //Populación de la BD para que se borren los cambios cada vez que corramos el programa
+    //Populación de la BD para que se borren los cambios cada vez que corramos el programa 
     public void popularBDMock(){ 
         //Instancias de Bodega
         List<Bodega> bodegasList = new ArrayList<>();
@@ -282,7 +290,7 @@ public class ControladorPersistencia {
                 "Notas de frutos rojos y especias, cuerpo robusto.",
                 1500.50, bodega1,
                 Arrays.asList(maridaje1),
-                new HashSet<>(Arrays.asList(varietal1, varietal2, varietal30)));
+                Arrays.asList(varietal1, varietal2, varietal30));
 
         Vino vino2 = new Vino("San Pedro Malbec", 2020,
                 LocalDateTime.of(2024, 10, 30, 9, 15, 12),
@@ -290,7 +298,7 @@ public class ControladorPersistencia {
                 "Aroma a ciruelas y taninos equilibrados.",
                 1200.00, bodega2,
                 null,
-                new HashSet<>(Arrays.asList(varietal3, varietal4)));
+                Arrays.asList(varietal3, varietal4));
 //        varietal3.setVino(vino2);
 //        varietal4.setVino(vino2);
 
@@ -300,7 +308,7 @@ public class ControladorPersistencia {
                 "Exquisito blend con notas florales y final largo.",
                 1800.75, bodega3,
                 Arrays.asList(maridaje2, maridaje3, maridaje4),
-                new HashSet<>(Arrays.asList(varietal5, varietal6)));
+                Arrays.asList(varietal5, varietal6));
 //        varietal5.setVino(vino3);
 //        varietal6.setVino(vino3);
 
@@ -310,7 +318,7 @@ public class ControladorPersistencia {
                 "Elegante con notas a frutos del bosque.",
                 2100.99, bodega4,
                 Arrays.asList(maridaje5, maridaje6, maridaje7, maridaje8),
-                new HashSet<>(Arrays.asList(varietal7, varietal8, varietal27, varietal28, varietal29)));
+                Arrays.asList(varietal7, varietal8, varietal27, varietal28, varietal29));
 //        varietal7.setVino(vino4);
 //        varietal8.setVino(vino4);
 //        varietal27.setVino(vino4);
@@ -324,7 +332,7 @@ public class ControladorPersistencia {
                 "Vino orgánico, fresco y frutado.",
                 950.00, bodega5,
                 Arrays.asList(maridaje1, maridaje3, maridaje5, maridaje10),
-                new HashSet<>(Arrays.asList(varietal9, varietal10,varietal26)));
+                Arrays.asList(varietal9, varietal10,varietal26));
 //        varietal9.setVino(vino5);
 //        varietal10.setVino(vino5);
 //        varietal26.setVino(vino5);
@@ -335,7 +343,7 @@ public class ControladorPersistencia {
                 "Taninos firmes y estructura compleja.",
                 1700.45, bodega6,
                 Arrays.asList(maridaje3, maridaje20, maridaje19, maridaje18, maridaje17),
-                new HashSet<>(Arrays.asList(varietal11, varietal12)));
+                Arrays.asList(varietal11, varietal12));
 
         Vino vino7 = new Vino("Viñas del Mar Sauvignon Blanc", 2022,
                 LocalDateTime.of(2024, 5, 8, 17, 55, 10),
@@ -343,7 +351,7 @@ public class ControladorPersistencia {
                 "Fresco y vibrante, ideal para mariscos.",
                 1350.60, bodega7,
                 Arrays.asList(maridaje1, maridaje3, maridaje5, maridaje25),
-                new HashSet<>(Arrays.asList(varietal13, varietal14,varietal24,varietal25)));
+                Arrays.asList(varietal13, varietal14,varietal24,varietal25));
 
         Vino vino8 = new Vino("Los Altos Merlot", 2018,
                 LocalDateTime.of(2024, 4, 11, 16, 30, 0),
@@ -351,7 +359,7 @@ public class ControladorPersistencia {
                 "Suave, con notas a frambuesa y toques de roble.",
                 1600.30, bodega8,
                 Arrays.asList(maridaje4),
-                new HashSet<>(Arrays.asList(varietal15, varietal16)));
+                Arrays.asList(varietal15, varietal16));
 
         Vino vino9 = new Vino("Vieja Tradición Cabernet", 2015,
                 LocalDateTime.of(2024, 3, 5, 14, 10, 20),
@@ -359,7 +367,7 @@ public class ControladorPersistencia {
                 "Clásico cabernet con notas de tabaco y cuero.",
                 1950.85, bodega9,
                 Arrays.asList(maridaje9, maridaje19),
-                new HashSet<>(Arrays.asList(varietal17, varietal18,varietal23)));
+                Arrays.asList(varietal17, varietal18,varietal23));
 
         Vino vino10 = new Vino("Rincones del Vino Rosé", 2023,
                 LocalDateTime.of(2024, 2, 14, 20, 45, 50),
@@ -367,7 +375,7 @@ public class ControladorPersistencia {
                 "Refrescante, con suaves notas de frutillas.",
                 1100.90, bodega10,
                 Arrays.asList(maridaje30, maridaje18, maridaje29),
-                new HashSet<>(Arrays.asList(varietal19, varietal20,varietal21,varietal22)));
+                Arrays.asList(varietal19, varietal20,varietal21,varietal22));
         List<Vino> vinos = new ArrayList<>();
         vinos.add(vino1);
         vinos.add(vino2);

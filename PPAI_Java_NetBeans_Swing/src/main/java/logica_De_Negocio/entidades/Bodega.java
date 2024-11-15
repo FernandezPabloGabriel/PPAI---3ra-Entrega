@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.util.List;
 import java.io.Serializable;
@@ -29,6 +30,8 @@ public class Bodega implements Serializable {
     private LocalDateTime fechaUltimaActualizacion;
     @Column (name = "periodo_actualizacion")
     private int periodoActualizacion;
+//    @OneToMany(mappedBy = "bodega")
+//    private List<Vino> vinos; 
 
     public Bodega() {
     }
@@ -42,6 +45,10 @@ public class Bodega implements Serializable {
         this.periodoActualizacion = periodoActualizacion;
     }
     
+//    public void agregarVino(Vino vino){
+//        this.vinos.add(vino);
+//    }
+    
     public boolean estaParaActualizarNovedadesVino(){
         LocalDateTime fechaActual = LocalDateTime.now();
         //Se suma la cantidad de meses especificados en el periodoActualizacion a la fechaUltimaActualizacion
@@ -50,6 +57,7 @@ public class Bodega implements Serializable {
         return fechaActual.isAfter(this.fechaUltimaActualizacion.plusMonths(periodoActualizacion));
     }
     
+    
     public Set<Vino> filtrarVinosDeBodega(Set<Vino> vinos){
         return vinos
                 .stream()
@@ -57,10 +65,7 @@ public class Bodega implements Serializable {
                 .collect(Collectors.toSet());
                 
     }
-
-    public String getNombre() {
-        return nombre;
-    }
+    
     
     public Vino actualizarDatosVino(Set<Vino> vinosBodega, HashMap<String,Object> vinoImportado){
         for(Vino vino: vinosBodega){
@@ -75,7 +80,18 @@ public class Bodega implements Serializable {
         }
         return null;
     }
-
+    
+    
+    public boolean sosBodegaSeleccionada(String bodegaNombre){
+        return this.nombre.equalsIgnoreCase(bodegaNombre);
+    }
+    
+    
+    public String getNombre() {
+        return nombre;
+    }
+    
+    
     public Long getId() {
         return id;
     }
@@ -124,6 +140,29 @@ public class Bodega implements Serializable {
         this.periodoActualizacion = periodoActualizacion;
     }
 
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 71 * hash + Objects.hashCode(this.nombre);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Bodega other = (Bodega) obj;
+        return Objects.equals(this.nombre, other.nombre);
+    }
+
+    
     @Override
     public String toString() {
         return "Bodega{" + "id=" + id + ", nombre=" + nombre + ", coordenadasUbicacion=" + coordenadasUbicacion + ", descripcion=" + descripcion + ", historia=" + historia + ", fechaUltimaActualizacion=" + fechaUltimaActualizacion + ", periodoActualizacion=" + periodoActualizacion + '}';

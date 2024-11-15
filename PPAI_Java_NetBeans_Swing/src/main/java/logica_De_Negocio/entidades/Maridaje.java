@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import java.util.List;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -52,8 +53,8 @@ public class Maridaje implements Serializable {
     
     
     
-    public Boolean maridaConVino(String nombreMaridaje){
-        return nombreMaridaje.equalsIgnoreCase(this.nombre);
+    public Boolean maridaConVino(List<String> nombresMaridaje){
+        return nombresMaridaje.contains(this.nombre);
     }
 
     @Override
