@@ -1,4 +1,4 @@
-package logica_De_Negocio.entidades;
+package logica_de_negocio.entidades;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;

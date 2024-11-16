@@ -1,10 +1,13 @@
 package presentacion;
 
+import java.util.List;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
-import logica_De_Negocio.controlador.GestorImportadorBodega;
+import logica_de_negocio.controlador.GestorImportadorBodega;
 
 public class PantallaImportarBodega extends javax.swing.JFrame {
     GestorImportadorBodega gestorImportadorBodega;
@@ -22,6 +25,8 @@ public class PantallaImportarBodega extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblBodegasActualizables = new javax.swing.JTable();
         btnActualizarSelecciones = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
+        btnMarcarTodo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,10 +61,24 @@ public class PantallaImportarBodega extends javax.swing.JFrame {
             tblBodegasActualizables.getColumnModel().getColumn(0).setPreferredWidth(35);
         }
 
-        btnActualizarSelecciones.setText("Actualizar Selecciones");
+        btnActualizarSelecciones.setText("Actualizar");
         btnActualizarSelecciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tomarSeleccionBodega(evt);
+            }
+        });
+
+        btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirtomarSeleccionBodega(evt);
+            }
+        });
+
+        btnMarcarTodo.setText("Marcar todo");
+        btnMarcarTodo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMarcarTodotomarSeleccionBodega(evt);
             }
         });
 
@@ -74,23 +93,29 @@ public class PantallaImportarBodega extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(48, 48, 48)
-                        .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnMarcarTodo, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnActualizarSelecciones)))
                 .addGap(43, 43, 43))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(130, 130, 130)
-                .addComponent(btnActualizarSelecciones)
-                .addContainerGap(175, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addGap(41, 41, 41)
                 .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59)
+                .addGap(36, 36, 36)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(btnActualizarSelecciones)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnActualizarSelecciones)
+                    .addComponent(btnMarcarTodo)
+                    .addComponent(btnSalir))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -124,20 +149,76 @@ public class PantallaImportarBodega extends javax.swing.JFrame {
         Set<String> bodegasSeleccionadas = new HashSet<>();
         DefaultTableModel mt = (DefaultTableModel) tblBodegasActualizables.getModel();
         int cantidadBodegas = mt.getRowCount();
+        boolean haySeleccion = false;
         
-        for(int i = cantidadBodegas - 1; i >= 0; i--){
-            Boolean esSeleccionada = (Boolean) mt.getValueAt(i, 0);
-            if(esSeleccionada){
-                String nombreBodega = (String) mt.getValueAt(i, 1);
-                bodegasSeleccionadas.add(nombreBodega);
-                mt.removeRow(i);
+        if(cantidadBodegas > 0){
+            for(int i = cantidadBodegas - 1; i >= 0; i--){
+                Boolean esSeleccionada = (Boolean) mt.getValueAt(i, 0);
+                if(esSeleccionada){
+                    String nombreBodega = (String) mt.getValueAt(i, 1);
+                    bodegasSeleccionadas.add(nombreBodega);
+                    mt.removeRow(i);
+                    haySeleccion = true;
+                }
             }
+            if(haySeleccion){
+                gestorImportadorBodega.tomarSeleccionBodega(bodegasSeleccionadas);
+            } else{
+                String[] opcion = {"Aceptar"};
+                JOptionPane.showOptionDialog(
+                null, 
+                "Por favor seleccione una bodega.", 
+                "Sin selección",
+                JOptionPane.YES_OPTION,
+                JOptionPane.INFORMATION_MESSAGE,
+                null,
+                opcion,
+                opcion[0]);
+            }
+            
+        } else{
+            String[] opcion = {"Aceptar"};
+            JOptionPane.showOptionDialog(
+                    null, 
+                    "No hay mas bodegas que actualizar, saliendo del programa...", 
+                    "Finalizando...",
+                    JOptionPane.YES_OPTION,
+                    JOptionPane.INFORMATION_MESSAGE,
+                    null,
+                    opcion,
+                    opcion[0]);
+            System.exit(0);
         }
         
-        gestorImportadorBodega.tomarSeleccionBodega(bodegasSeleccionadas);
     }//GEN-LAST:event_tomarSeleccionBodega
 
+    private void btnSalirtomarSeleccionBodega(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirtomarSeleccionBodega
+        String[] opciones = {"Aceptar", "Cancelar"};
+        int opcion = JOptionPane.showOptionDialog(
+                null, 
+                "¿Estás seguro de que deseas salir?", 
+                "Confirmación",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                opciones,
+                opciones[1]);
+        if(opcion == JOptionPane.YES_OPTION){
+            System.exit(0);
+        }
+    }//GEN-LAST:event_btnSalirtomarSeleccionBodega
+
+    private void btnMarcarTodotomarSeleccionBodega(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMarcarTodotomarSeleccionBodega
+        DefaultTableModel tm = (DefaultTableModel) tblBodegasActualizables.getModel();
+        int cantBodega = tm.getRowCount();
+        
+        for (int i = 0; i < cantBodega; i++) {
+            tm.setValueAt(true, i, 0);
+        }
+    }//GEN-LAST:event_btnMarcarTodotomarSeleccionBodega
+
     private void habilitarPantalla(){
+        this.setLocationRelativeTo(null);
         this.setVisible(true);
     }
     
@@ -147,9 +228,20 @@ public class PantallaImportarBodega extends javax.swing.JFrame {
             mt.addRow(new Object[]{false, bodegaNombre});
         }
     }
+    
+    public void mostrarResumenVinosImportados(List<HashMap<String,Object>> resumenNovedadesVino){
+        this.setVisible(false);
+        PantallaResumenNovedadesVino pantallaResumenVinosImportados = new PantallaResumenNovedadesVino();
+        pantallaResumenVinosImportados.setPantallaImportarBodega(this);
+        pantallaResumenVinosImportados.setLocationRelativeTo(null);
+        pantallaResumenVinosImportados.setVisible(true);
+        pantallaResumenVinosImportados.mostrarResumenVinosImportados(resumenNovedadesVino);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizarSelecciones;
+    private javax.swing.JButton btnMarcarTodo;
+    private javax.swing.JButton btnSalir;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblTitulo;

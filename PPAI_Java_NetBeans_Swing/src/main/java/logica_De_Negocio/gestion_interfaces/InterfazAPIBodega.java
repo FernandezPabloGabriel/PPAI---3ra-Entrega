@@ -1,4 +1,4 @@
-package logica_De_Negocio.gestion_interfaces;
+package logica_de_negocio.gestion_interfaces;
 
 import java.util.List;
 import java.io.BufferedReader;
@@ -69,6 +69,7 @@ public class InterfazAPIBodega {
         } catch (Exception e){
             System.err.println("Error al cargar el archivo " + e.getMessage());
             e.printStackTrace();
+            return null;
         }
         
         vinosDataMap.forEach(vino->System.out.println(vino));

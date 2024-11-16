@@ -9,7 +9,7 @@ import jakarta.persistence.Persistence;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
 import java.util.List;
-import logica_De_Negocio.entidades.Usuario;
+import logica_de_negocio.entidades.Usuario;
 import persistencia.exceptions.NonexistentEntityException;
 
 public class UsuarioJpaController implements Serializable {

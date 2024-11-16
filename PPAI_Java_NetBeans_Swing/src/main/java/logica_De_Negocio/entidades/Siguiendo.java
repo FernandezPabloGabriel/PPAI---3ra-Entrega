@@ -1,4 +1,4 @@
-package logica_De_Negocio.entidades;
+package logica_de_negocio.entidades;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

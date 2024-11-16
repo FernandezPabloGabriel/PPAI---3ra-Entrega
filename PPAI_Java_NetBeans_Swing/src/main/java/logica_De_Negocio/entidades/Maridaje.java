@@ -1,4 +1,4 @@
-package logica_De_Negocio.entidades;
+package logica_de_negocio.entidades;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -53,8 +53,8 @@ public class Maridaje implements Serializable {
     
     
     
-    public Boolean maridaConVino(List<String> nombresMaridaje){
-        return nombresMaridaje.contains(this.nombre);
+    public Boolean maridaConVino(String nombreMaridaje){
+        return nombreMaridaje.equalsIgnoreCase(this.nombre);
     }
 
     @Override

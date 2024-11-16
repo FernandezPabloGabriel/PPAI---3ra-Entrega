@@ -9,7 +9,7 @@ import jakarta.persistence.Persistence;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
 import java.util.List;
-import logica_De_Negocio.entidades.TipoUva;
+import logica_de_negocio.entidades.TipoUva;
 import persistencia.exceptions.NonexistentEntityException;
 
 public class TipoUvaJpaController implements Serializable {

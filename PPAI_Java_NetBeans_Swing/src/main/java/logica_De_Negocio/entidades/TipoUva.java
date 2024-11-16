@@ -1,4 +1,4 @@
-package logica_De_Negocio.entidades;
+package logica_de_negocio.entidades;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -54,8 +54,8 @@ public class TipoUva implements Serializable {
     
     
     
-    public Boolean esTipoUva(List<String> nombresTipoUva){
-        return nombresTipoUva.contains(this.nombre);
+    public Boolean esTipoUva(String nombresTipoUva){
+        return nombresTipoUva.equalsIgnoreCase(this.nombre);
     }
 
     @Override

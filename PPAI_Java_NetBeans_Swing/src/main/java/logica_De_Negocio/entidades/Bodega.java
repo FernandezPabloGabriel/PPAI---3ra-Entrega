@@ -1,4 +1,4 @@
-package logica_De_Negocio.entidades;
+package logica_de_negocio.entidades;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
+import persistencia.ControladorPersistencia;
 
 @Entity
 @Table(name = "bodegas")
@@ -67,18 +68,40 @@ public class Bodega implements Serializable {
     }
     
     
-    public Vino actualizarDatosVino(Set<Vino> vinosBodega, HashMap<String,Object> vinoImportado){
+    public String actualizarDatosVino(
+            Set<Vino> vinosBodega, 
+            HashMap<String,Object> vinoImportado,
+            ControladorPersistencia controladorPersistencia){
+        boolean paraActualizar = false;
         for(Vino vino: vinosBodega){
             //Faltaría hacer algún tipo de validación de si el vino ya tenía el mismo parámetro, aunque se me hace lo mismo
             if(vino.sosVinoParaActualizar((String) vinoImportado.get("nombre"))){
-                vino.setPrecioArs((double) vinoImportado.get("precioArs"));
-                vino.setNotaDeCataBodega((String) vinoImportado.get("notaDeCataBodega"));
-                vino.setImagenEtiqueta((String) vinoImportado.get("imagenEtiqueta"));
-                vino.setFechaActualizacion();
-                return vino;
+                double precioArs = (double) vinoImportado.get("precioArs");
+                String notaDeCataBodega = (String) vinoImportado.get("notaDeCataBodega");
+                String imagenEtiqueta = (String) vinoImportado.get("imagenEtiqueta");
+                
+                if(precioArs != vino.getPrecioArs()){
+                    vino.setPrecioArs(precioArs);
+                    paraActualizar = true;
+                }
+                if(notaDeCataBodega.equals(notaDeCataBodega)){
+                    vino.setNotaDeCataBodega(notaDeCataBodega);
+                    paraActualizar = true;
+                }
+                if(imagenEtiqueta.equals(imagenEtiqueta)){
+                    vino.setImagenEtiqueta(imagenEtiqueta);
+                    paraActualizar = true;
+                }
+                
+                if(paraActualizar){
+                    vino.setFechaActualizacion();
+                    controladorPersistencia.actualizarVino(vino);
+                    return "actualizado";
+                }
+                return "sinActualizar";
             }
         }
-        return null;
+        return "creado";
     }
     
     
@@ -128,8 +151,8 @@ public class Bodega implements Serializable {
         return fechaUltimaActualizacion;
     }
 
-    public void setFechaUltimaActualizacion(LocalDateTime fechaUltimaActualizacion) {
-        this.fechaUltimaActualizacion = fechaUltimaActualizacion;
+    public void setFechaUltimaActualizacion() {
+        this.fechaUltimaActualizacion = LocalDateTime.now();
     }
 
     public int getPeriodoActualizacion() {

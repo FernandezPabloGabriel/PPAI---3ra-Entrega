@@ -16,14 +16,14 @@ import java.util.List;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import logica_De_Negocio.entidades.Bodega;
-import logica_De_Negocio.entidades.Enofilo;
-import logica_De_Negocio.entidades.Maridaje;
-import logica_De_Negocio.entidades.Siguiendo;
-import logica_De_Negocio.entidades.TipoUva;
-import logica_De_Negocio.entidades.Usuario;
-import logica_De_Negocio.entidades.Varietal;
-import logica_De_Negocio.entidades.Vino;
+import logica_de_negocio.entidades.Bodega;
+import logica_de_negocio.entidades.Enofilo;
+import logica_de_negocio.entidades.Maridaje;
+import logica_de_negocio.entidades.Siguiendo;
+import logica_de_negocio.entidades.TipoUva;
+import logica_de_negocio.entidades.Usuario;
+import logica_de_negocio.entidades.Varietal;
+import logica_de_negocio.entidades.Vino;
 
 public class ControladorPersistencia {
     BodegaJpaController bodegaJpaController = new BodegaJpaController();
@@ -51,7 +51,7 @@ public class ControladorPersistencia {
         return enofiloJpaController.findEnofiloEntities();
     }
     
-    public void actualizarVinos(Vino vinoActualizado){
+    public void actualizarVino(Vino vinoActualizado){
         try {
             vinoJpaController.edit(vinoActualizado);
         } catch (Exception ex) {

@@ -32,6 +32,11 @@ public class PantallaResumenNovedadesVino extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1000, 1000));
         setPreferredSize(new java.awt.Dimension(600, 492));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                volverAPantallaImportarBodega(evt);
+            }
+        });
 
         lblTitulo2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblTitulo2.setText("Resumen de Actualizaciones");
@@ -97,9 +102,13 @@ public class PantallaResumenNovedadesVino extends javax.swing.JFrame {
 
     private void comBodegasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comBodegasActionPerformed
         String bodegaSeleccionada = (String) comBodegas.getSelectedItem();
-        List<HashMap<String,Object>> resumenNovedadesBodegaSeleccionada = filtrarVinosDeBodegaSeleccionada(resumenNovedadesVinos, bodegaSeleccionada);
+        List<HashMap<String,Object>> resumenNovedadesBodegaSeleccionada = filtrarVinosDeBodegaSeleccionada(bodegaSeleccionada);
         cargarResumenVinos(resumenNovedadesBodegaSeleccionada);
     }//GEN-LAST:event_comBodegasActionPerformed
+
+    private void volverAPantallaImportarBodega(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_volverAPantallaImportarBodega
+        pantallaImportarBodega.setVisible(true);
+    }//GEN-LAST:event_volverAPantallaImportarBodega
 
 //    public static void main(String args[]) {
 //        /* Set the Nimbus look and feel */
@@ -148,7 +157,7 @@ public class PantallaResumenNovedadesVino extends javax.swing.JFrame {
         cargarBodegas(bodegasActualizadas);
         
         //Cargamos el primer vino de la lista por defecto
-        List<HashMap<String,Object>> resumenNovedadesPrimerBodega = filtrarVinosDeBodegaSeleccionada(resumenNovedadesVinos, primerBodega);
+        List<HashMap<String,Object>> resumenNovedadesPrimerBodega = filtrarVinosDeBodegaSeleccionada(primerBodega);
         cargarResumenVinos(resumenNovedadesPrimerBodega);
     }
     
@@ -156,7 +165,7 @@ public class PantallaResumenNovedadesVino extends javax.swing.JFrame {
         bodegasActualizadas.forEach(bode->comBodegas.addItem(bode));
     }
     
-    public List<HashMap<String,Object>> filtrarVinosDeBodegaSeleccionada(List<HashMap<String,Object>> resumenNovedadesVinos, String bodegaSeleccionada){
+    public List<HashMap<String,Object>> filtrarVinosDeBodegaSeleccionada(String bodegaSeleccionada){
         return resumenNovedadesVinos
                 .stream()
                 .filter(vino->((String) vino.get("bodega")).equalsIgnoreCase(bodegaSeleccionada))
@@ -178,27 +187,21 @@ public class PantallaResumenNovedadesVino extends javax.swing.JFrame {
                 novedadVino.get("imagenEtiqueta"),
                 novedadVino.get("tipo")
             });
-//            if(((String) novedadVino.get("tipo")).equalsIgnoreCase("Actualizado")){
-//                
-//            }
         }
+    }
+
+    public void setPantallaImportarBodega(PantallaImportarBodega pantallaImportarBodega) {
+        this.pantallaImportarBodega = pantallaImportarBodega;
     }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> comBodegas;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JLabel lblTitulo;
-    private javax.swing.JLabel lblTitulo1;
     private javax.swing.JLabel lblTitulo2;
     private javax.swing.JPanel panVinosResumen;
     private javax.swing.JTable tblNovedadesVino;
     // End of variables declaration//GEN-END:variables
     private List<HashMap<String, Object>> resumenNovedadesVinos;
+    private PantallaImportarBodega pantallaImportarBodega;
 }

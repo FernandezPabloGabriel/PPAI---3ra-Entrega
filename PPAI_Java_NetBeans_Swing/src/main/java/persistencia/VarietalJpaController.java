@@ -9,7 +9,7 @@ import jakarta.persistence.Persistence;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
 import java.util.List;
-import logica_De_Negocio.entidades.Varietal;
+import logica_de_negocio.entidades.Varietal;
 import persistencia.exceptions.NonexistentEntityException;
 
 public class VarietalJpaController implements Serializable {

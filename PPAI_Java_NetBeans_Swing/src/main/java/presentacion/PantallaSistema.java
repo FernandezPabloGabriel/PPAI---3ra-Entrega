@@ -4,8 +4,8 @@
  */
 package presentacion;
 
-import logica_De_Negocio.controlador.GestorImportadorBodega;
-import logica_De_Negocio.gestion_interfaces.InterfazAPIBodega;
+import logica_de_negocio.controlador.GestorImportadorBodega;
+import logica_de_negocio.gestion_interfaces.InterfazAPIBodega;
 
 /**
  *
@@ -123,7 +123,9 @@ public class PantallaSistema extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PantallaSistema().setVisible(true);
+                PantallaSistema pantallaSistema = new PantallaSistema();
+                pantallaSistema.setLocationRelativeTo(null);
+                pantallaSistema.setVisible(true);
             }
         });
     }

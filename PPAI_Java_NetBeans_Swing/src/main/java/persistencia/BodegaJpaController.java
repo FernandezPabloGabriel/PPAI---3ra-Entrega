@@ -9,7 +9,7 @@ import jakarta.persistence.Persistence;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
 import java.util.List;
-import logica_De_Negocio.entidades.Bodega;
+import logica_de_negocio.entidades.Bodega;
 import persistencia.exceptions.NonexistentEntityException;
 
 public class BodegaJpaController implements Serializable {
