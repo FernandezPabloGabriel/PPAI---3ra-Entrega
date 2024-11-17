@@ -17,5 +17,8 @@ public interface ISujeto {
     
     void suscribir(IObservadorNotificacion observador);
     void quitar(IObservadorNotificacion observador);
-    void notificar();
+    void notificar(
+            List<List<String>> novedadesVinos,
+            List<String> nombresUsuarios,
+            String nombreBodegaSeleccionada);
 }

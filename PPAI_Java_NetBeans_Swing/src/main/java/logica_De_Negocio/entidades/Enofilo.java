@@ -91,9 +91,9 @@ public class Enofilo implements Serializable {
     }
 
     
-    public boolean seguisABodega(Bodega bodegaSeleccionada){
+    public boolean seguisABodega(String nombreBodegaSeleccionada){
         for(Siguiendo siguiendo: seguidores){
-            if(siguiendo.sosDeBodega(bodegaSeleccionada)){
+            if(siguiendo.sosDeBodega(nombreBodegaSeleccionada)){
                 return true;
             }
         }

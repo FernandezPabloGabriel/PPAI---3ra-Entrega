@@ -70,8 +70,8 @@ public class Siguiendo implements Serializable {
     }
     
     
-    public boolean sosDeBodega(Bodega bodegaSeleccionada){
-        return this.bodega.equals(bodegaSeleccionada);
+    public boolean sosDeBodega(String nombreBodegaSeleccionada){
+        return this.bodega.getNombre().equalsIgnoreCase(nombreBodegaSeleccionada);
     }
     
 

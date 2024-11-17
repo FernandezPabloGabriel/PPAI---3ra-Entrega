@@ -22,23 +22,27 @@ public class PantallaImportarBodega extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         lblTitulo = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblBodegasActualizables = new javax.swing.JTable();
-        btnActualizarSelecciones = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         btnMarcarTodo = new javax.swing.JButton();
+        btnActualizarSelecciones = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        lblTitulo.setText("¡Bonvino! Proximamente...");
+        lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitulo.setText("Importar Actualizaciones");
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Bodegas Disponibles"));
 
         tblBodegasActualizables.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Actualizar", "Bodegas"
+                "", "Nombre"
             }
         ) {
             Class[] types = new Class [] {
@@ -58,17 +62,12 @@ public class PantallaImportarBodega extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblBodegasActualizables);
         if (tblBodegasActualizables.getColumnModel().getColumnCount() > 0) {
-            tblBodegasActualizables.getColumnModel().getColumn(0).setPreferredWidth(35);
+            tblBodegasActualizables.getColumnModel().getColumn(0).setPreferredWidth(15);
+            tblBodegasActualizables.getColumnModel().getColumn(1).setPreferredWidth(250);
         }
 
-        btnActualizarSelecciones.setText("Actualizar");
-        btnActualizarSelecciones.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tomarSeleccionBodega(evt);
-            }
-        });
-
         btnSalir.setText("Salir");
+        btnSalir.setPreferredSize(new java.awt.Dimension(100, 23));
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirtomarSeleccionBodega(evt);
@@ -76,61 +75,80 @@ public class PantallaImportarBodega extends javax.swing.JFrame {
         });
 
         btnMarcarTodo.setText("Marcar todo");
+        btnMarcarTodo.setPreferredSize(new java.awt.Dimension(100, 23));
         btnMarcarTodo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMarcarTodotomarSeleccionBodega(evt);
             }
         });
 
+        btnActualizarSelecciones.setText("Actualizar");
+        btnActualizarSelecciones.setPreferredSize(new java.awt.Dimension(100, 23));
+        btnActualizarSelecciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tomarSeleccionBodega(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addComponent(btnMarcarTodo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnActualizarSelecciones, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(39, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnActualizarSelecciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnMarcarTodo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21))
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(35, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnMarcarTodo, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnActualizarSelecciones)))
-                .addGap(43, 43, 43))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(50, 50, 50))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
+                .addGap(30, 30, 30)
                 .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnActualizarSelecciones)
-                    .addComponent(btnMarcarTodo)
-                    .addComponent(btnSalir))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 18, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -164,16 +182,7 @@ public class PantallaImportarBodega extends javax.swing.JFrame {
             if(haySeleccion){
                 gestorImportadorBodega.tomarSeleccionBodega(bodegasSeleccionadas);
             } else{
-                String[] opcion = {"Aceptar"};
-                JOptionPane.showOptionDialog(
-                null, 
-                "Por favor seleccione una bodega.", 
-                "Sin selección",
-                JOptionPane.YES_OPTION,
-                JOptionPane.INFORMATION_MESSAGE,
-                null,
-                opcion,
-                opcion[0]);
+                JOptionPane.showMessageDialog(null, "Por favor seleccione una bodega");
             }
             
         } else{
@@ -231,20 +240,42 @@ public class PantallaImportarBodega extends javax.swing.JFrame {
     
     public void mostrarResumenVinosImportados(List<HashMap<String,Object>> resumenNovedadesVino){
         this.setVisible(false);
-        PantallaResumenNovedadesVino pantallaResumenVinosImportados = new PantallaResumenNovedadesVino();
-        pantallaResumenVinosImportados.setPantallaImportarBodega(this);
-        pantallaResumenVinosImportados.setLocationRelativeTo(null);
-        pantallaResumenVinosImportados.setVisible(true);
-        pantallaResumenVinosImportados.mostrarResumenVinosImportados(resumenNovedadesVino);
+        this.setPantallaResumenNovedadesVino(new PantallaResumenNovedadesVino());
+        pantallaResumenNovedadesVino.setPantallaImportarBodega(this);
+        pantallaResumenNovedadesVino.setLocationRelativeTo(null);
+        pantallaResumenNovedadesVino.setVisible(true);
+        pantallaResumenNovedadesVino.mostrarResumenVinosImportados(resumenNovedadesVino);
+    }
+    
+    public void mostrarResumenNotificaciones(List<List<List<String>>> resumenNotificaciones){
+        this.setPantallaNotificacionPush(new PantallaNotificacionPush());
+        pantallaNotificacionPush.setPantallaImportarBodega(this);
+        pantallaNotificacionPush.setLocationRelativeTo(null);
+        pantallaNotificacionPush.mostrarResumenNotificaciones(resumenNotificaciones);
     }
 
+    public void setPantallaResumenNovedadesVino(PantallaResumenNovedadesVino pantallaResumenNovedadesVino) {
+        this.pantallaResumenNovedadesVino = pantallaResumenNovedadesVino;
+    }
+
+    public void setPantallaNotificacionPush(PantallaNotificacionPush pantallaNotificacionPush) {
+        this.pantallaNotificacionPush = pantallaNotificacionPush;
+    }
+
+    public PantallaNotificacionPush getPantallaNotificacionPush() {
+        return pantallaNotificacionPush;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizarSelecciones;
     private javax.swing.JButton btnMarcarTodo;
     private javax.swing.JButton btnSalir;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JTable tblBodegasActualizables;
     // End of variables declaration//GEN-END:variables
+    private PantallaResumenNovedadesVino pantallaResumenNovedadesVino;
+    private PantallaNotificacionPush pantallaNotificacionPush;
 }

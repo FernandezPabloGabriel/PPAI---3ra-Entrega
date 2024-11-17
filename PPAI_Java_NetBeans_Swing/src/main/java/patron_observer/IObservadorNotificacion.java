@@ -13,6 +13,6 @@ import java.util.List;
 public interface IObservadorNotificacion {
     void notificarNovedadesVinosParaBodega(
             List<List<String>> novedadesVinos,
-            List<String> nombreUsuario,
+            List<String> nombresUsuarios,
             String nombreBodegaSeleccionada);
 }
