@@ -1,11 +1,11 @@
 package logica_de_negocio.entidades;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import java.util.List;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -15,7 +15,9 @@ public class Maridaje implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(nullable = false)
     private String nombre;
+    @Column(nullable = false)
     private String descripcion;
     
 
@@ -25,14 +27,6 @@ public class Maridaje implements Serializable {
     public Maridaje(String nombre, String descripcion) {
         this.descripcion = descripcion;
         this.nombre = nombre;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public String getNombre() {
@@ -51,15 +45,13 @@ public class Maridaje implements Serializable {
         this.descripcion = descripcion;
     }
     
-    
-    
     public Boolean maridaConVino(String nombreMaridaje){
         return nombreMaridaje.equalsIgnoreCase(this.nombre);
     }
 
     @Override
     public String toString() {
-        return "Maridaje{" + "id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + '}';
+        return "Maridaje{nombre=" + nombre + ", descripcion=" + descripcion + '}';
     }
 
     @Override
@@ -82,7 +74,5 @@ public class Maridaje implements Serializable {
         }
         final Maridaje other = (Maridaje) obj;
         return Objects.equals(this.nombre, other.nombre);
-    }
-
-    
+    }   
 }

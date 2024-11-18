@@ -8,6 +8,9 @@ import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 public class PantallaNotificacionPush extends javax.swing.JFrame{
+    private List<List<List<String>>> resumenNotificaciones;
+    private PantallaImportarBodega pantallaImportarBodega;
+    
     public PantallaNotificacionPush() {
         initComponents();
     }
@@ -152,6 +155,7 @@ public class PantallaNotificacionPush extends javax.swing.JFrame{
 
     private void volverAPantallaImportarBodega(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_volverAPantallaImportarBodega
         this.pantallaImportarBodega.setVisible(true);
+        this.pantallaImportarBodega.corroborarBodegasRestantes();
     }//GEN-LAST:event_volverAPantallaImportarBodega
 
     public void mostrarResumenNotificaciones(List<List<List<String>>> resumenNoti) {
@@ -193,6 +197,4 @@ public class PantallaNotificacionPush extends javax.swing.JFrame{
     private javax.swing.JLabel lblInformeNotificaciones;
     private javax.swing.JTable tblUsuario;
     // End of variables declaration//GEN-END:variables
-    private List<List<List<String>>> resumenNotificaciones;
-    private PantallaImportarBodega pantallaImportarBodega;
 }

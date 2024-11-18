@@ -21,12 +21,11 @@ public class Siguiendo implements Serializable {
     private long id;
     @Column(name = "fecha_fin", nullable = true)
     private LocalDateTime fechaFin;
-    @Column(name = "fecha_inicio")
+    @Column(name = "fecha_inicio", nullable = false)
     private LocalDateTime fechaInicio;
     @ManyToOne
-    @JoinColumn(name = "bodega_id")
+    @JoinColumn(name = "bodega_id", nullable = true)
     private Bodega bodega;
-    
 
     public Siguiendo() {
     }
@@ -35,14 +34,6 @@ public class Siguiendo implements Serializable {
         this.fechaFin = fechaFin;
         this.fechaInicio = fechaInicio;
         this.bodega = bodega;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public LocalDateTime getFechaFin() {
@@ -71,10 +62,9 @@ public class Siguiendo implements Serializable {
     
     
     public boolean sosDeBodega(String nombreBodegaSeleccionada){
-        return this.bodega.getNombre().equalsIgnoreCase(nombreBodegaSeleccionada);
+        return fechaFin == null && this.bodega.getNombre().equalsIgnoreCase(nombreBodegaSeleccionada);
     }
     
-
     @Override
     public String toString() {
         return "Siguiendo{" + "fechaFin=" + fechaFin + ", fechaInicio=" + fechaInicio + ", bodega=" + bodega + '}';

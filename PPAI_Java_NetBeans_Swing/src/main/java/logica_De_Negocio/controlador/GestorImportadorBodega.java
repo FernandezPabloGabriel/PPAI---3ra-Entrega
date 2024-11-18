@@ -4,8 +4,6 @@
 
 package logica_de_negocio.controlador;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.HashSet;
 import java.util.Set;
@@ -15,26 +13,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.stream.Collectors;
-import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import logica_de_negocio.entidades.Enofilo;
 import logica_de_negocio.entidades.Maridaje;
-import logica_de_negocio.entidades.Siguiendo;
 import logica_de_negocio.entidades.TipoUva;
-import logica_de_negocio.entidades.Usuario;
 import logica_de_negocio.entidades.Vino;
-import logica_de_negocio.gestion_interfaces.InterfazAPIBodega;
-import patron_observer.IObservadorNotificacion;
-import patron_observer.ISujeto;
-import patron_observer.InterfazNotificacionPush;
-import patron_observer.InterfazNotificacionPush;
+import logica_De_Negocio.interfaz_externa.InterfazAPIBodega;
+import logica_De_Negocio.patron_observer.IObservadorNotificacion;
+import logica_De_Negocio.patron_observer.ISujeto;
+import logica_De_Negocio.patron_observer.InterfazNotificacionPush;
 import persistencia.ControladorPersistencia;
-import presentacion.PantallaResumenNovedadesVino;
 
-/**
- *
- * @author USUARIO
- */
 public class GestorImportadorBodega implements ISujeto{
     private Set<Bodega> bodegasSet = new HashSet<>();
     private Set<Vino> vinosSet = new HashSet<>();
@@ -45,16 +34,11 @@ public class GestorImportadorBodega implements ISujeto{
     private InterfazAPIBodega interfazAPIBodega;
     private ControladorPersistencia controladorPersistencia = new ControladorPersistencia();
     
-    
-//    private Bodega bodegaActual;
-//    private Set<String> nombresUsuariosBodegaSeleccionadaActual;
-//    private List<List<String>> novedadesBodegaSeleccionadaActual;
 
     //Cargamos todos los datos pertinentes que utilizará el gestor al inicializarce
     public GestorImportadorBodega() {
         //Creamos instancia del controlador de persistencia, quien se comunicará
         //con las clases de persistencia asignadas a cada clase entidad
-        
         //Populación de la BD - SOLO PARA MOTIVOS DE PRUEBA
         controladorPersistencia.popularBDMock();
         
@@ -89,7 +73,6 @@ public class GestorImportadorBodega implements ISujeto{
     }
     
     
-    //---Faltaría validación para cuando se devuelve un Set vacío
     private Set<String> buscarBodegaParaActualizar(Set<Bodega> bodegas) {
         Set<String> nombresBodegasSet = new HashSet<>();
         for(Bodega bodega:bodegas){
@@ -115,6 +98,7 @@ public class GestorImportadorBodega implements ISujeto{
             //Lista de HashMaps que representan los vinos extraidos desde la interfazApiBodega
             List<HashMap<String,Object>> listaVinosImportados = obtenerActualizacionVinosBodega(nombreBodegaSeleccionada);
             
+            //Validación para evitar actualizar bodega en caso de que no tenga importaciones disponibles
             if(listaVinosImportados != null){
                 //Filtramos los vinos de la lista cargada del gestor para obtener los vinos correspondientes a la bodega
                 Set<Vino> vinosBodegaSeleccionada = filtrarVinosDeBodega(bodegaSeleccionada);
@@ -144,7 +128,6 @@ public class GestorImportadorBodega implements ISujeto{
                 
                 //Agrego la bodega a la lista de bodegas seleccionadas para realizar la notificacion a posteriori
                 nombreBodegasActualizadas.add(nombreBodegaSeleccionada);
-                
             } else{
                 JOptionPane.showMessageDialog(null, "No se pudo establecer conexión con '" + nombreBodegaSeleccionada + "'", null, JOptionPane.INFORMATION_MESSAGE);
                 fallaConexion = true;
@@ -191,16 +174,8 @@ public class GestorImportadorBodega implements ISujeto{
             Set<Vino> vinosBodegaSeleccionada){
         for(int i = 0; i < vinosImportadosData.size(); i++){
             String estadoVino = bodega.actualizarDatosVino(vinosBodegaSeleccionada, vinosImportadosData.get(i), controladorPersistencia);
-
             vinosImportadosData.get(i).put("tipo", estadoVino);
-//            if(estadoVino.equalsIgnoreCase("actualizado")){
-//                //Agrego tipo de actualización a cada elemento de la lista de vinosImportadosData
-//                vinosImportadosData.get(i).put("tipo", "Actualizado");
-//            } else{
-//                vinosImportadosData.get(i).put("tipo", "Creado");
-//            }
         }
-        
         return vinosImportadosData; 
     }
     
@@ -224,24 +199,7 @@ public class GestorImportadorBodega implements ISujeto{
                 }
             }
         }
-        return maridajesMap;
-//        //Filtro los maridajes de los vinos importados
-//        List<String> listaMaridajes = listaVinosImportados
-//                .stream()
-//                .filter(vinoImportado->((String) vinoImportado.get("tipo")).equalsIgnoreCase("creado"))
-//                .flatMap(vinoImportado->((List<String>) vinoImportado.get("maridajes"))
-//                        .stream())
-//                .distinct()
-//                .collect(Collectors.toList());
-//        
-//        //Añado al HashMap los maridajes que se encuentren en el sistema
-//        maridajesSet
-//                .stream()
-//                .forEach(marida->{
-//                        if(marida.maridaConVino(listaMaridajes)){
-//                            maridajesMap.put(marida.getNombre(), marida);
-//                        };
-//                    });     
+        return maridajesMap;  
     }
     
     
@@ -265,23 +223,6 @@ public class GestorImportadorBodega implements ISujeto{
             }
         }
         return tiposUvasMap;
-//        List<String> listaTiposUvas = listaVinosImportados
-//                .stream()
-//                .filter(vinoImportado->((String) vinoImportado.get("tipo")).equalsIgnoreCase("creado"))
-//                .flatMap(vino->((List<HashMap<String,String>>) vino.get("varietales"))
-//                        .stream()
-//                        .map(vari->vari.get("tipoUva")))
-//                .distinct()
-//                .collect(Collectors.toList());
-//        
-//        //Añado al HashMap los tipos de uva que se encuentren en el sistema
-//        tiposUvasSet
-//                .stream()
-//                .forEach(tipoUva->{
-//                    if(tipoUva.esTipoUva(listaTiposUvas)){
-//                        tiposUvasMap.put(tipoUva.getNombre(), tipoUva);
-//                    };
-//                });
     }
     
     
@@ -290,8 +231,8 @@ public class GestorImportadorBodega implements ISujeto{
             Bodega bodegaSeleccionada, 
             HashMap<String, Maridaje> maridajesMap, 
             HashMap<String, TipoUva> tiposUvasMap){      
-        //--Implementar algún tipo de excepción en caso de que suceda algún error con las relaciones al cargarlas
         for(HashMap<String, Object> vinoImportado: listaVinosImportados){
+            //Filtramos los vinos con el valor "Creado" de la clave "tipo"
             if(((String) vinoImportado.get("tipo")).equalsIgnoreCase("Creado")){
                 Long anioAux = (long) vinoImportado.get("aniada");
                 Integer aniada = anioAux.intValue();
@@ -299,7 +240,6 @@ public class GestorImportadorBodega implements ISujeto{
                 Double precioArs = (double) vinoImportado.get("precioArs");
                 
                 //Extraigo los maridajes que tengan la misma clave que los del vino importado
-                //--Implementar condición de que no se cree el vino en caso de que no se encuentre maridaje
                 List<Maridaje> maridajesExistentes = 
                         ((List<String>) vinoImportado.get("maridajes"))
                             .stream()
@@ -326,7 +266,6 @@ public class GestorImportadorBodega implements ISujeto{
                         varietalesParaCrear,
                         tiposUvasMap
                 );
-                
                 //Una vez creado el vino, lo persisto en la BD
                 controladorPersistencia.desmaterializarVino(nuevoVino);
             }
@@ -351,6 +290,7 @@ public class GestorImportadorBodega implements ISujeto{
             //Busco los nombres de los usuarios que siguen a la bodega seleccionada
             List<String> nombresUsuariosSeguidoresDeBodega = buscarSeguidoresDeBodega(nombreBodegaActualizada);
             
+            //Validación para solo "notificar" a las bodegas que tengan seguidores
             if(!nombresUsuariosSeguidoresDeBodega.isEmpty()){
                 //Filtra del resumen todas las actualizaciones y creaciones hechas para tal bodega
                 List<HashMap<String, Object>> novedadesBodegaSeleccionada = listaVinosImportadosTotales
@@ -359,6 +299,7 @@ public class GestorImportadorBodega implements ISujeto{
                                 .equalsIgnoreCase(nombreBodegaActualizada))
                         .collect(Collectors.toList());
 
+                //Extraemos los datos que nos pueden servir para la notificación a los usuarios
                 List<List<String>> novedadesANotificar = new ArrayList();
                 for(HashMap<String,Object> novedadBodegaSeleccionada: novedadesBodegaSeleccionada){
                     List<String> novedadesAux = new ArrayList();
@@ -455,6 +396,5 @@ public class GestorImportadorBodega implements ISujeto{
     
     private void cargarEnofilos() {
         enofilosSet = new HashSet<>(controladorPersistencia.materializarEnofilos());
-        enofilosSet.forEach(e->System.out.println(e));
     }
 }

@@ -1,5 +1,6 @@
 package logica_de_negocio.entidades;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,23 +14,17 @@ public class Usuario implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String contrasenia;
+    @Column(nullable = false)
     private String nombre;
+    @Column(nullable = false)
+    private String contrasenia;
 
     public Usuario() {
     }
 
-    public Usuario(String contrasenia, String nombre) {
-        this.contrasenia = contrasenia;
+    public Usuario(String nombre, String contrasenia) {
         this.nombre = nombre;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
+        this.contrasenia = contrasenia;
     }
 
     public String getContrasenia() {
@@ -47,7 +42,6 @@ public class Usuario implements Serializable {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
     
     public void esTuUsuario(){}
 

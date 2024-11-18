@@ -4,11 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import java.util.List;
 import java.io.Serializable;
-import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Objects;
@@ -22,20 +19,22 @@ public class Bodega implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false)
     private String nombre;
-    @Column(name = "coordenadas_ubicacion")
+    @Column(name = "coordenadas_ubicacion", nullable = false)
     private String coordenadasUbicacion;
+    @Column(nullable = false)
     private String descripcion;
     private String historia;
     @Column (name = "fecha_ultima_actualizacion")
     private LocalDateTime fechaUltimaActualizacion;
-    @Column (name = "periodo_actualizacion")
+    @Column (name = "periodo_actualizacion", nullable = false)
     private int periodoActualizacion;
-//    @OneToMany(mappedBy = "bodega")
-//    private List<Vino> vinos; 
 
+    
     public Bodega() {
     }
+    
 
     public Bodega(String nombre, String coordenadasUbicacion, String descripcion, String historia, LocalDateTime fechaUltimaActualizacion, int periodoActualizacion) {
         this.nombre = nombre;
@@ -46,9 +45,6 @@ public class Bodega implements Serializable {
         this.periodoActualizacion = periodoActualizacion;
     }
     
-//    public void agregarVino(Vino vino){
-//        this.vinos.add(vino);
-//    }
     
     public boolean estaParaActualizarNovedadesVino(){
         LocalDateTime fechaActual = LocalDateTime.now();
@@ -64,7 +60,6 @@ public class Bodega implements Serializable {
                 .stream()
                 .filter(vino->vino.esDeBodega(this))
                 .collect(Collectors.toSet());
-                
     }
     
     
@@ -109,18 +104,13 @@ public class Bodega implements Serializable {
         return this.nombre.equalsIgnoreCase(bodegaNombre);
     }
     
-    
     public String getNombre() {
         return nombre;
     }
     
-    
+    //Solo para cargar MOCK de datos
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getCoordenadasUbicacion() {
@@ -188,8 +178,6 @@ public class Bodega implements Serializable {
     
     @Override
     public String toString() {
-        return "Bodega{" + "id=" + id + ", nombre=" + nombre + ", coordenadasUbicacion=" + coordenadasUbicacion + ", descripcion=" + descripcion + ", historia=" + historia + ", fechaUltimaActualizacion=" + fechaUltimaActualizacion + ", periodoActualizacion=" + periodoActualizacion + '}';
+        return "Bodega{" + "nombre=" + nombre + ", coordenadasUbicacion=" + coordenadasUbicacion + ", descripcion=" + descripcion + ", historia=" + historia + ", fechaUltimaActualizacion=" + fechaUltimaActualizacion + ", periodoActualizacion=" + periodoActualizacion + '}';
     }
-
-
 }

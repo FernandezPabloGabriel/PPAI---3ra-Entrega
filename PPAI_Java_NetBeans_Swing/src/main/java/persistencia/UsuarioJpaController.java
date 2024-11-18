@@ -18,18 +18,13 @@ public class UsuarioJpaController implements Serializable {
         this.emf = emf;
     }
 
-    public UsuarioJpaController() {
-        this.emf = Persistence.createEntityManagerFactory("persistence");
-    }
-    
-    
-    
     private EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
 
+    //Solo para el MOCK de datos
     public void create(Usuario usuario) {
         EntityManager em = null;
         try {
@@ -44,58 +39,12 @@ public class UsuarioJpaController implements Serializable {
         }
     }
 
-    public void edit(Usuario usuario) throws NonexistentEntityException, Exception {
-        EntityManager em = null;
-        try {
-            em = getEntityManager();
-            em.getTransaction().begin();
-            usuario = em.merge(usuario);
-            em.getTransaction().commit();
-        } catch (Exception ex) {
-            String msg = ex.getLocalizedMessage();
-            if (msg == null || msg.length() == 0) {
-                long id = usuario.getId();
-                if (findUsuario(id) == null) {
-                    throw new NonexistentEntityException("The usuario with id " + id + " no longer exists.");
-                }
-            }
-            throw ex;
-        } finally {
-            if (em != null) {
-                em.close();
-            }
-        }
-    }
-
-    public void destroy(long id) throws NonexistentEntityException {
-        EntityManager em = null;
-        try {
-            em = getEntityManager();
-            em.getTransaction().begin();
-            Usuario usuario;
-            try {
-                usuario = em.getReference(Usuario.class, id);
-                usuario.getId();
-            } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The usuario with id " + id + " no longer exists.", enfe);
-            }
-            em.remove(usuario);
-            em.getTransaction().commit();
-        } finally {
-            if (em != null) {
-                em.close();
-            }
-        }
-    }
-
+    //Solo para el MOCK de datos
     public List<Usuario> findUsuarioEntities() {
         return findUsuarioEntities(true, -1, -1);
     }
 
-    public List<Usuario> findUsuarioEntities(int maxResults, int firstResult) {
-        return findUsuarioEntities(false, maxResults, firstResult);
-    }
-
+    //Solo para el MOCK de datos
     private List<Usuario> findUsuarioEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
@@ -111,27 +60,4 @@ public class UsuarioJpaController implements Serializable {
             em.close();
         }
     }
-
-    public Usuario findUsuario(long id) {
-        EntityManager em = getEntityManager();
-        try {
-            return em.find(Usuario.class, id);
-        } finally {
-            em.close();
-        }
-    }
-
-    public int getUsuarioCount() {
-        EntityManager em = getEntityManager();
-        try {
-            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            Root<Usuario> rt = cq.from(Usuario.class);
-            cq.select(em.getCriteriaBuilder().count(rt));
-            Query q = em.createQuery(cq);
-            return ((Long) q.getSingleResult()).intValue();
-        } finally {
-            em.close();
-        }
-    }
-    
 }

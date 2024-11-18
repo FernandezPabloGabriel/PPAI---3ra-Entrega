@@ -10,11 +10,10 @@ import java.util.stream.Collectors;
 import javax.swing.JTabbedPane;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author USUARIO
- */
 public class PantallaResumenNovedadesVino extends javax.swing.JFrame {
+    private List<HashMap<String, Object>> resumenNovedadesVinos;
+    private PantallaImportarBodega pantallaImportarBodega;
+    
     public PantallaResumenNovedadesVino() {
         initComponents();
     }
@@ -67,6 +66,9 @@ public class PantallaResumenNovedadesVino extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tblNovedadesVino.setFocusable(false);
+        tblNovedadesVino.setShowGrid(false);
+        tblNovedadesVino.getTableHeader().setReorderingAllowed(false);
         jScrollPane3.setViewportView(tblNovedadesVino);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -182,39 +184,6 @@ public class PantallaResumenNovedadesVino extends javax.swing.JFrame {
         cargarResumenVinos(resumenNovedadesBodegaSeleccionada);
     }//GEN-LAST:event_comBodegasActionPerformed
 
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(PantallaResumenNovedadesVino.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(PantallaResumenNovedadesVino.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(PantallaResumenNovedadesVino.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(PantallaResumenNovedadesVino.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//        //</editor-fold>
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new PantallaResumenNovedadesVino().setVisible(true);
-//            }
-//        });
-//    }
-    
     public void mostrarResumenVinosImportados(List<HashMap<String,Object>> resumenNovedadesVinosPar){
         resumenNovedadesVinos = resumenNovedadesVinosPar;
         
@@ -276,85 +245,13 @@ public class PantallaResumenNovedadesVino extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> cmbBodegas;
-    private javax.swing.JComboBox<String> cmbBodegas1;
-    private javax.swing.JComboBox<String> cmbBodegas10;
-    private javax.swing.JComboBox<String> cmbBodegas11;
-    private javax.swing.JComboBox<String> cmbBodegas12;
-    private javax.swing.JComboBox<String> cmbBodegas13;
-    private javax.swing.JComboBox<String> cmbBodegas14;
-    private javax.swing.JComboBox<String> cmbBodegas15;
-    private javax.swing.JComboBox<String> cmbBodegas16;
-    private javax.swing.JComboBox<String> cmbBodegas17;
-    private javax.swing.JComboBox<String> cmbBodegas18;
-    private javax.swing.JComboBox<String> cmbBodegas19;
-    private javax.swing.JComboBox<String> cmbBodegas2;
-    private javax.swing.JComboBox<String> cmbBodegas20;
-    private javax.swing.JComboBox<String> cmbBodegas21;
-    private javax.swing.JComboBox<String> cmbBodegas22;
-    private javax.swing.JComboBox<String> cmbBodegas23;
-    private javax.swing.JComboBox<String> cmbBodegas24;
-    private javax.swing.JComboBox<String> cmbBodegas25;
-    private javax.swing.JComboBox<String> cmbBodegas26;
-    private javax.swing.JComboBox<String> cmbBodegas27;
-    private javax.swing.JComboBox<String> cmbBodegas28;
-    private javax.swing.JComboBox<String> cmbBodegas29;
-    private javax.swing.JComboBox<String> cmbBodegas3;
-    private javax.swing.JComboBox<String> cmbBodegas30;
-    private javax.swing.JComboBox<String> cmbBodegas31;
-    private javax.swing.JComboBox<String> cmbBodegas32;
-    private javax.swing.JComboBox<String> cmbBodegas33;
-    private javax.swing.JComboBox<String> cmbBodegas34;
-    private javax.swing.JComboBox<String> cmbBodegas4;
-    private javax.swing.JComboBox<String> cmbBodegas5;
-    private javax.swing.JComboBox<String> cmbBodegas6;
-    private javax.swing.JComboBox<String> cmbBodegas7;
-    private javax.swing.JComboBox<String> cmbBodegas8;
-    private javax.swing.JComboBox<String> cmbBodegas9;
     private javax.swing.JComboBox<String> comBodegas;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel13;
-    private javax.swing.JPanel jPanel14;
-    private javax.swing.JPanel jPanel15;
-    private javax.swing.JPanel jPanel16;
-    private javax.swing.JPanel jPanel17;
-    private javax.swing.JPanel jPanel18;
-    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel20;
-    private javax.swing.JPanel jPanel21;
-    private javax.swing.JPanel jPanel22;
-    private javax.swing.JPanel jPanel23;
-    private javax.swing.JPanel jPanel24;
-    private javax.swing.JPanel jPanel25;
-    private javax.swing.JPanel jPanel26;
-    private javax.swing.JPanel jPanel27;
-    private javax.swing.JPanel jPanel28;
-    private javax.swing.JPanel jPanel29;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel30;
-    private javax.swing.JPanel jPanel31;
-    private javax.swing.JPanel jPanel32;
-    private javax.swing.JPanel jPanel33;
-    private javax.swing.JPanel jPanel34;
-    private javax.swing.JPanel jPanel35;
-    private javax.swing.JPanel jPanel36;
-    private javax.swing.JPanel jPanel37;
-    private javax.swing.JPanel jPanel38;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lblTitulo2;
     private javax.swing.JPanel panVinosResumen;
     private javax.swing.JTable tblNovedadesVino;
     // End of variables declaration//GEN-END:variables
-    private List<HashMap<String, Object>> resumenNovedadesVinos;
-    private PantallaImportarBodega pantallaImportarBodega;
 }

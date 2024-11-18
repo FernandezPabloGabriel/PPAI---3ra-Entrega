@@ -17,12 +17,6 @@ public class VinoJpaController implements Serializable {
     public VinoJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
-
-    public VinoJpaController() {
-        this.emf = Persistence.createEntityManagerFactory("persistence");
-    }
-    
-    
     
     private EntityManagerFactory emf = null;
 
@@ -67,33 +61,8 @@ public class VinoJpaController implements Serializable {
         }
     }
 
-    public void destroy(long id) throws NonexistentEntityException {
-        EntityManager em = null;
-        try {
-            em = getEntityManager();
-            em.getTransaction().begin();
-            Vino vino;
-            try {
-                vino = em.getReference(Vino.class, id);
-                vino.getId();
-            } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The vino with id " + id + " no longer exists.", enfe);
-            }
-            em.remove(vino);
-            em.getTransaction().commit();
-        } finally {
-            if (em != null) {
-                em.close();
-            }
-        }
-    }
-
     public List<Vino> findVinoEntities() {
         return findVinoEntities(true, -1, -1);
-    }
-
-    public List<Vino> findVinoEntities(int maxResults, int firstResult) {
-        return findVinoEntities(false, maxResults, firstResult);
     }
 
     private List<Vino> findVinoEntities(boolean all, int maxResults, int firstResult) {
@@ -120,18 +89,4 @@ public class VinoJpaController implements Serializable {
             em.close();
         }
     }
-
-    public int getVinoCount() {
-        EntityManager em = getEntityManager();
-        try {
-            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            Root<Vino> rt = cq.from(Vino.class);
-            cq.select(em.getCriteriaBuilder().count(rt));
-            Query q = em.createQuery(cq);
-            return ((Long) q.getSingleResult()).intValue();
-        } finally {
-            em.close();
-        }
-    }
-    
 }

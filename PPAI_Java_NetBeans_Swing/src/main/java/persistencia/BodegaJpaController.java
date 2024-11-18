@@ -18,16 +18,13 @@ public class BodegaJpaController implements Serializable {
         this.emf = emf;
     }
     
-    public BodegaJpaController() {
-        this.emf = Persistence.createEntityManagerFactory("persistence");
-    }
-    
     private EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
 
+    //Solo para el MOCK de datos
     public void create(Bodega bodega) {
         EntityManager em = null;
         try {
@@ -65,51 +62,7 @@ public class BodegaJpaController implements Serializable {
         }
     }
 
-    public void destroy(Long id) throws NonexistentEntityException {
-        EntityManager em = null;
-        try {
-            em = getEntityManager();
-            em.getTransaction().begin();
-            Bodega bodega;
-            try {
-                bodega = em.getReference(Bodega.class, id);
-                bodega.getId();
-            } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The bodega with id " + id + " no longer exists.", enfe);
-            }
-            em.remove(bodega);
-            em.getTransaction().commit();
-        } finally {
-            if (em != null) {
-                em.close();
-            }
-        }
-    }
-
-    public List<Bodega> findBodegaEntities() {
-        return findBodegaEntities(true, -1, -1);
-    }
-
-    public List<Bodega> findBodegaEntities(int maxResults, int firstResult) {
-        return findBodegaEntities(false, maxResults, firstResult);
-    }
-
-    private List<Bodega> findBodegaEntities(boolean all, int maxResults, int firstResult) {
-        EntityManager em = getEntityManager();
-        try {
-            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            cq.select(cq.from(Bodega.class));
-            Query q = em.createQuery(cq);
-            if (!all) {
-                q.setMaxResults(maxResults);
-                q.setFirstResult(firstResult);
-            }
-            return q.getResultList();
-        } finally {
-            em.close();
-        }
-    }
-
+    //Solo para el MOCK de datos
     public Bodega findBodega(Long id) {
         EntityManager em = getEntityManager();
         try {
@@ -118,18 +71,4 @@ public class BodegaJpaController implements Serializable {
             em.close();
         }
     }
-
-    public int getBodegaCount() {
-        EntityManager em = getEntityManager();
-        try {
-            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            Root<Bodega> rt = cq.from(Bodega.class);
-            cq.select(em.getCriteriaBuilder().count(rt));
-            Query q = em.createQuery(cq);
-            return ((Long) q.getSingleResult()).intValue();
-        } finally {
-            em.close();
-        }
-    }
-    
 }

@@ -12,16 +12,13 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 @Entity
 @Table(name = "vinos")
@@ -29,15 +26,17 @@ public class Vino implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(nullable = false)
     private String nombre;
+    @Column(nullable = false)
     private int aniada;
-    @Column(name = "fecha_actualizacion", nullable = true)
+    @Column(name = "fecha_actualizacion")
     private LocalDateTime fechaActualizacion;
     @Column(name = "imagen_etiqueta")
     private String imagenEtiqueta;
     @Column(name = "nota_de_cata_bodega")
     private String notaDeCataBodega;
-    @Column(name = "precio_ARS")
+    @Column(name = "precio_ARS", nullable = false)
     private double precioArs;
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "bodega_id", nullable = false)
@@ -45,12 +44,12 @@ public class Vino implements Serializable {
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "vinos_maridajes",
-            joinColumns = @JoinColumn(name = "vino_id"),
-            inverseJoinColumns = @JoinColumn(name = "maridaje_id")
+            joinColumns = @JoinColumn(name = "vino_id", nullable = false),
+            inverseJoinColumns = @JoinColumn(name = "maridaje_id", nullable = false)
     )
     private List<Maridaje> maridajes;
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "vino_id")
+    @JoinColumn(name = "vino_id", nullable = false)
     private List<Varietal> varietales = new ArrayList<>();
 
     public Vino() {
@@ -79,12 +78,12 @@ public class Vino implements Serializable {
             HashMap<String, TipoUva> tiposUvasMap) {
         this.nombre = nombre;
         this.aniada = aniada;
-        setFechaActualizacion();
         this.imagenEtiqueta = imagenEtiqueta;
         this.notaDeCataBodega = notaDeCataBodega;
         this.precioArs = precioArs;
         this.bodega = bodega;
         this.maridajes = maridajes;
+        setFechaActualizacion();
         crearVarietales(varietales, tiposUvasMap);
     }
 
@@ -100,12 +99,9 @@ public class Vino implements Serializable {
         }
     }
     
+    //Solo para cargar MOCK de datos
     public long getId() {
         return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public String getNombre() {
@@ -189,8 +185,6 @@ public class Vino implements Serializable {
     public Boolean sosVinoParaActualizar(String vinoImportado){
         return vinoImportado.equalsIgnoreCase(this.nombre);
     }    
-    
-    public void crear(){}
 
     @Override
     public int hashCode() {
@@ -214,12 +208,8 @@ public class Vino implements Serializable {
         return Objects.equals(this.nombre, other.nombre);
     }
     
-    
-
     @Override
     public String toString() {
-        return "Vino{" + "id=" + id + ", nombre=" + nombre + ", aniada=" + aniada + ", fechaActualizacion=" + fechaActualizacion + ", imagenEtiqueta=" + imagenEtiqueta + ", notaDeCataBodega=" + notaDeCataBodega + ", precioArs=" + precioArs + ", bodega=" + bodega + ", maridajes=" + maridajes + ", varietales=" + varietales + '}';
+        return "Vino{nombre=" + nombre + ", aniada=" + aniada + ", fechaActualizacion=" + fechaActualizacion + ", imagenEtiqueta=" + imagenEtiqueta + ", notaDeCataBodega=" + notaDeCataBodega + ", precioArs=" + precioArs + ", bodega=" + bodega + ", maridajes=" + maridajes + ", varietales=" + varietales + '}';
     }
-    
-    
 }

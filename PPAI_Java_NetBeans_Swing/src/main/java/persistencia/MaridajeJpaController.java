@@ -17,12 +17,6 @@ public class MaridajeJpaController implements Serializable {
     public MaridajeJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
-
-    public MaridajeJpaController() {
-        this.emf = Persistence.createEntityManagerFactory("persistence");
-    }
-    
-    
     
     private EntityManagerFactory emf = null;
 
@@ -30,6 +24,7 @@ public class MaridajeJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
+    //Solo para el MOCK de datos
     public void create(Maridaje maridaje) {
         EntityManager em = null;
         try {
@@ -44,56 +39,8 @@ public class MaridajeJpaController implements Serializable {
         }
     }
 
-    public void edit(Maridaje maridaje) throws NonexistentEntityException, Exception {
-        EntityManager em = null;
-        try {
-            em = getEntityManager();
-            em.getTransaction().begin();
-            maridaje = em.merge(maridaje);
-            em.getTransaction().commit();
-        } catch (Exception ex) {
-            String msg = ex.getLocalizedMessage();
-            if (msg == null || msg.length() == 0) {
-                long id = maridaje.getId();
-                if (findMaridaje(id) == null) {
-                    throw new NonexistentEntityException("The maridaje with id " + id + " no longer exists.");
-                }
-            }
-            throw ex;
-        } finally {
-            if (em != null) {
-                em.close();
-            }
-        }
-    }
-
-    public void destroy(long id) throws NonexistentEntityException {
-        EntityManager em = null;
-        try {
-            em = getEntityManager();
-            em.getTransaction().begin();
-            Maridaje maridaje;
-            try {
-                maridaje = em.getReference(Maridaje.class, id);
-                maridaje.getId();
-            } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The maridaje with id " + id + " no longer exists.", enfe);
-            }
-            em.remove(maridaje);
-            em.getTransaction().commit();
-        } finally {
-            if (em != null) {
-                em.close();
-            }
-        }
-    }
-
     public List<Maridaje> findMaridajeEntities() {
         return findMaridajeEntities(true, -1, -1);
-    }
-
-    public List<Maridaje> findMaridajeEntities(int maxResults, int firstResult) {
-        return findMaridajeEntities(false, maxResults, firstResult);
     }
 
     private List<Maridaje> findMaridajeEntities(boolean all, int maxResults, int firstResult) {
@@ -112,6 +59,7 @@ public class MaridajeJpaController implements Serializable {
         }
     }
 
+    //Solo para el MOCK de datos
     public Maridaje findMaridaje(long id) {
         EntityManager em = getEntityManager();
         try {
@@ -120,18 +68,4 @@ public class MaridajeJpaController implements Serializable {
             em.close();
         }
     }
-
-    public int getMaridajeCount() {
-        EntityManager em = getEntityManager();
-        try {
-            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            Root<Maridaje> rt = cq.from(Maridaje.class);
-            cq.select(em.getCriteriaBuilder().count(rt));
-            Query q = em.createQuery(cq);
-            return ((Long) q.getSingleResult()).intValue();
-        } finally {
-            em.close();
-        }
-    }
-    
 }

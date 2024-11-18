@@ -1,4 +1,4 @@
-package patron_observer;
+package logica_De_Negocio.patron_observer;
 
 import java.util.List;
 
@@ -26,13 +26,16 @@ public class InterfazNotificacionPush implements IObservadorNotificacion{
             int contActualizados, 
             int contCreados){
         //Simulación de envío de notificación a cada usuario seguidor de la bodega
+        System.out.println("------------------------------------------");
         for(String nombreUsuario: nombresUsuarios){
             String notificacionPush = String.format(
                     "¡La bodega %s tiene novedades!\nVinos Actualizados: %d | Vinos Creados: %d",
                     nombreBodegaSeleccionada,
                     contActualizados,
                     contCreados);
+            System.out.println("Se ha enviado al usuario '" + nombreUsuario + "' la siguiente notificación:");
             System.out.println(notificacionPush);
         }
+        System.out.println("------------------------------------------");
     }
 }

@@ -24,17 +24,26 @@ import logica_de_negocio.entidades.TipoUva;
 import logica_de_negocio.entidades.Usuario;
 import logica_de_negocio.entidades.Varietal;
 import logica_de_negocio.entidades.Vino;
+import presentacion.otros.PantallaCarga;
 
 public class ControladorPersistencia {
-    BodegaJpaController bodegaJpaController = new BodegaJpaController();
-    EnofiloJpaController enofiloJpaController = new EnofiloJpaController();
-    MaridajeJpaController maridajeJpaController = new MaridajeJpaController();
-    SiguiendoJpaController siguiendoJpaController = new SiguiendoJpaController();
-    TipoUvaJpaController tipoUvaJpaController = new TipoUvaJpaController();
-    UsuarioJpaController usuarioJpaController = new UsuarioJpaController();
-    VarietalJpaController varietalJpaController = new VarietalJpaController();
-    VinoJpaController vinoJpaController = new VinoJpaController();
-    
+    BodegaJpaController bodegaJpaController;
+    EnofiloJpaController enofiloJpaController;
+    MaridajeJpaController maridajeJpaController;
+    TipoUvaJpaController tipoUvaJpaController;
+    UsuarioJpaController usuarioJpaController;
+    VinoJpaController vinoJpaController;
+
+    public ControladorPersistencia() {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("persistence");
+        this.bodegaJpaController = new BodegaJpaController(emf);
+        this.enofiloJpaController = new EnofiloJpaController(emf);
+        this.maridajeJpaController = new MaridajeJpaController(emf);
+        this.tipoUvaJpaController = new TipoUvaJpaController(emf);
+        this.usuarioJpaController = new UsuarioJpaController(emf);
+        this.vinoJpaController = new VinoJpaController(emf);
+    }
+
     public List<Vino> materializarVinos(){
         return vinoJpaController.findVinoEntities();
     }
@@ -195,7 +204,6 @@ public class ControladorPersistencia {
         maridajesList.forEach(maridaje->maridajeJpaController.create(maridaje));
         
         //Instancias de Varietal
-        List<Varietal> varietalesList = new ArrayList<>();
         tipoUva1 = tipoUvaJpaController.findTipoUva(1L);
         tipoUva2 = tipoUvaJpaController.findTipoUva(2L);
         tipoUva3 = tipoUvaJpaController.findTipoUva(3L);
@@ -262,24 +270,24 @@ public class ControladorPersistencia {
         Maridaje maridaje8 = maridajeJpaController.findMaridaje(8);
         Maridaje maridaje9 = maridajeJpaController.findMaridaje(9);
         Maridaje maridaje10 = maridajeJpaController.findMaridaje(10);
-        Maridaje maridaje11 = maridajeJpaController.findMaridaje(11);
-        Maridaje maridaje12 = maridajeJpaController.findMaridaje(12);
-        Maridaje maridaje13 = maridajeJpaController.findMaridaje(13);
-        Maridaje maridaje14 = maridajeJpaController.findMaridaje(14);
-        Maridaje maridaje15 = maridajeJpaController.findMaridaje(15);
-        Maridaje maridaje16 = maridajeJpaController.findMaridaje(16);
+//        Maridaje maridaje11 = maridajeJpaController.findMaridaje(11);
+//        Maridaje maridaje12 = maridajeJpaController.findMaridaje(12);
+//        Maridaje maridaje13 = maridajeJpaController.findMaridaje(13);
+//        Maridaje maridaje14 = maridajeJpaController.findMaridaje(14);
+//        Maridaje maridaje15 = maridajeJpaController.findMaridaje(15);
+//        Maridaje maridaje16 = maridajeJpaController.findMaridaje(16);
         Maridaje maridaje17 = maridajeJpaController.findMaridaje(17);
         Maridaje maridaje18 = maridajeJpaController.findMaridaje(18);
         Maridaje maridaje19 = maridajeJpaController.findMaridaje(19);
         Maridaje maridaje20 = maridajeJpaController.findMaridaje(20);
-        Maridaje maridaje21 = maridajeJpaController.findMaridaje(21);
-        Maridaje maridaje22 = maridajeJpaController.findMaridaje(22);
-        Maridaje maridaje23 = maridajeJpaController.findMaridaje(23);
-        Maridaje maridaje24 = maridajeJpaController.findMaridaje(24);
+//        Maridaje maridaje21 = maridajeJpaController.findMaridaje(21);
+//        Maridaje maridaje22 = maridajeJpaController.findMaridaje(22);
+//        Maridaje maridaje23 = maridajeJpaController.findMaridaje(23);
+//        Maridaje maridaje24 = maridajeJpaController.findMaridaje(24);
         Maridaje maridaje25 = maridajeJpaController.findMaridaje(25);
-        Maridaje maridaje26 = maridajeJpaController.findMaridaje(26);
-        Maridaje maridaje27 = maridajeJpaController.findMaridaje(27);
-        Maridaje maridaje28 = maridajeJpaController.findMaridaje(28);
+//        Maridaje maridaje26 = maridajeJpaController.findMaridaje(26);
+//        Maridaje maridaje27 = maridajeJpaController.findMaridaje(27);
+//        Maridaje maridaje28 = maridajeJpaController.findMaridaje(28);
         Maridaje maridaje29 = maridajeJpaController.findMaridaje(29);
         Maridaje maridaje30 = maridajeJpaController.findMaridaje(30);
         
@@ -391,48 +399,47 @@ public class ControladorPersistencia {
 
         //Instancias de Usuario
         List<Usuario> usuarios = new ArrayList<>();
-        usuarios.add(new Usuario("pass123", "Juan"));
-        usuarios.add(new Usuario("qwerty456", "Ana"));
-        usuarios.add(new Usuario("abc789", "Carlos"));
-        usuarios.add(new Usuario("securepass1", "Lucía"));
-        usuarios.add(new Usuario("mypassword", "Miguel"));
-        usuarios.add(new Usuario("rockstar2024", "Sofía"));
-        usuarios.add(new Usuario("hello1234", "Javier"));
-        usuarios.add(new Usuario("password123", "Carla"));
-        usuarios.add(new Usuario("123456789", "Pablo"));
-        usuarios.add(new Usuario("mysecret2023", "Laura"));
+        usuarios.add(new Usuario("Laura97_pro", "D8fN&@2hUqB5RmCz!KsP9YbXWAvG3oTJpQkLF6ZeVcHnM7#xOwUyEt*ad"));  
+        usuarios.add(new Usuario("john_doe88", "qCk9@VXnM#oTYRb2p6LF3Ad8fUJh!Ks5WZveGxHtO7*PbUYacQoEtNLz"));  
+        usuarios.add(new Usuario("alex_2022", "Uo6WtYLF9&KpHf3@NsJAdXZePbQ#hRV4Yx7Cm9LnMw8OcG2TJkEt*oa"));  
+        usuarios.add(new Usuario("vinoPatero3000", "HtXZe7*UYVYxLp3Ad8o6@PbQoTJpQksCMnWZvcFLJNm#9YRH4M2KbfoA"));  
+        usuarios.add(new Usuario("superMario90", "9fULXc7RRYTkJXZePb9QoMtWt6bZe3bMoN&aPoEt#@HxLp6AdvoTJ!N2"));  
+        usuarios.add(new Usuario("laraX_top20", "Jv@LYtQckNbNxHtMpT8o6@Pbnk9X*VoTJ6UyPJL#ob9QoHtZpbNbH"));  
+        usuarios.add(new Usuario("chloeVinotera88pt", "KpUYFL8*5o9QoTJLPtXVcHb#@HnJLNRFLXtTJXZeVYMoTxZeTJm"));  
+        usuarios.add(new Usuario("mojo196", "W74YLPoJNTJOpUY9f!*TJMCNn*F6&.JtJxtZ"));
+        usuarios.add(new Usuario("vinoMaster66", "NYx8MoXt10+qw34fw34fq4gqq34gMO}!@"));
+        usuarios.add(new Usuario("catadorsupremo309", "D8fN&@2hUqB5RmCz!PD98Q2B3DIQÑ23F23923}Q2BFQ34RQ029H3")); 
+
         usuarios.forEach(usuario->usuarioJpaController.create(usuario));
         
         //Instancias de Siguiendo
         List<Siguiendo> siguiendoList = new ArrayList();
-        siguiendoList.add(new Siguiendo(LocalDateTime.of(2023, 1, 15, 12, 0, 0), LocalDateTime.of(2024, 1, 15, 12, 0, 0), bodega1));
-        siguiendoList.add(new Siguiendo(LocalDateTime.of(2023, 2, 10, 15, 30, 0), null, bodega1));
-        siguiendoList.add(new Siguiendo(LocalDateTime.of(2022, 12, 1, 9, 45, 0), LocalDateTime.of(2024, 10, 30, 11, 0, 0), bodega2));
-        siguiendoList.add(new Siguiendo(LocalDateTime.of(2023, 5, 18, 14, 0, 0), LocalDateTime.of(2023, 11, 18, 14, 0, 0), bodega2));
+        siguiendoList.add(new Siguiendo(LocalDateTime.of(2023, 1, 15, 12, 0, 0), null, bodega4));
+        siguiendoList.add(new Siguiendo(LocalDateTime.of(2023, 2, 10, 15, 30, 0), null, bodega4));
+        siguiendoList.add(new Siguiendo(LocalDateTime.of(2022, 12, 1, 9, 45, 0), null, bodega7));
+        siguiendoList.add(new Siguiendo(LocalDateTime.of(2023, 5, 18, 14, 0, 0), LocalDateTime.of(2023, 11, 18, 14, 0, 0), bodega7));
         siguiendoList.add(new Siguiendo(LocalDateTime.of(2023, 8, 5, 17, 20, 0), null, bodega3));
-        siguiendoList.add(new Siguiendo(LocalDateTime.of(2024, 1, 1, 10, 0, 0), LocalDateTime.of(2024, 11, 3, 14, 0, 0), bodega3));
-        siguiendoList.add(new Siguiendo(LocalDateTime.of(2022, 7, 20, 13, 15, 0), LocalDateTime.of(2024, 6, 10, 12, 0, 0), bodega4));
-        siguiendoList.add(new Siguiendo(LocalDateTime.of(2023, 10, 10, 18, 0, 0), LocalDateTime.of(2024, 5, 5, 18, 0, 0), bodega4));
+        siguiendoList.add(new Siguiendo(LocalDateTime.of(2024, 1, 1, 10, 0, 0), null, bodega3));
+        siguiendoList.add(new Siguiendo(LocalDateTime.of(2022, 7, 20, 13, 15, 0), null, bodega4));
+        siguiendoList.add(new Siguiendo(LocalDateTime.of(2023, 10, 10, 18, 0, 0), null, bodega4));
         siguiendoList.add(new Siguiendo(LocalDateTime.of(2023, 4, 2, 16, 0, 0), null, bodega5));
-        siguiendoList.add(new Siguiendo(LocalDateTime.of(2022, 9, 15, 9, 30, 0), LocalDateTime.of(2023, 8, 15, 9, 30, 0), bodega5));
+        siguiendoList.add(new Siguiendo(LocalDateTime.of(2022, 9, 15, 9, 30, 0), null, bodega7));
         siguiendoList.add(new Siguiendo(LocalDateTime.of(2024, 2, 20, 14, 30, 0), null, bodega6));
-        siguiendoList.add(new Siguiendo(LocalDateTime.of(2023, 3, 10, 10, 0, 0), LocalDateTime.of(2023, 9, 10, 10, 0, 0), bodega6));
+        siguiendoList.add(new Siguiendo(LocalDateTime.of(2023, 3, 10, 10, 0, 0), null, bodega8));
         siguiendoList.add(new Siguiendo(LocalDateTime.of(2023, 7, 25, 12, 30, 0), null, bodega7));
-        siguiendoList.add(new Siguiendo(LocalDateTime.of(2022, 11, 1, 8, 0, 0), LocalDateTime.of(2023, 11, 1, 8, 0, 0), bodega7));
-        siguiendoList.add(new Siguiendo(LocalDateTime.of(2024, 4, 8, 10, 45, 0), LocalDateTime.of(2024, 10, 8, 10, 45, 0), bodega8));
+        siguiendoList.add(new Siguiendo(LocalDateTime.of(2022, 11, 1, 8, 0, 0), null, bodega7));
+        siguiendoList.add(new Siguiendo(LocalDateTime.of(2024, 4, 8, 10, 45, 0), null, bodega8));
         siguiendoList.add(new Siguiendo(LocalDateTime.of(2023, 12, 12, 12, 0, 0), null, bodega8));
-        siguiendoList.add(new Siguiendo(LocalDateTime.of(2023, 6, 17, 15, 15, 0), LocalDateTime.of(2024, 6, 17, 15, 15, 0), bodega9));
-        siguiendoList.add(new Siguiendo(LocalDateTime.of(2022, 10, 5, 16, 0, 0), LocalDateTime.of(2023, 5, 10, 16, 0, 0), bodega9));
+        siguiendoList.add(new Siguiendo(LocalDateTime.of(2023, 6, 17, 15, 15, 0), LocalDateTime.of(2024, 6, 17, 15, 15, 0), bodega7));
+        siguiendoList.add(new Siguiendo(LocalDateTime.of(2022, 10, 5, 16, 0, 0), null, bodega8));
         siguiendoList.add(new Siguiendo(LocalDateTime.of(2024, 3, 1, 11, 30, 0), null, bodega10));
-        siguiendoList.add(new Siguiendo(LocalDateTime.of(2023, 5, 23, 9, 0, 0), LocalDateTime.of(2024, 2, 14, 20, 0, 0), bodega10));
+        siguiendoList.add(new Siguiendo(LocalDateTime.of(2023, 5, 23, 9, 0, 0), null, bodega8));
         
 
         //Instancias de Enofilo
         List<Enofilo> enofilos = new ArrayList();
         usuarios = usuarioJpaController.findUsuarioEntities();
-        enofilos.add(new Enofilo("Carlos", "Mendez", "perfil1.jpg", 
-                usuarios.get(0), 
-                Arrays.asList(siguiendoList.get(0), siguiendoList.get(1))));
+        enofilos.add(new Enofilo("Carlos", "Mendez", "perfil1.jpg", usuarios.get(0), Arrays.asList(siguiendoList.get(0), siguiendoList.get(1))));
         enofilos.add(new Enofilo("Lucia", "Ramirez", "perfil2.jpg", usuarios.get(1), Arrays.asList(siguiendoList.get(2), siguiendoList.get(3), siguiendoList.get(4))));
         enofilos.add(new Enofilo("Daniel", "Gutierrez", "perfil3.jpg", usuarios.get(2), Arrays.asList(siguiendoList.get(5))));
         enofilos.add(new Enofilo("Elena", "Lopez", "perfil4.jpg", usuarios.get(3), Arrays.asList(siguiendoList.get(6), siguiendoList.get(7))));
@@ -446,32 +453,5 @@ public class ControladorPersistencia {
         
         List<Vino> vinitos = vinoJpaController.findVinoEntities();
         vinitos.forEach(vino->System.out.println(vino));
-        
-        
-        //Pequeño control
-//        List<Vino> vinoActualizar =vinitos.stream()
-//                .filter(vino->vino.getNombre().equalsIgnoreCase("Gran Reserva El Valle"))
-//                .toList();
-//              
-//        System.out.println("\n" + vinoActualizar.get(0));
-//        
-//        vinoActualizar.get(0).setAniada(1123123);
-//        vinoActualizar.get(0).setFechaActualizacion(LocalDateTime.now());
-//        
-//        System.out.println("\n" + vinoActualizar.get(0));
-//        
-//        List<Vino> vinoActualizar2 =vinitos.stream()
-//                .filter(vino->vino.getNombre().equalsIgnoreCase("Gran Reserva El Valle"))
-//                .toList();
-//        
-//        System.out.println("\n" + vinoActualizar2.get(0));
-//        
-//        try {
-//            vinoJpaController.edit(vinoActualizar.get(0));
-//        } catch (Exception ex) {
-//            Logger.getLogger(ControladorPersistencia.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-        
-
     }
 }

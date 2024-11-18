@@ -20,12 +20,14 @@ public class Enofilo implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(nullable = false)
     private String nombre;
+    @Column(nullable = false)
     private String apellido;
-    @Column(name = "imagen_perfil")
+    @Column(name = "imagen_perfil", nullable = false)
     private String imagenPerfil;
     @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "usuario_id")
+    @JoinColumn(name = "usuario_id", nullable = false)
     private Usuario usuario;
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "enofilo_id")
@@ -40,14 +42,6 @@ public class Enofilo implements Serializable {
         this.imagenPerfil = imagenPerfil;
         this.usuario = usuario;
         this.seguidores = seguidores;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public String getNombre() {
@@ -100,7 +94,6 @@ public class Enofilo implements Serializable {
         return false;
     }
     
-    
     public String getNombreUsuario(){
         return usuario.getNombre();
     }
@@ -108,8 +101,5 @@ public class Enofilo implements Serializable {
     @Override
     public String toString() {
         return "Enofilo{" + "nombre=" + nombre + ", apellido=" + apellido + ", imagenPerfil=" + imagenPerfil + ", usuario=" + usuario + ", seguidores=" + seguidores + '}';
-    }
-    
-    
-    
+    }   
 }
