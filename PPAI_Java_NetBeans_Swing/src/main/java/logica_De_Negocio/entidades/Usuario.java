@@ -42,8 +42,6 @@ public class Usuario implements Serializable {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
-    public void esTuUsuario(){}
 
     @Override
     public String toString() {

@@ -83,7 +83,7 @@ public class Vino implements Serializable {
         this.precioArs = precioArs;
         this.bodega = bodega;
         this.maridajes = maridajes;
-        setFechaActualizacion();
+        this.fechaActualizacion = LocalDateTime.now();
         crearVarietales(varietales, tiposUvasMap);
     }
 
