@@ -2,6 +2,7 @@ package presentacion;
 
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -193,7 +194,7 @@ public class PantallaImportarBodega extends javax.swing.JFrame {
     
     private void tomarSeleccionBodega(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tomarSeleccionBodega
         corroborarBodegasRestantes();
-        Set<String> bodegasSeleccionadas = new HashSet<>();
+        List<String> bodegasSeleccionadas = new ArrayList<>();
         DefaultTableModel mt = (DefaultTableModel) tblBodegasActualizables.getModel();
         int cantidadBodegas = mt.getRowCount();
         boolean haySeleccion = false;
@@ -263,7 +264,7 @@ public class PantallaImportarBodega extends javax.swing.JFrame {
         pantallaResumenNovedadesVino.mostrarResumenVinosImportados(resumenNovedadesVino);
     }
     
-    public void mostrarResumenNotificaciones(List<List<List<String>>> resumenNotificaciones){
+    public void mostrarResumenNotificaciones(List<HashMap<String,Object>> resumenNotificaciones){
         this.setPantallaNotificacionPush(new PantallaNotificacionPush());
         pantallaNotificacionPush.setPantallaImportarBodega(this);
         pantallaNotificacionPush.setLocationRelativeTo(null);

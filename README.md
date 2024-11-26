@@ -6,7 +6,4 @@
 *** IMPORTANTE ***
 - USAR NetBeans PARA ABRIR EL PROYECTO, DE LO CONTRARIO NO SE MOSTRARÁ LA GUI
 - Cuando se va a ejecutr el proyecto cambiar la ruta absoluta de la InterfazApiBodega por la suya correspondiente
-- Falta continuar la parte de la correcta carga de datos desde los JSONs y aplicar un filtro de los vinos del gestor para que queden los pertenecientes a las bodegas seleccionadas
-
-*** Otros ***
-- Por alguna razón, se crea una tabla extra entre el varietal y el tipo de vino, eso a chequear
+- Se utiliza MySQL para la conexión con la BD. Ver tutoriales de TodoCode Java JPA para realizar conexión.

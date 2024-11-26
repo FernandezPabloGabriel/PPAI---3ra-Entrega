@@ -10,7 +10,6 @@ import java.util.Set;
 import logica_de_negocio.entidades.Bodega;
 import presentacion.PantallaImportarBodega;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.stream.Collectors;
 import javax.swing.JOptionPane;
@@ -33,6 +32,10 @@ public class GestorImportadorBodega implements ISujeto{
     private PantallaImportarBodega pantallaImportarBodega;
     private InterfazAPIBodega interfazAPIBodega;
     private ControladorPersistencia controladorPersistencia = new ControladorPersistencia();
+    private List<String> nombreBodegasSeleccionadas;
+    private List<HashMap<String, Object>> resumenNovedadesVino = new ArrayList();
+    private List<HashMap<String, Object>> datosANotificarPorBodegas = new ArrayList<>();
+    
     
 
     //Cargamos todos los datos pertinentes que utilizará el gestor al inicializarce
@@ -85,14 +88,16 @@ public class GestorImportadorBodega implements ISujeto{
     }
     
     
-    public void tomarSeleccionBodega(Set<String> nombreBodegasSeleccionadas){
-        List<HashMap<String, Object>> resumenNovedadesVino = new ArrayList();
-        List<String> nombreBodegasActualizadas = new ArrayList();
+    public void tomarSeleccionBodega(List<String> nombreBodegasSeleccionadasParam){
+        nombreBodegasSeleccionadas = nombreBodegasSeleccionadasParam;
         boolean fallaConexion = false;
         
         //Por cada bodega seleccionada actualizo y/o creo los vinos importados
         //correspondientes con los vinos asociados a esta
-        for(String nombreBodegaSeleccionada: nombreBodegasSeleccionadas){
+        for(int i = nombreBodegasSeleccionadas.size() - 1; i >= 0; i--){
+            String nombreBodegaSeleccionada = nombreBodegasSeleccionadas.get(i);
+            
+            //Buscamos el objeto Bodega referente al nombre de la bodega
             Bodega bodegaSeleccionada = buscarBodegaSeleccionada(nombreBodegaSeleccionada);
             
             //Lista de HashMaps que representan los vinos extraidos desde la interfazApiBodega
@@ -120,26 +125,26 @@ public class GestorImportadorBodega implements ISujeto{
                 bodegaSeleccionada.setFechaUltimaActualizacion();
                 controladorPersistencia.actualizarFechaBodega(bodegaSeleccionada);
 
-                //Agrego la lista de vinos importados al resumen de novedades
+                //Agrego la lista de vinos importados al resumen de novedades, incluyendo solo
+                //aquellos vinos que han sido actualizados o creados
                 listaVinosImportados
                         .stream()
                         .filter(vino->!((String) vino.get("tipo")).equalsIgnoreCase("noActualizado"))
                         .forEach(vino->resumenNovedadesVino.add(vino));
-                
-                //Agrego la bodega a la lista de bodegas seleccionadas para realizar la notificacion a posteriori
-                nombreBodegasActualizadas.add(nombreBodegaSeleccionada);
             } else{
                 JOptionPane.showMessageDialog(null, "No se pudo establecer conexión con '" + nombreBodegaSeleccionada + "'", null, JOptionPane.INFORMATION_MESSAGE);
+                //Si no se encuentra la bodega buscada la eliminamos de la lista de strings
+                nombreBodegasSeleccionadas.remove(i);
                 fallaConexion = true;
             }
         }
         
         //Pequeña condición para evitar mostrar ventanas vacías
-        if(resumenNovedadesVino.size() > 0){
+        if(!resumenNovedadesVino.isEmpty()){
             //Mostramos resumen
             pantallaImportarBodega.mostrarResumenVinosImportados(resumenNovedadesVino);
             //Enviamos notifición push a todos los seguidores de las bodegas elegidas
-            notificarUsuariosSeguidores(nombreBodegasActualizadas, resumenNovedadesVino);
+            notificarUsuariosSeguidores();
         } else if(!fallaConexion){
             JOptionPane.showMessageDialog(null, "No se han añadido nuevas novedades", null, JOptionPane.INFORMATION_MESSAGE);
         }
@@ -273,27 +278,23 @@ public class GestorImportadorBodega implements ISujeto{
     }
     
     
-    private void notificarUsuariosSeguidores(
-            List<String> nombreBodegasActualizadas, 
-            List<HashMap<String,Object>> listaVinosImportadosTotales) {
-        //Guardamos todos los datos que se notificaron a los usuarios para así
-        //mostrar un informe de ello posteriormente
-        List<List<List<String>>> resumenNotificaciones = new ArrayList<>();
-
+    private void notificarUsuariosSeguidores() {
         //Creamos instancia de observador concreto "InterfazNotificacionPush" como la cual
         //es referenciada por la interfaz "IObservadorNotificacion" y los sucribimos al gestor
         //que sería el sujeto concreto
         IObservadorNotificacion observador = new InterfazNotificacionPush();
         suscribir(observador);
         
-        for(String nombreBodegaActualizada: nombreBodegasActualizadas){
+        for(String nombreBodegaActualizada: nombreBodegasSeleccionadas){
+            HashMap<String,Object> datosBodegaMap = new HashMap<>();
+            
             //Busco los nombres de los usuarios que siguen a la bodega seleccionada
             List<String> nombresUsuariosSeguidoresDeBodega = buscarSeguidoresDeBodega(nombreBodegaActualizada);
             
             //Validación para solo "notificar" a las bodegas que tengan seguidores
             if(!nombresUsuariosSeguidoresDeBodega.isEmpty()){
                 //Filtra del resumen todas las actualizaciones y creaciones hechas para tal bodega
-                List<HashMap<String, Object>> novedadesBodegaSeleccionada = listaVinosImportadosTotales
+                List<HashMap<String, Object>> novedadesBodegaSeleccionada = resumenNovedadesVino
                         .stream()
                         .filter(novedades->((String) novedades.get("bodega"))
                                 .equalsIgnoreCase(nombreBodegaActualizada))
@@ -307,17 +308,18 @@ public class GestorImportadorBodega implements ISujeto{
                     novedadesAux.add((String) novedadBodegaSeleccionada.get("tipo"));
                     novedadesANotificar.add(novedadesAux);
                 }
-
-                notificar(novedadesANotificar, nombresUsuariosSeguidoresDeBodega, nombreBodegaActualizada);
-
-                List<String> auxBodega = Arrays.asList(nombreBodegaActualizada);
-                resumenNotificaciones.add(Arrays.asList(nombresUsuariosSeguidoresDeBodega, auxBodega));
+                
+                datosBodegaMap.put("bodega", nombreBodegaActualizada);
+                datosBodegaMap.put("usuarios", nombresUsuariosSeguidoresDeBodega);
+                datosBodegaMap.put("vinos", novedadesANotificar);
+                datosANotificarPorBodegas.add(datosBodegaMap);
             } else{
                 JOptionPane.showMessageDialog(null, "La bodega '" + nombreBodegaActualizada + "' no tiene seguidores.\nNo se han realizado notificaciones...", null, JOptionPane.INFORMATION_MESSAGE);
             }
         }    
         
-        pantallaImportarBodega.mostrarResumenNotificaciones(resumenNotificaciones);
+        notificar();
+        pantallaImportarBodega.mostrarResumenNotificaciones(datosANotificarPorBodegas);
     }
     
     
@@ -335,15 +337,14 @@ public class GestorImportadorBodega implements ISujeto{
 
     
     @Override
-    public void notificar(
-            List<List<String>> novedadesVinos,
-            List<String> nombresUsuarios,
-            String nombreBodegaSeleccionada){
+    public void notificar(){
+        //Aplicamos polimorfismo al llamar al mismo método que realizan todos los observadores
+        //suscritos al gestor, ejecutando cada uno de estos su propia implementación del método.
+        //En nuestro caso solo tendríamos un observador.
         for(IObservadorNotificacion observador: observadores){
-            observador.notificarNovedadesVinosParaBodega(novedadesVinos, nombresUsuarios, nombreBodegaSeleccionada);
+            observador.notificarNovedadesVinosParaBodega(datosANotificarPorBodegas);
         }
     }
-    
     
     
     public List<String> buscarSeguidoresDeBodega(String nombreBodegaActualizada){

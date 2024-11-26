@@ -6,11 +6,12 @@ package presentacion;
 
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.util.HashMap;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 public class PantallaNotificacionPush extends javax.swing.JFrame{
-    private List<List<List<String>>> resumenNotificaciones;
+    private List<HashMap<String,Object>> resumenNotificaciones;
     private PantallaImportarBodega pantallaImportarBodega;
     
     public PantallaNotificacionPush() {
@@ -107,9 +108,10 @@ public class PantallaNotificacionPush extends javax.swing.JFrame{
 
     private void cmbBodegasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbBodegasActionPerformed
         String bodegaSeleccionada = (String) cmbBodegas.getSelectedItem();
-        for(List<List<String>> usuariosPorBodega: resumenNotificaciones){
-            if(usuariosPorBodega.get(1).get(0).equalsIgnoreCase(bodegaSeleccionada)){
-                cargarResumenVinos(usuariosPorBodega);
+        for(HashMap<String,Object> datosNotificacionPorBodega: resumenNotificaciones){
+            String bodega = (String) datosNotificacionPorBodega.get("bodega");
+            if(bodega.equalsIgnoreCase(bodegaSeleccionada)){
+                cargarResumenVinos(datosNotificacionPorBodega);
             }
         }
     }//GEN-LAST:event_cmbBodegasActionPerformed
@@ -119,29 +121,28 @@ public class PantallaNotificacionPush extends javax.swing.JFrame{
         this.pantallaImportarBodega.corroborarBodegasRestantes();
     }//GEN-LAST:event_volverAPantallaImportarBodega
 
-    public void mostrarResumenNotificaciones(List<List<List<String>>> resumenNoti) {
-        resumenNotificaciones = resumenNoti;
+    public void mostrarResumenNotificaciones(List<HashMap<String,Object>> resumenNotificacionesParam) {
+        resumenNotificaciones = resumenNotificacionesParam;
         cargarBodegas();
         cargarResumenVinos(resumenNotificaciones.get(0));
     }
     
     public void cargarBodegas(){
-        for(List<List<String>> usuariosPorBodega: resumenNotificaciones){
-            List<String> bodegaLista = usuariosPorBodega.get(1);
-            String bodega = bodegaLista.get(0);
-            cmbBodegas.addItem(bodega);
+        for(HashMap<String,Object> datosNotificacionPorBodega: resumenNotificaciones){
+            cmbBodegas.addItem((String) datosNotificacionPorBodega.get("bodega"));
         }
     }
     
-    public void cargarResumenVinos(List<List<String>> usuariosPorBodega){
+    public void cargarResumenVinos(HashMap<String,Object> datosNotificacionPorBodega){
         DefaultTableModel tmUsuario = (DefaultTableModel) tblUsuario.getModel();
         
         for (int i = tmUsuario.getRowCount()-1; i >= 0; i--) {
             tmUsuario.removeRow(i);
         }
         
-        for(String usuarioPorBodega: usuariosPorBodega.get(0)){
-            tmUsuario.addRow(new Object[]{usuarioPorBodega});
+        List<String> usuariosPorBodega = (List<String>) datosNotificacionPorBodega.get("usuarios");
+        for(String usuarios: usuariosPorBodega){
+            tmUsuario.addRow(new Object[]{usuarios});
         }
     }
 

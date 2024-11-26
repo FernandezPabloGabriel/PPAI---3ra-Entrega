@@ -4,6 +4,7 @@
  */
 package logica_De_Negocio.patron_observer;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -11,8 +12,5 @@ import java.util.List;
  * @author USUARIO
  */
 public interface IObservadorNotificacion {
-    void notificarNovedadesVinosParaBodega(
-            List<List<String>> novedadesVinos,
-            List<String> nombresUsuarios,
-            String nombreBodegaSeleccionada);
+    void notificarNovedadesVinosParaBodega(List<HashMap<String,Object>> datosANotificarPorBodega);
 }
